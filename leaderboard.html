@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard — BSA WC2026</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">⚽ BSA WC2026</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="fixtures.html">Fixtures</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="raffle.html">Raffle Pool</a>
+  </div>
+  <div class="nav-auth" id="nav-auth"></div>
+</nav>
+
+<div class="section">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
+    <div class="section-title" style="margin-bottom:0">🏆 Leaderboard</div>
+    <div style="font-size:13px;color:var(--text-muted)">Updates live as results come in</div>
+  </div>
+
+  <div class="stats-row" id="stats-row">
+    <div class="stat-card"><div class="stat-value" id="stat-entries">—</div><div class="stat-label">Paid Entries</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-pool">—</div><div class="stat-label">Prize Pool</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-raffle">—</div><div class="stat-label">Raffle Prize</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-matches">—</div><div class="stat-label">Results In</div></div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <div id="leaderboard-content">
+      <div class="empty-state"><div class="emoji">⏳</div><p>Loading leaderboard…</p></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/app.js"></script>
+<script src="js/predictions.js"></script>
+<script>
+  async function init() {
+    await renderNav('a[href="leaderboard.html"]');
+    await loadLeaderboard();
+
+    // Real-time subscription
+    sb.channel('leaderboard')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'match_results' }, loadLeaderboard)
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'profiles' }, loadLeaderboard)
+      .subscribe();
+  }
+
+  async function loadLeaderboard() {
+    const [board, pool] = await Promise.all([computeLeaderboard(), getPrizePool()]);
+    const { data: results } = await sb.from('match_results').select('match_id', { count: 'exact' });
+    const paidEntries = board.filter(e => e.payment_status === 'paid');
+
+    document.getElementById('stat-entries').textContent = paidEntries.length;
+    document.getElementById('stat-pool').textContent = `R${pool.toLocaleString()}`;
+    document.getElementById('stat-raffle').textContent = `R${(pool * 0.5).toLocaleString()}`;
+    document.getElementById('stat-matches').textContent = results?.length ?? 0;
+
+    const container = document.getElementById('leaderboard-content');
+
+    if (board.length === 0) {
+      container.innerHTML = '<div class="empty-state"><div class="emoji">🏆</div><p>No entries yet — be the first!</p></div>';
+      return;
+    }
+
+    const rows = board.map((entry, i) => {
+      const rank = i + 1;
+      const trophy = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank;
+      const avatarHtml = entry.avatar_url
+        ? `<img src="${entry.avatar_url}" alt="">`
+        : `<span>${(entry.full_name || '?')[0].toUpperCase()}</span>`;
+      const paidHtml = entry.payment_status === 'paid'
+        ? '<span class="paid-badge paid-yes">✓ Paid</span>'
+        : '<span class="paid-badge paid-no">Pending</span>';
+
+      return `
+        <tr class="rank-${rank}">
+          <td class="rank-cell">${trophy}</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">${avatarHtml}</div>
+              <span>${entry.full_name || 'Anonymous'}</span>
+            </div>
+          </td>
+          <td class="points-cell">${entry.points}</td>
+          <td>${entry.exact}</td>
+          <td>${entry.correct}</td>
+          <td>${paidHtml}</td>
+        </tr>`;
+    }).join('');
+
+    container.innerHTML = `
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player</th>
+            <th>Points</th>
+            <th>Exact Scores</th>
+            <th>Correct Results</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }
+
+  init();
+</script>
+</body>
+</html>

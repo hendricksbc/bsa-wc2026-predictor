@@ -1,0 +1,140 @@
+{
+  "lastUpdated": "2026-06-07T00:00:00Z",
+  "competition": "FIFA World Cup 2026",
+  "entryFee": 50,
+  "groups": {
+    "A": {
+      "teams": ["USA", "Panama", "Albania", "Ukraine"],
+      "matches": [
+        { "id": 101, "homeTeam": "USA", "awayTeam": "Panama", "utcDate": "2026-06-12T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" },
+        { "id": 102, "homeTeam": "Albania", "awayTeam": "Ukraine", "utcDate": "2026-06-12T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" },
+        { "id": 103, "homeTeam": "USA", "awayTeam": "Albania", "utcDate": "2026-06-16T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "AT&T Stadium, Dallas" },
+        { "id": 104, "homeTeam": "Panama", "awayTeam": "Ukraine", "utcDate": "2026-06-16T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Levi's Stadium, SF" },
+        { "id": 105, "homeTeam": "Ukraine", "awayTeam": "USA", "utcDate": "2026-06-20T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" },
+        { "id": 106, "homeTeam": "Panama", "awayTeam": "Albania", "utcDate": "2026-06-20T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" }
+      ]
+    },
+    "B": {
+      "teams": ["Mexico", "Jamaica", "Cameroon", "New Zealand"],
+      "matches": [
+        { "id": 201, "homeTeam": "Mexico", "awayTeam": "Jamaica", "utcDate": "2026-06-13T01:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Estadio Azteca, Mexico City" },
+        { "id": 202, "homeTeam": "Cameroon", "awayTeam": "New Zealand", "utcDate": "2026-06-13T18:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BC Place, Vancouver" },
+        { "id": 203, "homeTeam": "Mexico", "awayTeam": "Cameroon", "utcDate": "2026-06-17T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Estadio Azteca, Mexico City" },
+        { "id": 204, "homeTeam": "Jamaica", "awayTeam": "New Zealand", "utcDate": "2026-06-17T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Gillette Stadium, Boston" },
+        { "id": 205, "homeTeam": "Cameroon", "awayTeam": "Jamaica", "utcDate": "2026-06-21T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "AT&T Stadium, Dallas" },
+        { "id": 206, "homeTeam": "New Zealand", "awayTeam": "Mexico", "utcDate": "2026-06-21T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BC Place, Vancouver" }
+      ]
+    },
+    "C": {
+      "teams": ["Canada", "Venezuela", "Morocco", "Belgium"],
+      "matches": [
+        { "id": 301, "homeTeam": "Canada", "awayTeam": "Venezuela", "utcDate": "2026-06-13T21:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BMO Field, Toronto" },
+        { "id": 302, "homeTeam": "Morocco", "awayTeam": "Belgium", "utcDate": "2026-06-14T00:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Lincoln Financial Field, Philadelphia" },
+        { "id": 303, "homeTeam": "Canada", "awayTeam": "Morocco", "utcDate": "2026-06-18T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BMO Field, Toronto" },
+        { "id": 304, "homeTeam": "Venezuela", "awayTeam": "Belgium", "utcDate": "2026-06-18T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" },
+        { "id": 305, "homeTeam": "Belgium", "awayTeam": "Canada", "utcDate": "2026-06-22T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Lincoln Financial Field, Philadelphia" },
+        { "id": 306, "homeTeam": "Venezuela", "awayTeam": "Morocco", "utcDate": "2026-06-22T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" }
+      ]
+    },
+    "D": {
+      "teams": ["Brazil", "Croatia", "Algeria", "Australia"],
+      "matches": [
+        { "id": 401, "homeTeam": "Brazil", "awayTeam": "Croatia", "utcDate": "2026-06-14T18:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Hard Rock Stadium, Miami" },
+        { "id": 402, "homeTeam": "Algeria", "awayTeam": "Australia", "utcDate": "2026-06-14T21:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Levi's Stadium, SF" },
+        { "id": 403, "homeTeam": "Brazil", "awayTeam": "Algeria", "utcDate": "2026-06-18T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Hard Rock Stadium, Miami" },
+        { "id": 404, "homeTeam": "Croatia", "awayTeam": "Australia", "utcDate": "2026-06-18T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" },
+        { "id": 405, "homeTeam": "Australia", "awayTeam": "Brazil", "utcDate": "2026-06-22T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Levi's Stadium, SF" },
+        { "id": 406, "homeTeam": "Croatia", "awayTeam": "Algeria", "utcDate": "2026-06-22T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Hard Rock Stadium, Miami" }
+      ]
+    },
+    "E": {
+      "teams": ["Spain", "Serbia", "South Korea", "Senegal"],
+      "matches": [
+        { "id": 501, "homeTeam": "Spain", "awayTeam": "Serbia", "utcDate": "2026-06-15T18:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" },
+        { "id": 502, "homeTeam": "South Korea", "awayTeam": "Senegal", "utcDate": "2026-06-15T21:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "AT&T Stadium, Dallas" },
+        { "id": 503, "homeTeam": "Spain", "awayTeam": "South Korea", "utcDate": "2026-06-19T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" },
+        { "id": 504, "homeTeam": "Serbia", "awayTeam": "Senegal", "utcDate": "2026-06-19T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" },
+        { "id": 505, "homeTeam": "Senegal", "awayTeam": "Spain", "utcDate": "2026-06-23T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "AT&T Stadium, Dallas" },
+        { "id": 506, "homeTeam": "Serbia", "awayTeam": "South Korea", "utcDate": "2026-06-23T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" }
+      ]
+    },
+    "F": {
+      "teams": ["Portugal", "Czech Republic", "Nigeria", "Uruguay"],
+      "matches": [
+        { "id": 601, "homeTeam": "Portugal", "awayTeam": "Czech Republic", "utcDate": "2026-06-15T00:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Gillette Stadium, Boston" },
+        { "id": 602, "homeTeam": "Nigeria", "awayTeam": "Uruguay", "utcDate": "2026-06-15T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" },
+        { "id": 603, "homeTeam": "Portugal", "awayTeam": "Nigeria", "utcDate": "2026-06-19T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Gillette Stadium, Boston" },
+        { "id": 604, "homeTeam": "Czech Republic", "awayTeam": "Uruguay", "utcDate": "2026-06-19T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BC Place, Vancouver" },
+        { "id": 605, "homeTeam": "Uruguay", "awayTeam": "Portugal", "utcDate": "2026-06-23T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Levi's Stadium, SF" },
+        { "id": 606, "homeTeam": "Czech Republic", "awayTeam": "Nigeria", "utcDate": "2026-06-23T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Gillette Stadium, Boston" }
+      ]
+    },
+    "G": {
+      "teams": ["England", "Slovenia", "Côte d'Ivoire", "Ecuador"],
+      "matches": [
+        { "id": 701, "homeTeam": "England", "awayTeam": "Slovenia", "utcDate": "2026-06-16T18:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Lincoln Financial Field, Philadelphia" },
+        { "id": 702, "homeTeam": "Côte d'Ivoire", "awayTeam": "Ecuador", "utcDate": "2026-06-16T21:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BC Place, Vancouver" },
+        { "id": 703, "homeTeam": "England", "awayTeam": "Côte d'Ivoire", "utcDate": "2026-06-20T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Lincoln Financial Field, Philadelphia" },
+        { "id": 704, "homeTeam": "Slovenia", "awayTeam": "Ecuador", "utcDate": "2026-06-20T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "AT&T Stadium, Dallas" },
+        { "id": 705, "homeTeam": "Ecuador", "awayTeam": "England", "utcDate": "2026-06-24T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BC Place, Vancouver" },
+        { "id": 706, "homeTeam": "Slovenia", "awayTeam": "Côte d'Ivoire", "utcDate": "2026-06-24T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" }
+      ]
+    },
+    "H": {
+      "teams": ["France", "Poland", "Saudi Arabia", "Paraguay"],
+      "matches": [
+        { "id": 801, "homeTeam": "France", "awayTeam": "Poland", "utcDate": "2026-06-16T00:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Hard Rock Stadium, Miami" },
+        { "id": 802, "homeTeam": "Saudi Arabia", "awayTeam": "Paraguay", "utcDate": "2026-06-16T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" },
+        { "id": 803, "homeTeam": "France", "awayTeam": "Saudi Arabia", "utcDate": "2026-06-20T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Hard Rock Stadium, Miami" },
+        { "id": 804, "homeTeam": "Poland", "awayTeam": "Paraguay", "utcDate": "2026-06-20T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Gillette Stadium, Boston" },
+        { "id": 805, "homeTeam": "Paraguay", "awayTeam": "France", "utcDate": "2026-06-24T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" },
+        { "id": 806, "homeTeam": "Poland", "awayTeam": "Saudi Arabia", "utcDate": "2026-06-24T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Gillette Stadium, Boston" }
+      ]
+    },
+    "I": {
+      "teams": ["Argentina", "Chile", "Japan", "Zambia"],
+      "matches": [
+        { "id": 901, "homeTeam": "Argentina", "awayTeam": "Chile", "utcDate": "2026-06-17T18:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" },
+        { "id": 902, "homeTeam": "Japan", "awayTeam": "Zambia", "utcDate": "2026-06-17T21:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" },
+        { "id": 903, "homeTeam": "Argentina", "awayTeam": "Japan", "utcDate": "2026-06-21T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" },
+        { "id": 904, "homeTeam": "Chile", "awayTeam": "Zambia", "utcDate": "2026-06-21T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "AT&T Stadium, Dallas" },
+        { "id": 905, "homeTeam": "Zambia", "awayTeam": "Argentina", "utcDate": "2026-06-25T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" },
+        { "id": 906, "homeTeam": "Chile", "awayTeam": "Japan", "utcDate": "2026-06-25T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "AT&T Stadium, Dallas" }
+      ]
+    },
+    "J": {
+      "teams": ["Germany", "Colombia", "Denmark", "China"],
+      "matches": [
+        { "id": 1001, "homeTeam": "Germany", "awayTeam": "Colombia", "utcDate": "2026-06-17T00:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Levi's Stadium, SF" },
+        { "id": 1002, "homeTeam": "Denmark", "awayTeam": "China", "utcDate": "2026-06-17T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BC Place, Vancouver" },
+        { "id": 1003, "homeTeam": "Germany", "awayTeam": "Denmark", "utcDate": "2026-06-21T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Levi's Stadium, SF" },
+        { "id": 1004, "homeTeam": "Colombia", "awayTeam": "China", "utcDate": "2026-06-21T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Hard Rock Stadium, Miami" },
+        { "id": 1005, "homeTeam": "China", "awayTeam": "Germany", "utcDate": "2026-06-25T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "BC Place, Vancouver" },
+        { "id": 1006, "homeTeam": "Colombia", "awayTeam": "Denmark", "utcDate": "2026-06-25T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Hard Rock Stadium, Miami" }
+      ]
+    },
+    "K": {
+      "teams": ["Netherlands", "Peru", "Cameroon", "Qatar"],
+      "matches": [
+        { "id": 1101, "homeTeam": "Netherlands", "awayTeam": "Peru", "utcDate": "2026-06-18T18:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Lincoln Financial Field, Philadelphia" },
+        { "id": 1102, "homeTeam": "Cameroon", "awayTeam": "Qatar", "utcDate": "2026-06-18T21:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Estadio Azteca, Mexico City" },
+        { "id": 1103, "homeTeam": "Netherlands", "awayTeam": "Cameroon", "utcDate": "2026-06-22T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Lincoln Financial Field, Philadelphia" },
+        { "id": 1104, "homeTeam": "Peru", "awayTeam": "Qatar", "utcDate": "2026-06-22T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Gillette Stadium, Boston" },
+        { "id": 1105, "homeTeam": "Qatar", "awayTeam": "Netherlands", "utcDate": "2026-06-26T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Estadio Azteca, Mexico City" },
+        { "id": 1106, "homeTeam": "Peru", "awayTeam": "Cameroon", "utcDate": "2026-06-26T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Lincoln Financial Field, Philadelphia" }
+      ]
+    },
+    "L": {
+      "teams": ["Turkey", "Bolivia", "Indonesia", "Burkina Faso"],
+      "matches": [
+        { "id": 1201, "homeTeam": "Turkey", "awayTeam": "Bolivia", "utcDate": "2026-06-18T00:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" },
+        { "id": 1202, "homeTeam": "Indonesia", "awayTeam": "Burkina Faso", "utcDate": "2026-06-18T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" },
+        { "id": 1203, "homeTeam": "Turkey", "awayTeam": "Indonesia", "utcDate": "2026-06-22T20:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "Arrowhead Stadium, KC" },
+        { "id": 1204, "homeTeam": "Bolivia", "awayTeam": "Burkina Faso", "utcDate": "2026-06-22T23:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" },
+        { "id": 1205, "homeTeam": "Burkina Faso", "awayTeam": "Turkey", "utcDate": "2026-06-26T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "SoFi Stadium, LA" },
+        { "id": 1206, "homeTeam": "Bolivia", "awayTeam": "Indonesia", "utcDate": "2026-06-26T22:00:00Z", "status": "SCHEDULED", "homeScore": null, "awayScore": null, "venue": "MetLife Stadium, NY" }
+      ]
+    }
+  },
+  "knockoutRounds": []
+}
