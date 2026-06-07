@@ -220,7 +220,6 @@
 
   function startNewEntry() {
     if (!confirm('Start a new vote? You\'ll get a new reference code and need to pay another R50.')) return;
-    // Clear refCode so next submitIdentity creates a fresh entry
     const u = getLocalUser();
     if (u) {
       u.refCode = null;
@@ -228,6 +227,7 @@
       currentUser = u;
     }
     predictions = {};
+    savedMode = false;
     showEntryModal();
   }
 
