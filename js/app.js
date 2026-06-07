@@ -117,6 +117,7 @@ const FLAG_CODES = {
 };
 
 function teamFlag(name) {
+  if (!name) return `<div class="flag-placeholder">TBD</div>`;
   const code = FLAG_CODES[name];
   if (!code) return `<div class="flag-placeholder">${name.slice(0,3).toUpperCase()}</div>`;
   return `<img src="https://flagcdn.com/w80/${code}.png" class="team-flag-img" alt="${name}" loading="lazy">`;
