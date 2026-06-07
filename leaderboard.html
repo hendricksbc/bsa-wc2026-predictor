@@ -3,28 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leaderboard — BSA WC2026</title>
+  <title>Leaderboard — Bergvliet WC2026</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-  <div class="nav-brand">⚽ BSA WC2026</div>
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="images/club-logo.png" class="nav-logo" alt="BSA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">B</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Bergvliet HC</span>
+      <span class="nav-brand-sub">WC2026 Predictor</span>
+    </div>
+  </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="fixtures.html">Fixtures</a>
-    <a href="leaderboard.html">Leaderboard</a>
+    <a href="leaderboard.html" class="active">Leaderboard</a>
     <a href="raffle.html">Raffle Pool</a>
   </div>
   <div class="nav-auth" id="nav-auth"></div>
 </nav>
 
-<div class="section">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
-    <div class="section-title" style="margin-bottom:0">🏆 Leaderboard</div>
-    <div style="font-size:13px;color:var(--text-muted)" id="last-updated"></div>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <h1>🏆 Leaderboard</h1>
+      <p id="last-updated" style="color:var(--text-muted);font-size:13px">Refreshes every 60 seconds</p>
+    </div>
   </div>
+</div>
 
+<div class="section">
   <div class="stats-row">
     <div class="stat-card"><div class="stat-value" id="stat-entries">–</div><div class="stat-label">Paid Entries</div></div>
     <div class="stat-card"><div class="stat-value" id="stat-pool">–</div><div class="stat-label">Prize Pool</div></div>
@@ -44,7 +55,6 @@
   async function init() {
     renderNav('a[href="leaderboard.html"]');
     await load();
-    // Refresh every 60 seconds
     setInterval(load, 60000);
   }
 
@@ -57,8 +67,10 @@
     document.getElementById('stat-entries').textContent = stats.paidEntries ?? '–';
     document.getElementById('stat-pool').textContent = stats.prizePool != null ? `R${stats.prizePool}` : '–';
     document.getElementById('stat-raffle').textContent = stats.rafflePrize != null ? `R${stats.rafflePrize}` : '–';
-    document.getElementById('last-updated').textContent = 'Updated ' + new Date().toLocaleTimeString('en-ZA', { timeZone: 'Africa/Johannesburg' });
+    document.getElementById('last-updated').textContent =
+      'Updated ' + new Date().toLocaleTimeString('en-ZA', { timeZone: 'Africa/Johannesburg', hour:'2-digit', minute:'2-digit' }) + ' SAST';
 
+    const me = getLocalUser();
     const container = document.getElementById('leaderboard-content');
 
     if (!board.length) {
@@ -66,37 +78,39 @@
       return;
     }
 
-    const currentUser = getLocalUser();
-
     const rows = board.map((entry, i) => {
       const rank = i + 1;
       const trophy = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank;
-      const isMe = currentUser && currentUser.name === entry.name;
+      const isMe = me && me.email && entry.name === me.name;
       const paidHtml = entry.paid
         ? '<span class="paid-badge paid-yes">✓ Paid</span>'
         : '<span class="paid-badge paid-no">Pending</span>';
 
-      return `
-        <tr class="rank-${rank}${isMe ? '" style="background:rgba(245,197,24,0.05)' : ''}">
-          <td class="rank-cell">${trophy}</td>
-          <td>
-            <div class="player-cell">
-              <div class="player-avatar">${entry.name[0].toUpperCase()}</div>
-              <span>${entry.name}${isMe ? ' <span style="color:var(--gold);font-size:12px">(you)</span>' : ''}</span>
-            </div>
-          </td>
-          <td class="points-cell">${entry.points}</td>
-          <td>${entry.exact}</td>
-          <td>${entry.correct}</td>
-          <td>${paidHtml}</td>
-        </tr>`;
+      return `<tr class="rank-${rank}" ${isMe ? 'style="background:rgba(245,197,24,0.04)"' : ''}>
+        <td class="rank-cell">${trophy}</td>
+        <td>
+          <div class="player-cell">
+            <div class="player-avatar">${entry.name[0].toUpperCase()}</div>
+            <span>${entry.name}${isMe ? ' <span style="color:var(--gold);font-size:11px;font-weight:700">(you)</span>' : ''}</span>
+          </div>
+        </td>
+        <td class="points-cell">${entry.points}</td>
+        <td style="color:var(--green)">${entry.exact}</td>
+        <td style="color:var(--text-muted)">${entry.correct}</td>
+        <td>${paidHtml}</td>
+      </tr>`;
     }).join('');
 
     container.innerHTML = `
       <table class="leaderboard-table">
         <thead>
           <tr>
-            <th>#</th><th>Player</th><th>Points</th><th>Exact</th><th>Correct</th><th>Status</th>
+            <th>#</th>
+            <th>Player</th>
+            <th>Points</th>
+            <th>Exact Scores</th>
+            <th>Correct Results</th>
+            <th>Payment</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>

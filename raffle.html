@@ -3,28 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raffle Pool — BSA WC2026</title>
+  <title>Raffle Pool — Bergvliet WC2026</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-  <div class="nav-brand">⚽ BSA WC2026</div>
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="images/club-logo.png" class="nav-logo" alt="BSA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">B</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Bergvliet HC</span>
+      <span class="nav-brand-sub">WC2026 Predictor</span>
+    </div>
+  </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="fixtures.html">Fixtures</a>
     <a href="leaderboard.html">Leaderboard</a>
-    <a href="raffle.html">Raffle Pool</a>
+    <a href="raffle.html" class="active">Raffle Pool</a>
   </div>
   <div class="nav-auth" id="nav-auth"></div>
 </nav>
 
-<div class="section">
-  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
-    <div class="section-title" style="margin-bottom:0">🎰 Raffle Pool</div>
-    <div style="font-size:13px;color:var(--text-muted)">Paid entries only</div>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <h1>🎰 Raffle Pool</h1>
+      <p>Every paid entry is in the draw. Every correct score = an extra entry.</p>
+    </div>
   </div>
+</div>
 
+<div class="section">
   <div class="stats-row">
     <div class="stat-card"><div class="stat-value" id="stat-entries">–</div><div class="stat-label">In the Pool</div></div>
     <div class="stat-card"><div class="stat-value" id="stat-prize">–</div><div class="stat-label">Raffle Prize</div></div>
@@ -50,7 +61,6 @@
     document.getElementById('stat-prize').textContent = stats.rafflePrize != null ? `R${stats.rafflePrize}` : '–';
 
     const container = document.getElementById('raffle-content');
-
     if (!entries.length) {
       container.innerHTML = '<div class="empty-state"><div class="emoji">🎰</div><p>No paid entries yet. Be the first in the pool!</p></div>';
       return;

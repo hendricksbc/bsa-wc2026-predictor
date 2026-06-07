@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BSA World Cup 2026 Predictor</title>
+  <title>Bergvliet WC2026 Predictor</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-  <div class="nav-brand">⚽ BSA WC2026</div>
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="images/club-logo.png" class="nav-logo" alt="BSA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">B</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Bergvliet HC</span>
+      <span class="nav-brand-sub">WC2026 Predictor</span>
+    </div>
+  </a>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="fixtures.html">Fixtures</a>
@@ -20,18 +27,25 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-eyebrow">BSA Hockey Club Presents</div>
-  <h1>World Cup 2026<br><span>Score Predictor</span></h1>
-  <p>Predict the scores, top the leaderboard, and win 50% of the prize pool.</p>
+  <div class="hero-trophy">🏆</div>
+  <div class="hero-eyebrow"><span></span> Bergvliet Hockey Club Presents <span></span></div>
+  <h1>
+    <div class="line1">FIFA World Cup</div>
+    <div class="line2">Score Predictor</div>
+  </h1>
+  <div class="hero-club">
+    <img src="images/club-logo.png" alt="BSA" onerror="this.style.display='none'">
+    <span>Bergvliet Hockey Club · 2026</span>
+  </div>
 
   <div class="prize-pool">
-    <div class="prize-pool-label">Current Raffle Prize</div>
+    <div class="prize-pool-label">🎰 Current Raffle Prize</div>
     <div class="prize-pool-amount" id="prize-amount">R–</div>
     <div class="prize-pool-sub" id="prize-sub">Loading…</div>
   </div>
 
-  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-    <a href="fixtures.html" class="btn btn-primary" style="font-size:16px;padding:14px 28px;">🎯 Enter Now — R50</a>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="fixtures.html" class="btn btn-gold" style="font-size:16px;padding:16px 32px">🎯 Enter Now — R50</a>
     <a href="leaderboard.html" class="btn btn-outline">View Leaderboard</a>
   </div>
 </div>
@@ -41,18 +55,18 @@
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <h3>Enter Your Details</h3>
+      <h3>Enter Details</h3>
       <p>Add your name and email — no account needed. One entry per person.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <h3>Predict Scores</h3>
-      <p>Enter your predicted score for every match. Locks 60 min before kickoff.</p>
+      <p>Enter your predicted score for every match. Update anytime until 30 min before kickoff.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <h3>Pay R50</h3>
-      <p>SnapScan the club QR using your unique reference code. Your entry activates on payment.</p>
+      <p>SnapScan the club QR using your unique reference code. Entry activates on payment.</p>
     </div>
     <div class="step">
       <div class="step-num">4</div>
@@ -63,28 +77,35 @@
 </div>
 
 <div class="section" style="padding-top:0">
-  <div class="section-title">The Prize</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-    <div class="card">
-      <div style="font-size:32px;margin-bottom:8px;">🎰</div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">Raffle Prize</h3>
-      <p style="color:var(--text-muted);font-size:14px;">50% of the prize pool split among raffle winners. Every correct score prediction earns a draw entry.</p>
+  <div class="section-title">Prizes &amp; Scoring</div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🎰</div>
+      <h3>Raffle Prize</h3>
+      <p>50% of the prize pool split among raffle winners. Every correct score earns a draw entry.</p>
     </div>
-    <div class="card">
-      <div style="font-size:32px;margin-bottom:8px;">🏆</div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">Leaderboard</h3>
-      <p style="color:var(--text-muted);font-size:14px;">3 pts for exact score, 1 pt for correct result. Separate bragging rights at the top.</p>
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <h3>Leaderboard</h3>
+      <p><strong style="color:var(--gold)">3 pts</strong> exact score · <strong style="color:var(--text-muted)">1 pt</strong> correct result · 0 pts wrong</p>
     </div>
-    <div class="card">
-      <div style="font-size:32px;margin-bottom:8px;">⚽</div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">72 Group Matches</h3>
-      <p style="color:var(--text-muted);font-size:14px;">All group stage matches plus knockouts as they're confirmed. Fixtures auto-update every 2 hours.</p>
+    <div class="feature-card">
+      <div class="feature-icon">🔄</div>
+      <h3>Update Anytime</h3>
+      <p>Change your predictions as many times as you like. Locks <strong>30 minutes</strong> before each kickoff.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚽</div>
+      <h3>72 Matches</h3>
+      <p>All 12 group stage matchdays plus knockout rounds added as teams qualify.</p>
     </div>
   </div>
 </div>
 
-<div class="section" style="padding-top:0;text-align:center;color:var(--text-muted);font-size:13px;border-top:1px solid var(--border);">
-  <p style="margin-top:32px;">Powered by BSA Hockey Club &bull; FIFA World Cup 2026</p>
+<div class="section" style="padding-top:0">
+  <div style="text-align:center;color:var(--text-muted);font-size:13px;border-top:1px solid var(--border);padding-top:32px">
+    Powered by <strong style="color:var(--gold)">Bergvliet Hockey Club</strong> &bull; FIFA World Cup 2026 &bull; USA · Canada · Mexico
+  </div>
 </div>
 
 <script src="js/sheets-client.js"></script>
@@ -100,7 +121,7 @@
       const n = stats.paidEntries || 0;
       document.getElementById('prize-sub').textContent = n === 0
         ? 'Be the first to enter!'
-        : `${n} paid ${n === 1 ? 'entry' : 'entries'} · R${(stats.prizePool || 0).toLocaleString()} collected`;
+        : `${n} paid ${n === 1 ? 'entry' : 'entries'} · R${(stats.prizePool||0).toLocaleString()} collected · 50% to raffle`;
     } catch (_) {
       document.getElementById('prize-amount').textContent = 'R–';
       document.getElementById('prize-sub').textContent = 'Enter to start the pool!';

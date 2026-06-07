@@ -1,5 +1,5 @@
 const ENTRY_FEE = 50;
-const LOCK_MINUTES = 60;
+const LOCK_MINUTES = 30;
 const LS_USER_KEY = 'bsa_wc2026_user';
 
 // ── Local user session (name + email stored in localStorage) ──────────────────

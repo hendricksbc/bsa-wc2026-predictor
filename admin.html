@@ -3,33 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin — BSA WC2026</title>
+  <title>Admin — Bergvliet WC2026</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-  <div class="nav-brand">⚽ BSA WC2026 Admin</div>
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="images/club-logo.png" class="nav-logo" alt="BSA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">B</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Bergvliet HC</span>
+      <span class="nav-brand-sub">Admin Panel</span>
+    </div>
+  </a>
   <div class="nav-links"><a href="index.html">← Back to site</a></div>
 </nav>
 
 <div id="admin-lock" class="login-screen">
   <div class="login-card">
-    <div style="font-size:48px;margin-bottom:16px;">🔐</div>
+    <div class="club-logo-wrap">
+      <img src="images/club-logo.png" alt="BSA" onerror="this.parentElement.innerHTML='<div style=\'font-size:48px\'>🔐</div>'">
+    </div>
     <h2>Admin Access</h2>
-    <p>Enter the admin password to continue.</p>
-    <input type="password" id="admin-pw" placeholder="Password"
-      style="width:100%;padding:12px;background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;margin-bottom:12px;outline:none;"
+    <p>Enter the admin password to manage entries and results.</p>
+    <input type="password" id="admin-pw" placeholder="Password" class="form-input"
       onkeydown="if(event.key==='Enter')checkPw()">
-    <button class="btn btn-primary" style="width:100%" onclick="checkPw()">Enter</button>
-    <div id="pw-error" style="color:var(--red);font-size:13px;margin-top:8px;display:none">Incorrect password</div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="checkPw()">Enter</button>
+    <div id="pw-error" style="color:#FF4466;font-size:13px;margin-top:8px;display:none">Incorrect password</div>
   </div>
 </div>
 
 <div id="admin-content" style="display:none">
-  <div class="section">
-    <div class="section-title">🛠️ Admin Panel</div>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>🛠️ Admin Panel</h1>
+    </div>
+  </div>
 
+  <div class="section">
     <div class="stats-row" style="margin-bottom:32px">
       <div class="stat-card"><div class="stat-value" id="a-total">–</div><div class="stat-label">Total Entries</div></div>
       <div class="stat-card"><div class="stat-value" id="a-paid">–</div><div class="stat-label">Paid</div></div>
@@ -38,47 +50,45 @@
     </div>
 
     <!-- Mark payment -->
-    <div class="card" style="margin-bottom:24px">
-      <div style="font-size:16px;font-weight:700;margin-bottom:12px">✅ Mark Payment</div>
-      <p style="color:var(--text-muted);font-size:14px;margin-bottom:16px">Enter the participant's email to mark their payment as received.</p>
+    <div class="card" style="margin-bottom:20px">
+      <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">✅ Mark Payment</div>
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">Enter participant email to toggle payment status.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <input type="email" id="pay-email" placeholder="Email address"
-          style="flex:1;min-width:220px;padding:10px 14px;background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px;outline:none;">
+        <input type="email" id="pay-email" placeholder="Email address" class="form-input" style="flex:1;min-width:220px;margin-bottom:0">
         <button class="btn btn-green" onclick="markPaid(true)">Mark Paid</button>
-        <button class="btn btn-sm" style="background:var(--navy-mid)" onclick="markPaid(false)">Unmark</button>
+        <button class="btn btn-sm" style="background:var(--bg-mid);border:1px solid var(--border)" onclick="markPaid(false)">Unmark</button>
       </div>
     </div>
 
     <!-- Enter results -->
-    <div class="card" style="margin-bottom:24px">
-      <div style="font-size:16px;font-weight:700;margin-bottom:12px">⚽ Enter Match Result</div>
-      <div style="display:grid;grid-template-columns:1fr 70px auto 70px;gap:8px;align-items:center;margin-bottom:12px">
-        <select id="result-match"
-          style="padding:10px;background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:14px">
+    <div class="card" style="margin-bottom:20px">
+      <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">⚽ Enter Match Result</div>
+      <div style="display:grid;grid-template-columns:1fr 64px auto 64px auto;gap:8px;align-items:center">
+        <select id="result-match" class="form-input" style="margin-bottom:0">
           <option value="">Select match…</option>
         </select>
-        <input type="number" id="result-home" min="0" max="20" placeholder="Home"
-          style="padding:10px;background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:16px;text-align:center;outline:none">
-        <span style="color:var(--text-muted);font-weight:700;text-align:center">:</span>
-        <input type="number" id="result-away" min="0" max="20" placeholder="Away"
-          style="padding:10px;background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:16px;text-align:center;outline:none">
+        <input type="number" id="result-home" min="0" max="20" placeholder="H"
+          class="form-input" style="margin-bottom:0;text-align:center;font-size:18px;font-family:'Bebas Neue',sans-serif">
+        <span style="color:var(--text-muted);font-family:'Bebas Neue',sans-serif;font-size:20px;text-align:center">:</span>
+        <input type="number" id="result-away" min="0" max="20" placeholder="A"
+          class="form-input" style="margin-bottom:0;text-align:center;font-size:18px;font-family:'Bebas Neue',sans-serif">
+        <button class="btn btn-primary" onclick="saveResult()">Save</button>
       </div>
-      <button class="btn btn-primary" onclick="saveResult()">Save Result</button>
     </div>
 
     <!-- Raffle draw -->
-    <div class="card" style="margin-bottom:24px">
-      <div style="font-size:16px;font-weight:700;margin-bottom:8px">🎰 Raffle Draw</div>
-      <p style="color:var(--text-muted);font-size:14px;margin-bottom:16px">Run this at the end of the tournament to select a winner from all paid entries.</p>
-      <button class="btn btn-primary" onclick="drawRaffle()">Draw Winner</button>
+    <div class="card" style="margin-bottom:20px">
+      <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">🎰 Raffle Draw</div>
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">Randomly select a winner from all paid entries. Run at end of tournament.</p>
+      <button class="btn btn-gold" onclick="drawRaffle()">Draw Winner</button>
       <div id="raffle-result" style="margin-top:16px"></div>
     </div>
 
     <!-- Sheet link -->
     <div class="card">
-      <div style="font-size:16px;font-weight:700;margin-bottom:8px">📊 Google Sheet</div>
-      <p style="color:var(--text-muted);font-size:14px;margin-bottom:12px">View and manage all entries, predictions and results directly in the sheet.</p>
-      <a id="sheet-link" href="#" target="_blank" class="btn btn-outline">Open Google Sheet ↗</a>
+      <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">📊 Google Sheet</div>
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">View all entries, predictions and results. Mark payments directly in the sheet if preferred.</p>
+      <a id="sheet-link" href="https://docs.google.com/spreadsheets/d/1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY" target="_blank" class="btn btn-outline">Open Google Sheet ↗</a>
     </div>
   </div>
 </div>
@@ -87,7 +97,6 @@
 <script src="js/app.js"></script>
 <script>
   const ADMIN_PASSWORD = 'BSA2026ADMIN';
-  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY';
   let allMatches = [];
 
   function checkPw() {
@@ -101,8 +110,6 @@
   }
 
   async function loadAdmin() {
-    document.getElementById('sheet-link').href = SHEET_URL;
-
     const [stats, fixtures] = await Promise.all([
       sheetsGet('stats').catch(() => ({})),
       loadFixtures(),
@@ -135,13 +142,8 @@
     const home = parseInt(document.getElementById('result-home').value);
     const away = parseInt(document.getElementById('result-away').value);
     if (!matchId || isNaN(home) || isNaN(away)) { showToast('Fill in all fields', 'error'); return; }
-
     const match = allMatches.find(m => m.id === matchId);
-    const res = await sheetsPost({
-      action: 'save_result',
-      matchId, homeScore: home, awayScore: away,
-      homeTeam: match?.homeTeam, awayTeam: match?.awayTeam,
-    });
+    const res = await sheetsPost({ action: 'save_result', matchId, homeScore: home, awayScore: away, homeTeam: match?.homeTeam, awayTeam: match?.awayTeam });
     if (res.error) showToast(res.error, 'error');
     else showToast(`Result saved: ${home}:${away} ✓`);
   }
@@ -151,10 +153,10 @@
     if (!entries.length) { showToast('No paid entries', 'error'); return; }
     const winner = entries[Math.floor(Math.random() * entries.length)];
     document.getElementById('raffle-result').innerHTML = `
-      <div style="background:rgba(245,197,24,0.1);border:1px solid var(--gold);border-radius:var(--radius);padding:20px;text-align:center">
-        <div style="font-size:32px;margin-bottom:8px">🎉</div>
-        <div style="font-size:20px;font-weight:800;color:var(--gold)">${winner.name}</div>
-        <div style="color:var(--text-muted);font-size:14px">${winner.refCode}</div>
+      <div style="background:rgba(245,197,24,0.08);border:2px solid var(--gold);border-radius:var(--radius);padding:24px;text-align:center">
+        <div style="font-size:40px;margin-bottom:8px">🎉</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--gold)">${winner.name}</div>
+        <div style="color:var(--text-muted);font-size:14px;margin-top:4px">${winner.refCode}</div>
       </div>`;
   }
 </script>

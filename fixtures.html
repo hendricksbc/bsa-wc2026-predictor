@@ -3,55 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fixtures — BSA WC2026</title>
+  <title>Fixtures — Bergvliet WC2026</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 <nav>
-  <div class="nav-brand">⚽ BSA WC2026</div>
+  <a href="index.html" class="nav-brand" style="text-decoration:none">
+    <img src="images/club-logo.png" class="nav-logo" alt="BSA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">B</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Bergvliet HC</span>
+      <span class="nav-brand-sub">WC2026 Predictor</span>
+    </div>
+  </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
-    <a href="fixtures.html">Fixtures</a>
+    <a href="fixtures.html" class="active">Fixtures</a>
     <a href="leaderboard.html">Leaderboard</a>
     <a href="raffle.html">Raffle Pool</a>
   </div>
   <div class="nav-auth" id="nav-auth"></div>
 </nav>
 
-<!-- Step 1: Identity form -->
+<!-- Identity screen -->
 <div id="identity-screen" class="login-screen" style="display:none">
   <div class="login-card">
-    <div style="font-size:48px;margin-bottom:16px;">🎯</div>
+    <div class="club-logo-wrap">
+      <img src="images/club-logo.png" alt="Bergvliet HC" onerror="this.parentElement.innerHTML='<div style=\'font-size:48px\'>⚽</div>'">
+    </div>
     <h2>Enter Your Details</h2>
-    <p>No account needed — just your name and email to track your predictions.</p>
-    <input type="text" id="input-name" placeholder="Full name" autocomplete="name"
-      style="width:100%;padding:12px;background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;margin-bottom:10px;outline:none;">
-    <input type="email" id="input-email" placeholder="Email address" autocomplete="email"
-      style="width:100%;padding:12px;background:var(--navy-mid);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;margin-bottom:16px;outline:none;"
+    <p>No account needed — just your name and email. Use the same email each time to update your predictions.</p>
+    <input type="text" id="input-name" placeholder="Full name" autocomplete="name" class="form-input">
+    <input type="email" id="input-email" placeholder="Email address" autocomplete="email" class="form-input"
       onkeydown="if(event.key==='Enter')submitIdentity()">
-    <button class="btn btn-primary" style="width:100%" onclick="submitIdentity()">Continue to Predictions →</button>
-    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">Already entered? Use the same email to retrieve your predictions.</p>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px" onclick="submitIdentity()">
+      Continue to Predictions →
+    </button>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:14px;margin-bottom:0">
+      Already entered? Use the same email to retrieve and update your predictions.
+    </p>
   </div>
 </div>
 
-<!-- Step 2: Predictions -->
+<!-- Main predictions view -->
 <div id="main-content" style="display:none">
-  <div class="section">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;">
-      <div class="section-title" style="margin-bottom:0">⚽ Fixtures & Predictions</div>
-      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <div style="font-size:13px;color:var(--text-muted)">🟡 3pts exact &nbsp;|&nbsp; ⚪ 1pt result</div>
-        <button class="btn btn-primary btn-sm" onclick="saveAllAndShowPayment()">Save & Get Payment Code</button>
-      </div>
-    </div>
 
-    <div id="payment-banner" style="display:none;background:rgba(0,208,132,0.08);border:1px solid rgba(0,208,132,0.3);border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <div>
-        <div style="font-weight:600;margin-bottom:2px;">✓ Predictions saved</div>
-        <div style="font-size:13px;color:var(--text-muted)">Your reference code: <strong id="banner-ref-code" style="color:var(--gold)"></strong></div>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div style="flex:1">
+        <h1>⚽ Fixtures &amp; Predictions</h1>
+        <p>Update your predictions anytime — locks <strong>30 minutes</strong> before each kickoff.</p>
       </div>
-      <button class="btn btn-primary btn-sm" onclick="showPaymentModal()">View payment details</button>
+      <button class="btn btn-gold" onclick="saveAllAndShowPayment()" id="save-btn">
+        Save Predictions &amp; Get Code
+      </button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div id="payment-banner" class="info-banner success" style="display:none">
+      <div>
+        <div style="font-weight:700;margin-bottom:2px">✓ Predictions saved</div>
+        <div style="font-size:13px;color:var(--text-muted)">
+          Your reference code: <strong id="banner-ref-code" style="color:var(--gold);letter-spacing:2px"></strong>
+          &nbsp;—&nbsp; use this when paying via SnapScan
+        </div>
+      </div>
+      <button class="btn btn-outline btn-sm" onclick="showPaymentModal()">Payment details</button>
     </div>
 
     <div id="groups-container"></div>
@@ -62,7 +81,7 @@
 <div id="payment-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)this.style.display='none'">
   <div class="modal">
     <h2>Complete Your Entry</h2>
-    <p>SnapScan the club QR and use your reference code as the payment reference so we can match your payment.</p>
+    <p>SnapScan the club QR and enter your reference code as the payment reference so we can match your payment.</p>
 
     <div class="reference-code">
       <div class="reference-code-label">Your Reference Code</div>
@@ -70,14 +89,13 @@
     </div>
 
     <div class="snapscan-placeholder">
-      <div style="font-size:32px;">📱</div>
+      <div style="font-size:32px">📱</div>
       <span>SnapScan QR<br>coming soon</span>
     </div>
 
-    <p style="font-size:13px;margin-bottom:20px;">
-      Send <strong>R50</strong> and enter <strong id="modal-ref-code-2" style="color:var(--gold)">BSA-????</strong> as the payment reference.
-    </p>
-    <button class="btn btn-primary" style="width:100%" onclick="document.getElementById('payment-modal').style.display='none'">Got it!</button>
+    <p>Send <strong>R50</strong> and use <strong id="modal-ref-code-2" style="color:var(--gold);letter-spacing:2px">BSA-????</strong> as the payment reference.</p>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px"
+      onclick="document.getElementById('payment-modal').style.display='none'">Got it!</button>
   </div>
 </div>
 
@@ -85,7 +103,7 @@
 <script src="js/app.js"></script>
 <script>
   let currentUser = null;
-  let predictions = {}; // { matchId: { home, away } }
+  let predictions = {};
   let results = {};
   let fixtures = null;
 
@@ -97,7 +115,6 @@
       document.getElementById('identity-screen').style.display = 'flex';
       return;
     }
-
     showMainContent();
   }
 
@@ -105,8 +122,7 @@
     const name = document.getElementById('input-name').value.trim();
     const email = document.getElementById('input-email').value.trim();
     if (!name || !email || !email.includes('@')) {
-      showToast('Please enter a valid name and email', 'error');
-      return;
+      showToast('Please enter a valid name and email', 'error'); return;
     }
     currentUser = setLocalUser(name, email);
     document.getElementById('identity-screen').style.display = 'none';
@@ -115,13 +131,13 @@
 
   async function showMainContent() {
     document.getElementById('main-content').style.display = 'block';
+    renderNav('a[href="fixtures.html"]');
 
     [fixtures, results] = await Promise.all([
       loadFixtures(),
       sheetsGet('results').catch(() => ({})),
     ]);
 
-    // Load existing predictions
     try {
       predictions = await sheetsGet('my_predictions', { email: currentUser.email });
     } catch (_) { predictions = {}; }
@@ -136,80 +152,80 @@
     for (const [key, group] of Object.entries(fixtures.groups || {})) {
       const section = document.createElement('div');
       section.className = 'group-section';
-      section.innerHTML = `<div class="group-header">Group ${key} — ${group.teams.join(', ')}</div>
+      section.innerHTML = `
+        <div class="group-header">Group ${key} &mdash; ${group.teams.join(' · ')}</div>
         <div class="matches-grid" id="group-${key}"></div>`;
       container.appendChild(section);
-      const grid = section.querySelector(`#group-${key}`);
-      group.matches.forEach(m => grid.appendChild(makeMatchCard(m)));
+      group.matches.forEach(m => section.querySelector(`#group-${key}`).appendChild(makeMatchCard(m)));
     }
 
     for (const round of fixtures.knockoutRounds || []) {
       if (!round.matches?.length) continue;
       const section = document.createElement('div');
       section.className = 'group-section';
-      section.innerHTML = `<div class="group-header">${round.name || round.stage}</div>
+      section.innerHTML = `
+        <div class="group-header">${round.name || round.stage}</div>
         <div class="matches-grid" id="round-${round.stage}"></div>`;
       container.appendChild(section);
-      const grid = section.querySelector(`#round-${round.stage}`);
-      round.matches.forEach(m => grid.appendChild(makeMatchCard(m)));
+      round.matches.forEach(m => section.querySelector(`#round-${round.stage}`).appendChild(makeMatchCard(m)));
     }
   }
 
   function makeMatchCard(match) {
     const locked = isMatchLocked(match.utcDate);
     const finished = match.status === 'FINISHED';
+    const live = match.status === 'LIVE' || match.status === 'IN_PLAY';
     const pred = predictions[match.id] || predictions[String(match.id)];
     const result = results[match.id] || results[String(match.id)];
 
     const card = document.createElement('div');
     card.className = `match-card${locked ? ' locked' : ''}${finished ? ' completed' : ''}`;
 
-    // Status badge
     let badge = '';
-    if (match.status === 'LIVE' || match.status === 'IN_PLAY') badge = '<span class="match-status status-live">● Live</span>';
-    else if (finished) badge = '<span class="match-status status-finished">Finished</span>';
+    if (live) badge = '<span class="match-status status-live">● Live</span>';
+    else if (finished) badge = '<span class="match-status status-finished">Full Time</span>';
     else if (locked) badge = '<span class="match-status status-locked">🔒 Locked</span>';
     else badge = '<span class="match-status status-scheduled">Upcoming</span>';
 
-    // Score display
-    let scoreDisplay = '<span class="vs-text">vs</span>';
-    if ((finished || match.status === 'LIVE') && result) {
-      scoreDisplay = `<span class="score-actual">${result.homeScore} : ${result.awayScore}</span>`;
+    let scoreDisplay = `<span class="vs-text">VS</span>`;
+    if ((finished || live) && result) {
+      scoreDisplay = `<span class="score-actual">${result.homeScore}&nbsp;:&nbsp;${result.awayScore}</span>`;
     }
 
-    // Prediction row
     let predRow = '';
     if (!locked && !finished) {
       const h = pred?.home ?? '';
       const a = pred?.away ?? '';
       predRow = `
         <div class="prediction-row">
-          <span class="prediction-label">Your pick:</span>
+          <span class="prediction-label">Your pick</span>
           <div class="score-inputs">
             <input class="score-input" type="number" min="0" max="20" value="${h}"
-              data-match="${match.id}" data-side="home" oninput="storePred(${match.id}, this)">
+              data-match="${match.id}" data-side="home" oninput="storePred(${match.id},this)">
             <span class="score-input-sep">:</span>
             <input class="score-input" type="number" min="0" max="20" value="${a}"
-              data-match="${match.id}" data-side="away" oninput="storePred(${match.id}, this)">
+              data-match="${match.id}" data-side="away" oninput="storePred(${match.id},this)">
           </div>
         </div>`;
-    } else if (pred && result && (finished || match.status === 'LIVE')) {
+    } else if (pred && (finished || live) && result) {
       const pts = calcPoints(pred.home, pred.away, result.homeScore, result.awayScore);
-      const cls = pts === 3 ? 'result-exact' : pts === 1 ? 'result-correct' : 'result-wrong';
-      const label = pts === 3 ? '⭐ Exact! +3' : pts === 1 ? '✓ Result +1' : '✗ Wrong';
+      const [cls, label] =
+        pts === 3 ? ['result-exact', '⭐ Exact! +3pts'] :
+        pts === 1 ? ['result-correct', '✓ Correct +1pt'] :
+                    ['result-wrong', '✗ Wrong'];
       predRow = `
         <div class="prediction-row">
-          <span class="prediction-label">Your pick: ${pred.home}:${pred.away}</span>
+          <span class="prediction-label">Picked: ${pred.home}:${pred.away}</span>
           <span class="prediction-result ${cls}">${label}</span>
         </div>`;
     } else if (locked && pred) {
       predRow = `
         <div class="prediction-row">
-          <span class="prediction-label">Your pick: ${pred.home}:${pred.away}</span>
-          <span class="lock-icon">🔒</span>
+          <span class="prediction-label">Picked: ${pred.home}:${pred.away}</span>
+          <span class="prediction-result" style="background:rgba(123,134,163,0.12);color:var(--text-muted)">🔒 Locked in</span>
         </div>`;
     } else if (locked) {
-      predRow = `<div class="prediction-row" style="color:var(--text-muted);font-size:13px">🔒 No prediction entered</div>`;
+      predRow = `<div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">🔒 Locked — no prediction entered</div>`;
     }
 
     card.innerHTML = `
@@ -227,43 +243,33 @@
     const card = input.closest('.match-card');
     const h = card.querySelector('[data-side="home"]').value;
     const a = card.querySelector('[data-side="away"]').value;
-    if (h !== '' && a !== '') {
-      predictions[matchId] = { home: parseInt(h), away: parseInt(a) };
-    }
+    if (h !== '' && a !== '') predictions[matchId] = { home: parseInt(h), away: parseInt(a) };
   }
 
   async function saveAllAndShowPayment() {
-    const btn = document.querySelector('.btn-primary.btn-sm');
+    const btn = document.getElementById('save-btn');
     btn.textContent = 'Saving…';
     btn.disabled = true;
-
     try {
-      const res = await sheetsPost({
-        action: 'submit',
-        name: currentUser.name,
-        email: currentUser.email,
-        predictions,
-      });
-
+      const res = await sheetsPost({ action: 'submit', name: currentUser.name, email: currentUser.email, predictions });
       if (res.error) throw new Error(res.error);
-
-      const refCode = res.refCode;
-      document.getElementById('banner-ref-code').textContent = refCode;
+      const code = res.refCode;
+      document.getElementById('banner-ref-code').textContent = code;
       document.getElementById('payment-banner').style.display = 'flex';
-      showPaymentModal(refCode);
+      showPaymentModal(code);
       showToast('Predictions saved! ✓');
     } catch (e) {
       showToast('Failed to save: ' + e.message, 'error');
     } finally {
-      btn.textContent = 'Save & Get Payment Code';
+      btn.textContent = 'Save Predictions & Get Code';
       btn.disabled = false;
     }
   }
 
-  function showPaymentModal(refCode) {
-    const code = refCode || document.getElementById('banner-ref-code').textContent || 'BSA-????';
-    document.getElementById('modal-ref-code').textContent = code;
-    document.getElementById('modal-ref-code-2').textContent = code;
+  function showPaymentModal(code) {
+    const c = code || document.getElementById('banner-ref-code').textContent || 'BSA-????';
+    document.getElementById('modal-ref-code').textContent = c;
+    document.getElementById('modal-ref-code-2').textContent = c;
     document.getElementById('payment-modal').style.display = 'flex';
   }
 
