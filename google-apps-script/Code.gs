@@ -2,7 +2,7 @@
 // Deploy as: Web App → Execute as: Me → Who has access: Anyone
 // After deploying, copy the web app URL into js/sheets-client.js
 
-const SHEET_ID = 'YOUR_GOOGLE_SHEET_ID'; // Replace after creating the sheet
+const SHEET_ID = '1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY';
 const ENTRY_FEE = 50;
 
 function getSpreadsheet() {
