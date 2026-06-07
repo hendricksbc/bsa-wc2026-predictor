@@ -64,14 +64,37 @@
     <div id="identity-match-info" style="background:var(--bg-mid);border-radius:var(--radius-sm);padding:12px;margin-bottom:16px;font-size:14px;text-align:left"></div>
     <p style="text-align:left;margin-bottom:16px">Enter your details once — we'll remember you for future predictions this session.</p>
     <input type="text" id="input-name" placeholder="Full name" autocomplete="name" class="form-input">
-    <input type="email" id="input-email" placeholder="Email address" autocomplete="email" class="form-input"
-      onkeydown="if(event.key==='Enter')submitPrediction()">
+    <input type="email" id="input-email" placeholder="Email address" autocomplete="email" class="form-input">
+
+    <!-- Consent checkboxes -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;text-align:left">
+
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13px;color:var(--text-muted);line-height:1.4">
+        <input type="checkbox" id="consent-popia" style="margin-top:2px;width:16px;height:16px;flex-shrink:0;accent-color:var(--gold)">
+        <span>
+          I consent to Bergvliet Hockey Club collecting and storing my name and email address solely for the purpose of administering this competition, in accordance with the
+          <a href="terms.html#privacy" target="_blank" style="color:var(--gold)">Protection of Personal Information Act (POPIA)</a>.
+        </span>
+      </label>
+
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:13px;color:var(--text-muted);line-height:1.4">
+        <input type="checkbox" id="consent-tcs" style="margin-top:2px;width:16px;height:16px;flex-shrink:0;accent-color:var(--gold)">
+        <span>
+          I am 18 years of age or older and I agree to the
+          <a href="terms.html" target="_blank" style="color:var(--gold)">Terms &amp; Conditions</a>
+          of this competition.
+        </span>
+      </label>
+
+    </div>
+
+    <div id="consent-error" style="display:none;background:rgba(200,16,46,0.1);border:1px solid rgba(200,16,46,0.3);border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;color:#FF4466;margin-bottom:12px">
+      ⚠️ Please accept both consent statements before submitting.
+    </div>
+
     <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px" onclick="submitPrediction()" id="identity-submit-btn">
       Submit Prediction — R50 →
     </button>
-    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;margin-bottom:0">
-      By submitting you agree to the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>. 18+ only.
-    </p>
   </div>
 </div>
 
@@ -290,11 +313,20 @@
   }
 
   async function submitPrediction() {
-    const name  = document.getElementById('input-name').value.trim();
-    const email = document.getElementById('input-email').value.trim();
+    const name   = document.getElementById('input-name').value.trim();
+    const email  = document.getElementById('input-email').value.trim();
+    const popia  = document.getElementById('consent-popia').checked;
+    const tcs    = document.getElementById('consent-tcs').checked;
+
     if (!name || !email || !email.includes('@')) {
       showToast('Please enter a valid name and email', 'error'); return;
     }
+
+    if (!popia || !tcs) {
+      document.getElementById('consent-error').style.display = 'block';
+      return;
+    }
+    document.getElementById('consent-error').style.display = 'none';
     currentUser = setLocalUser(name, email);
     document.getElementById('identity-modal').style.display = 'none';
     document.getElementById('entry-banner').style.display = 'none';
