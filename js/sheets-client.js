@@ -1,5 +1,5 @@
 // Replace with your deployed Google Apps Script web app URL
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxXcLPZXb16IXxlo7HRo4AwNjG5kHp-byRjBaHLMEd6CIBisxTqqvhPqMm1KiDgIrY/exec';
 
 async function sheetsGet(action, params = {}) {
   const qs = new URLSearchParams({ action, ...params }).toString();
