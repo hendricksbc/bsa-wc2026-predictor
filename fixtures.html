@@ -123,11 +123,18 @@
     currentUser = getLocalUser();
     renderNav('a[href="fixtures.html"]');
 
-    // Load fixtures and results for everyone
+    // Load fixtures for everyone (scores come from fixtures.json automatically)
+    // Also load any admin-entered result overrides from the sheet
     [fixtures, results] = await Promise.all([
       loadFixtures(),
       sheetsGet('results').catch(() => ({})),
     ]);
+    // Merge: fixtures.json scores are the source of truth; sheet overrides take precedence if set
+    getAllMatches(fixtures).forEach(m => {
+      if (m.homeScore !== null && m.awayScore !== null && !results[m.id]) {
+        results[m.id] = { homeScore: m.homeScore, awayScore: m.awayScore };
+      }
+    });
 
     // Load user's predictions if logged in
     if (currentUser) {
