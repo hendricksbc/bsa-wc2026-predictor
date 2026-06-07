@@ -22,12 +22,12 @@
 <div class="section">
   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px;">
     <div class="section-title" style="margin-bottom:0">🎰 Raffle Pool</div>
-    <div style="font-size:13px;color:var(--text-muted)">Every correct score prediction = one raffle entry</div>
+    <div style="font-size:13px;color:var(--text-muted)">Paid entries only</div>
   </div>
 
   <div class="stats-row">
-    <div class="stat-card"><div class="stat-value" id="stat-entries">—</div><div class="stat-label">In the Pool</div></div>
-    <div class="stat-card"><div class="stat-value" id="stat-prize">—</div><div class="stat-label">Raffle Prize</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-entries">–</div><div class="stat-label">In the Pool</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-prize">–</div><div class="stat-label">Raffle Prize</div></div>
   </div>
 
   <div id="raffle-content">
@@ -35,44 +35,35 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="js/supabase-client.js"></script>
+<script src="js/sheets-client.js"></script>
 <script src="js/app.js"></script>
-<script src="js/predictions.js"></script>
 <script>
   async function init() {
-    await renderNav('a[href="raffle.html"]');
+    renderNav('a[href="raffle.html"]');
 
-    const [entries, pool] = await Promise.all([getPaidEntries(), getPrizePool()]);
+    const [entries, stats] = await Promise.all([
+      sheetsGet('paid_entries').catch(() => []),
+      sheetsGet('stats').catch(() => ({})),
+    ]);
 
     document.getElementById('stat-entries').textContent = entries.length;
-    document.getElementById('stat-prize').textContent = `R${(pool * 0.5).toLocaleString()}`;
+    document.getElementById('stat-prize').textContent = stats.rafflePrize != null ? `R${stats.rafflePrize}` : '–';
 
     const container = document.getElementById('raffle-content');
 
-    if (entries.length === 0) {
+    if (!entries.length) {
       container.innerHTML = '<div class="empty-state"><div class="emoji">🎰</div><p>No paid entries yet. Be the first in the pool!</p></div>';
       return;
     }
 
-    const cards = entries.map(e => {
-      const avatarHtml = e.avatar_url
-        ? `<img src="${e.avatar_url}" alt="">`
-        : `<span>${(e.full_name || '?')[0].toUpperCase()}</span>`;
-      return `
+    container.innerHTML = `<div class="raffle-grid">${
+      entries.map(e => `
         <div class="raffle-entry">
-          <div class="raffle-avatar">${avatarHtml}</div>
-          <div class="raffle-name">${e.full_name || 'Anonymous'}</div>
-          <div class="raffle-code">${e.reference_code}</div>
-        </div>`;
-    }).join('');
-
-    container.innerHTML = `<div class="raffle-grid">${cards}</div>`;
-
-    // Real-time
-    sb.channel('raffle')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'profiles' }, init)
-      .subscribe();
+          <div class="raffle-avatar">${e.name[0].toUpperCase()}</div>
+          <div class="raffle-name">${e.name}</div>
+          <div class="raffle-code">${e.refCode}</div>
+        </div>`).join('')
+    }</div>`;
   }
 
   init();

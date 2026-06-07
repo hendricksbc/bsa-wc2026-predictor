@@ -25,9 +25,9 @@
   <p>Predict the scores, top the leaderboard, and win 50% of the prize pool.</p>
 
   <div class="prize-pool">
-    <div class="prize-pool-label">Current Prize Pool</div>
-    <div class="prize-pool-amount" id="prize-amount">R0</div>
-    <div class="prize-pool-sub" id="prize-sub">Be the first to enter!</div>
+    <div class="prize-pool-label">Current Raffle Prize</div>
+    <div class="prize-pool-amount" id="prize-amount">R–</div>
+    <div class="prize-pool-sub" id="prize-sub">Loading…</div>
   </div>
 
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
@@ -41,44 +41,44 @@
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <h3>Sign In</h3>
-      <p>Log in with your Google account — one entry per person.</p>
+      <h3>Enter Your Details</h3>
+      <p>Add your name and email — no account needed. One entry per person.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <h3>Predict Scores</h3>
-      <p>Enter your predicted score for every World Cup match. Locks 60 min before kickoff.</p>
+      <p>Enter your predicted score for every match. Locks 60 min before kickoff.</p>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <h3>Pay R50</h3>
-      <p>SnapScan the club QR code using your unique reference code. Your entry activates on payment.</p>
+      <p>SnapScan the club QR using your unique reference code. Your entry activates on payment.</p>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <h3>Win</h3>
-      <p>Every correct score enters you into the raffle. Top the leaderboard for bragging rights!</p>
+      <p>Every correct score = a raffle entry. Top the leaderboard for glory!</p>
     </div>
   </div>
 </div>
 
 <div class="section" style="padding-top:0">
   <div class="section-title">The Prize</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
     <div class="card">
       <div style="font-size:32px;margin-bottom:8px;">🎰</div>
       <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">Raffle Prize</h3>
-      <p style="color:var(--text-muted);font-size:14px;">50% of the total prize pool is split among raffle winners. Every correct score prediction gets you an entry into the draw.</p>
+      <p style="color:var(--text-muted);font-size:14px;">50% of the prize pool split among raffle winners. Every correct score prediction earns a draw entry.</p>
     </div>
     <div class="card">
       <div style="font-size:32px;margin-bottom:8px;">🏆</div>
       <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">Leaderboard</h3>
-      <p style="color:var(--text-muted);font-size:14px;">3 points for an exact score, 1 point for the correct result. Top the leaderboard and earn eternal BSA glory.</p>
+      <p style="color:var(--text-muted);font-size:14px;">3 pts for exact score, 1 pt for correct result. Separate bragging rights at the top.</p>
     </div>
     <div class="card">
       <div style="font-size:32px;margin-bottom:8px;">⚽</div>
       <h3 style="font-size:16px;font-weight:700;margin-bottom:6px;">72 Group Matches</h3>
-      <p style="color:var(--text-muted);font-size:14px;">Predict every group stage match plus knockout rounds as they're confirmed. The more you get right, the more raffle entries you earn.</p>
+      <p style="color:var(--text-muted);font-size:14px;">All group stage matches plus knockouts as they're confirmed. Fixtures auto-update every 2 hours.</p>
     </div>
   </div>
 </div>
@@ -87,19 +87,24 @@
   <p style="margin-top:32px;">Powered by BSA Hockey Club &bull; FIFA World Cup 2026</p>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="js/supabase-client.js"></script>
+<script src="js/sheets-client.js"></script>
 <script src="js/app.js"></script>
 <script>
   renderNav('a[href="index.html"]');
 
   (async () => {
-    const pool = await getPrizePool();
-    const raffle = pool * 0.5;
-    document.getElementById('prize-amount').textContent = `R${raffle.toLocaleString()}`;
-    const entries = Math.round(pool / ENTRY_FEE);
-    document.getElementById('prize-sub').textContent =
-      entries === 0 ? 'Be the first to enter!' : `${entries} ${entries === 1 ? 'entry' : 'entries'} · R${pool.toLocaleString()} collected · 50% to raffle`;
+    try {
+      const stats = await sheetsGet('stats');
+      const raffle = stats.rafflePrize || 0;
+      document.getElementById('prize-amount').textContent = `R${raffle.toLocaleString()}`;
+      const n = stats.paidEntries || 0;
+      document.getElementById('prize-sub').textContent = n === 0
+        ? 'Be the first to enter!'
+        : `${n} paid ${n === 1 ? 'entry' : 'entries'} · R${(stats.prizePool || 0).toLocaleString()} collected`;
+    } catch (_) {
+      document.getElementById('prize-amount').textContent = 'R–';
+      document.getElementById('prize-sub').textContent = 'Enter to start the pool!';
+    }
   })();
 </script>
 </body>

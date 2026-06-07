@@ -17,9 +17,14 @@ jobs:
         run: |
           curl -s \
             -H "X-Auth-Token: $FOOTBALL_API_KEY" \
-            "https://api.football-data.org/v4/competitions/WC/matches?season=2026" \
+            "https://api.football-data.org/v4/matches?dateFrom=2026-06-11&dateTo=2026-07-19" \
             -o raw_matches.json
-          echo "Fetched $(cat raw_matches.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d.get('matches',[])))"  2>/dev/null || echo '?') matches"
+          echo "Response size: $(wc -c < raw_matches.json) bytes"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
       - name: Transform fixtures
         run: node scripts/transform-fixtures.js
