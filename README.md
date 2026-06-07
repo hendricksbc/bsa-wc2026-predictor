@@ -1,0 +1,1 @@
+# bsa-wc2026-predictor
