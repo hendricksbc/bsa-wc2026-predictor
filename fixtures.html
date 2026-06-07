@@ -28,9 +28,16 @@
 
 <div class="page-header">
   <div class="page-header-inner">
-    <div>
+    <div style="flex:1">
       <h1>⚽ Fixtures &amp; Predictions</h1>
       <p>R50 per match prediction · locks 30 min before kickoff · ⭐ exact score = 3 raffle entries · ✓ correct result = 1 entry</p>
+    </div>
+    <div style="position:relative;flex-shrink:0">
+      <input type="text" id="country-search" placeholder="🔍 Search team…"
+        oninput="filterFixtures(this.value)"
+        style="padding:9px 16px 9px 14px;background:var(--bg-mid);border:1px solid var(--border-light);border-radius:var(--radius-sm);color:var(--text);font-size:14px;width:200px;outline:none;font-family:'Inter',sans-serif"
+        onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--border-light)'">
+      <button id="search-clear" onclick="clearSearch()" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:16px;line-height:1">✕</button>
     </div>
   </div>
 </div>
@@ -105,9 +112,10 @@
     <h2>Prediction Submitted!</h2>
     <p id="code-modal-match" style="color:var(--gold);font-weight:700;margin-bottom:16px"></p>
     <p>Pay R50 via SnapScan using your reference code. Once payment is confirmed your prediction is active.</p>
-    <div class="reference-code" style="margin:20px 0">
-      <div class="reference-code-label">Your Reference Code</div>
+    <div class="reference-code" style="margin:20px 0;cursor:pointer" onclick="copyRefCode()" title="Click to copy">
+      <div class="reference-code-label">Your Reference Code — click to copy</div>
       <div class="reference-code-value" id="code-modal-ref">BSA-????</div>
+      <div id="copy-confirm" style="font-size:12px;color:var(--green);margin-top:4px;display:none">✓ Copied to clipboard!</div>
     </div>
     <div class="snapscan-placeholder">
       <div style="font-size:32px">📱</div>
@@ -166,26 +174,86 @@
     } catch (_) {}
   }
 
-  // Build all HTML as strings — single innerHTML write per group (much faster than 104 appendChilds)
-  function renderGroups() {
+  const collapsedGroups = new Set(); // track which groups are collapsed
+
+  function renderGroups(filter = '') {
+    const q = filter.toLowerCase().trim();
     let html = '';
+    let visibleCount = 0;
 
     for (const [key, group] of Object.entries(fixtures.groups || {})) {
+      const matches = q
+        ? group.matches.filter(m =>
+            (m.homeTeam || '').toLowerCase().includes(q) ||
+            (m.awayTeam || '').toLowerCase().includes(q))
+        : group.matches;
+      if (!matches.length) continue;
+      visibleCount++;
+      const collapsed = collapsedGroups.has(`group-${key}`) && !q;
       html += `<div class="group-section">
-        <div class="group-header">Group ${key} &mdash; ${group.teams.join(' · ')}</div>
-        <div class="matches-grid">${group.matches.map(matchCardHtml).join('')}</div>
+        <div class="group-header" style="cursor:pointer;user-select:none" onclick="toggleGroup('group-${key}')">
+          Group ${key} &mdash; ${group.teams.join(' · ')}
+          <span style="margin-left:auto;font-size:13px;opacity:0.6">${collapsed ? '▶' : '▼'}</span>
+        </div>
+        <div id="group-${key}" style="${collapsed ? 'display:none' : ''}">
+          <div class="matches-grid">${matches.map(matchCardHtml).join('')}</div>
+        </div>
       </div>`;
     }
 
     for (const round of fixtures.knockoutRounds || []) {
       if (!round.matches?.length) continue;
+      const matches = q
+        ? round.matches.filter(m =>
+            (m.homeTeam || '').toLowerCase().includes(q) ||
+            (m.awayTeam || '').toLowerCase().includes(q))
+        : round.matches;
+      if (!matches.length) continue;
+      visibleCount++;
+      const id = `round-${round.stage}`;
+      const collapsed = collapsedGroups.has(id) && !q;
       html += `<div class="group-section">
-        <div class="group-header">${round.name || round.stage}</div>
-        <div class="matches-grid">${round.matches.map(matchCardHtml).join('')}</div>
+        <div class="group-header" style="cursor:pointer;user-select:none" onclick="toggleGroup('${id}')">
+          ${round.name || round.stage}
+          <span style="margin-left:auto;font-size:13px;opacity:0.6">${collapsed ? '▶' : '▼'}</span>
+        </div>
+        <div id="${id}" style="${collapsed ? 'display:none' : ''}">
+          <div class="matches-grid">${matches.map(matchCardHtml).join('')}</div>
+        </div>
       </div>`;
     }
 
+    if (!visibleCount && q) {
+      html = `<div class="empty-state"><div class="emoji">🔍</div><p>No matches found for "<strong>${filter}</strong>"</p></div>`;
+    }
+
     document.getElementById('groups-container').innerHTML = html;
+  }
+
+  function toggleGroup(id) {
+    if (collapsedGroups.has(id)) collapsedGroups.delete(id);
+    else collapsedGroups.add(id);
+    renderGroups(document.getElementById('country-search').value);
+  }
+
+  function filterFixtures(val) {
+    document.getElementById('search-clear').style.display = val ? 'block' : 'none';
+    renderGroups(val);
+  }
+
+  function clearSearch() {
+    document.getElementById('country-search').value = '';
+    document.getElementById('search-clear').style.display = 'none';
+    renderGroups('');
+  }
+
+  function copyRefCode() {
+    const code = document.getElementById('code-modal-ref').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const el = document.getElementById('copy-confirm');
+      el.style.display = 'block';
+      setTimeout(() => { el.style.display = 'none'; }, 2000);
+    }).catch(() => showToast('Could not copy — please copy manually', 'error'));
   }
 
   function matchCardHtml(match) {
