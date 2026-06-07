@@ -145,6 +145,8 @@
       try { predictions = await sheetsGet('my_predictions', { refCode: currentUser.refCode }); }
       catch (_) { predictions = {}; }
       loadMyEntries();
+      // If they already have a refCode they've previously saved — start in read-only mode
+      savedMode = true;
     }
 
     updateHeaderCTA();

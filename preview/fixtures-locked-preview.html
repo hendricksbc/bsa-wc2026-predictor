@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixtures Locked Preview — BSA WC2026</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand" style="text-decoration:none">
+    <img src="../images/BSA Logo.jpg" class="nav-logo" alt="BSA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">B</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Bergvliet HC</span>
+      <span class="nav-brand-sub">WC2026 Predictor</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../fixtures.html" class="active">Fixtures</a>
+    <a href="../leaderboard.html">Leaderboard</a>
+    <a href="../raffle.html">Raffle Pool</a>
+  </div>
+  <div class="nav-auth">
+    <span class="nav-user"><strong>bevan-test</strong></span>
+    <button class="btn btn-outline btn-sm">Sign out</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div style="flex:1">
+      <h1>⚽ Fixtures &amp; Predictions</h1>
+      <p>Locks <strong>30 minutes</strong> before each kickoff · <span style="color:var(--gold)">PREVIEW — match 1 locked, others still open</span></p>
+    </div>
+    <button class="btn btn-gold">Save Predictions &amp; Get Code</button>
+  </div>
+</div>
+
+<!-- Lock warning banner -->
+<div style="max-width:1140px;margin:0 auto;padding:16px 24px 0">
+  <div style="background:rgba(200,16,46,0.08);border:1px solid rgba(200,16,46,0.3);border-radius:var(--radius);padding:14px 20px;display:flex;align-items:center;gap:12px;font-size:14px">
+    🔒 <strong>Mexico vs South Africa</strong> kicks off in 22 minutes — this match is now locked. Your remaining predictions are still open.
+  </div>
+</div>
+
+<div class="section" style="padding-top:20px">
+  <div class="group-section">
+    <div class="group-header">Group A — Mexico · South Africa · South Korea · Czechia</div>
+    <div class="matches-grid">
+
+      <!-- LOCKED — prediction saved before lock -->
+      <div class="match-card locked">
+        <div class="match-meta">
+          <span>Thu, 11 Jun, 21:00</span>
+          <span class="match-status status-locked">🔒 Locked</span>
+        </div>
+        <div class="match-teams">
+          <div class="team">
+            <img src="https://flagcdn.com/w80/mx.png" class="team-flag-img" alt="Mexico">
+            <div class="team-name">Mexico</div>
+          </div>
+          <div class="score-divider"><span class="vs-text">VS</span></div>
+          <div class="team">
+            <img src="https://flagcdn.com/w80/za.png" class="team-flag-img" alt="South Africa">
+            <div class="team-name">South Africa</div>
+          </div>
+        </div>
+        <div class="prediction-row">
+          <span class="prediction-label">Picked: 2:1</span>
+          <span class="prediction-result" style="background:rgba(123,134,163,0.12);color:var(--text-muted)">🔒 Locked in</span>
+        </div>
+      </div>
+
+      <!-- LOCKED — no prediction entered -->
+      <div class="match-card locked">
+        <div class="match-meta">
+          <span>Fri, 12 Jun, 04:00</span>
+          <span class="match-status status-locked">🔒 Locked</span>
+        </div>
+        <div class="match-teams">
+          <div class="team">
+            <img src="https://flagcdn.com/w80/kr.png" class="team-flag-img" alt="South Korea">
+            <div class="team-name">South Korea</div>
+          </div>
+          <div class="score-divider"><span class="vs-text">VS</span></div>
+          <div class="team">
+            <img src="https://flagcdn.com/w80/cz.png" class="team-flag-img" alt="Czechia">
+            <div class="team-name">Czechia</div>
+          </div>
+        </div>
+        <div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">
+          🔒 No prediction entered
+        </div>
+      </div>
+
+      <!-- STILL OPEN — editable -->
+      <div class="match-card">
+        <div class="match-meta">
+          <span>Thu, 18 Jun, 18:00</span>
+          <span class="match-status status-scheduled">Upcoming</span>
+        </div>
+        <div class="match-teams">
+          <div class="team">
+            <img src="https://flagcdn.com/w80/cz.png" class="team-flag-img" alt="Czechia">
+            <div class="team-name">Czechia</div>
+          </div>
+          <div class="score-divider"><span class="vs-text">VS</span></div>
+          <div class="team">
+            <img src="https://flagcdn.com/w80/za.png" class="team-flag-img" alt="South Africa">
+            <div class="team-name">South Africa</div>
+          </div>
+        </div>
+        <div class="prediction-row">
+          <span class="prediction-label">Your pick</span>
+          <div class="score-inputs">
+            <input class="score-input" type="number" min="0" max="20" value="1">
+            <span class="score-input-sep">:</span>
+            <input class="score-input" type="number" min="0" max="20" value="2">
+          </div>
+        </div>
+      </div>
+
+      <!-- STILL OPEN — no prediction yet -->
+      <div class="match-card">
+        <div class="match-meta">
+          <span>Fri, 19 Jun, 03:00</span>
+          <span class="match-status status-scheduled">Upcoming</span>
+        </div>
+        <div class="match-teams">
+          <div class="team">
+            <img src="https://flagcdn.com/w80/mx.png" class="team-flag-img" alt="Mexico">
+            <div class="team-name">Mexico</div>
+          </div>
+          <div class="score-divider"><span class="vs-text">VS</span></div>
+          <div class="team">
+            <img src="https://flagcdn.com/w80/kr.png" class="team-flag-img" alt="South Korea">
+            <div class="team-name">South Korea</div>
+          </div>
+        </div>
+        <div class="prediction-row">
+          <span class="prediction-label">Your pick</span>
+          <div class="score-inputs">
+            <input class="score-input" type="number" min="0" max="20" placeholder="">
+            <span class="score-input-sep">:</span>
+            <input class="score-input" type="number" min="0" max="20" placeholder="">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;color:var(--text-muted)">
+    <strong style="color:var(--text)">How locking works:</strong> Each match locks independently 30 minutes before its kickoff. Locked matches show a 🔒 badge and cannot be edited. All other upcoming matches remain fully editable until their own lock time. This means you can keep updating predictions for later matches even while earlier ones are in progress.
+  </div>
+</div>
+
+</body>
+</html>

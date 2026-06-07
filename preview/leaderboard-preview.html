@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard Preview — BSA WC2026</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-brand" style="text-decoration:none">
+    <img src="../images/BSA Logo.jpg" class="nav-logo" alt="BSA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">B</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-main">Bergvliet HC</span>
+      <span class="nav-brand-sub">WC2026 Predictor</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../fixtures.html">Fixtures</a>
+    <a href="../leaderboard.html" class="active">Leaderboard</a>
+    <a href="../raffle.html">Raffle Pool</a>
+  </div>
+  <div class="nav-auth">
+    <span class="nav-user"><strong>bevan-test</strong></span>
+    <button class="btn btn-outline btn-sm">Sign out</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div style="flex:1">
+      <h1>🏆 Leaderboard</h1>
+      <p style="color:var(--text-muted);font-size:13px">Updated 20:45 SAST · <span style="color:var(--gold)">PREVIEW — mock data</span></p>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:1140px;margin:0 auto;padding:12px 24px 0">
+  <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text-muted)">
+    <span>🎰 Raffle entries:</span>
+    <span style="color:var(--green)">⭐ Exact score = <strong>3 entries</strong></span>
+    <span style="color:var(--gold)">✓ Correct result = <strong>1 entry</strong></span>
+    <span>Each paid vote evaluated separately</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-value">11</div><div class="stat-label">Paid Votes</div></div>
+    <div class="stat-card"><div class="stat-value">R550</div><div class="stat-label">Prize Pool</div></div>
+    <div class="stat-card"><div class="stat-value">R275</div><div class="stat-label">Raffle Prize</div></div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="leaderboard-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Player</th>
+          <th>Raffle Entries</th>
+          <th>Exact Scores</th>
+          <th>Correct Results</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr style="background:rgba(245,197,24,0.05)">
+          <td class="rank-cell" style="font-size:22px">🥇</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">S</div>
+              <div>
+                <div>Sarah Malan <span style="color:var(--gold);font-size:11px;font-weight:700">(you)</span></div>
+                <div style="font-size:12px;color:var(--text-muted)">2 paid votes</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">14</span>
+            <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+          </td>
+          <td style="color:var(--green)">4 <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+          <td style="color:var(--gold)">2 <span style="color:var(--text-muted);font-size:12px">result</span></td>
+        </tr>
+
+        <tr>
+          <td class="rank-cell" style="font-size:22px">🥈</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">J</div>
+              <div>
+                <div>James van der Berg</div>
+                <div style="font-size:12px;color:var(--text-muted)">3 paid votes</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">11</span>
+            <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+          </td>
+          <td style="color:var(--green)">3 <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+          <td style="color:var(--gold)">2 <span style="color:var(--text-muted);font-size:12px">result</span></td>
+        </tr>
+
+        <tr>
+          <td class="rank-cell" style="font-size:22px">🥉</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">M</div>
+              <div>
+                <div>Mike Botha</div>
+                <div style="font-size:12px;color:var(--text-muted)">1 paid vote</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">9</span>
+            <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+          </td>
+          <td style="color:var(--green)">3 <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+          <td style="color:var(--gold)">0 <span style="color:var(--text-muted);font-size:12px">result</span></td>
+        </tr>
+
+        <tr>
+          <td class="rank-cell" style="font-size:15px">#4</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">L</div>
+              <div>
+                <div>Lisa Hendricks</div>
+                <div style="font-size:12px;color:var(--text-muted)">2 paid votes</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">7</span>
+            <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+          </td>
+          <td style="color:var(--green)">2 <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+          <td style="color:var(--gold)">1 <span style="color:var(--text-muted);font-size:12px">result</span></td>
+        </tr>
+
+        <tr>
+          <td class="rank-cell" style="font-size:15px">#5</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">T</div>
+              <div>
+                <div>Tom Kruger</div>
+                <div style="font-size:12px;color:var(--text-muted)">1 paid vote</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">4</span>
+            <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+          </td>
+          <td style="color:var(--green)">1 <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+          <td style="color:var(--gold)">1 <span style="color:var(--text-muted);font-size:12px">result</span></td>
+        </tr>
+
+        <tr>
+          <td class="rank-cell" style="font-size:15px">#6</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">A</div>
+              <div>
+                <div>Amy Pretorius</div>
+                <div style="font-size:12px;color:var(--text-muted)">1 paid vote</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">1</span>
+            <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+          </td>
+          <td style="color:var(--green)">0 <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+          <td style="color:var(--gold)">1 <span style="color:var(--text-muted);font-size:12px">result</span></td>
+        </tr>
+
+        <tr>
+          <td class="rank-cell" style="font-size:15px">#7</td>
+          <td>
+            <div class="player-cell">
+              <div class="player-avatar">R</div>
+              <div>
+                <div>Ryan Smith</div>
+                <div style="font-size:12px;color:var(--text-muted)">1 paid vote</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">0</span>
+            <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+          </td>
+          <td style="color:var(--green)">0 <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+          <td style="color:var(--gold)">0 <span style="color:var(--text-muted);font-size:12px">result</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
