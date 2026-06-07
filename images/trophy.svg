@@ -1,0 +1,49 @@
+<svg viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Globe top -->
+  <circle cx="60" cy="30" r="24" fill="#F5C518"/>
+  <!-- Globe latitude lines -->
+  <ellipse cx="60" cy="30" rx="24" ry="11" fill="none" stroke="#C8A000" stroke-width="1.2" opacity="0.7"/>
+  <ellipse cx="60" cy="22" rx="17" ry="6" fill="none" stroke="#C8A000" stroke-width="1" opacity="0.5"/>
+  <ellipse cx="60" cy="38" rx="17" ry="6" fill="none" stroke="#C8A000" stroke-width="1" opacity="0.5"/>
+  <!-- Globe longitude lines -->
+  <ellipse cx="60" cy="30" rx="11" ry="24" fill="none" stroke="#C8A000" stroke-width="1.2" opacity="0.7"/>
+  <line x1="60" y1="6" x2="60" y2="54" stroke="#C8A000" stroke-width="1.2" opacity="0.7"/>
+  <!-- Globe highlight -->
+  <circle cx="52" cy="22" r="6" fill="#FFE566" opacity="0.35"/>
+
+  <!-- Left figure/handle arm -->
+  <path d="M 40 58 C 20 64 14 82 16 98 C 18 108 28 112 38 112"
+        fill="none" stroke="#F5C518" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right figure/handle arm -->
+  <path d="M 80 58 C 100 64 106 82 104 98 C 102 108 92 112 82 112"
+        fill="none" stroke="#F5C518" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Cup body -->
+  <path d="M 38 54 C 35 72 35 90 38 112 L 82 112 C 85 90 85 72 82 54 Z"
+        fill="#F5C518"/>
+
+  <!-- Cup body shading (left) -->
+  <path d="M 38 54 C 35 72 35 90 38 112 L 44 112 C 41 90 41 72 44 54 Z"
+        fill="#D4A800" opacity="0.4"/>
+  <!-- Cup body highlight (right of centre) -->
+  <path d="M 66 56 C 65 74 65 92 66 110 L 70 110 C 70 92 70 74 70 56 Z"
+        fill="#FFE566" opacity="0.3"/>
+
+  <!-- Cup rim -->
+  <ellipse cx="60" cy="54" rx="22" ry="5" fill="#F5C518" stroke="#D4A800" stroke-width="1"/>
+  <ellipse cx="60" cy="54" rx="22" ry="5" fill="#FFE566" opacity="0.3"/>
+
+  <!-- Stem -->
+  <rect x="52" y="112" width="16" height="20" rx="2" fill="#E8B800"/>
+  <!-- Stem highlight -->
+  <rect x="55" y="113" width="5" height="18" rx="1" fill="#FFE566" opacity="0.3"/>
+
+  <!-- Base - top green layer -->
+  <rect x="34" y="132" width="52" height="11" rx="5" fill="#1E5C12"/>
+  <!-- Base - bottom green layer (wider) -->
+  <rect x="26" y="141" width="68" height="12" rx="6" fill="#164A0D"/>
+
+  <!-- Base highlights -->
+  <rect x="34" y="133" width="52" height="3" rx="2" fill="#2E8A1A" opacity="0.5"/>
+  <rect x="26" y="142" width="68" height="3" rx="2" fill="#2E8A1A" opacity="0.3"/>
+</svg>
