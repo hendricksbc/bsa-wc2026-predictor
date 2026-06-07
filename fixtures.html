@@ -52,21 +52,18 @@
 <!-- Active entry banner -->
 <div id="payment-banner" style="display:none">
   <div style="max-width:1140px;margin:0 auto;padding:0 24px 4px">
-    <div class="info-banner success" style="align-items:flex-start;flex-direction:column;gap:10px">
-      <div style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px">
-        <div>
-          <div style="font-weight:700;margin-bottom:2px">✓ Predictions saved</div>
-          <div style="font-size:13px;color:var(--text-muted)">
-            Active vote: <strong id="banner-ref-code" style="color:var(--gold);letter-spacing:2px;font-size:15px"></strong>
-            &nbsp;—&nbsp;SnapScan R50 using this code as your reference
-          </div>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn btn-outline btn-sm" onclick="showPaymentModal()">Payment details</button>
-          <button class="btn btn-sm" style="background:var(--bg-mid);border:1px solid var(--border)" onclick="startNewEntry()">+ New vote (R50)</button>
+    <div class="info-banner success">
+      <div>
+        <div style="font-weight:700;margin-bottom:2px">🔒 Vote locked in — predictions cannot be changed</div>
+        <div style="font-size:13px;color:var(--text-muted)">
+          Reference code: <strong id="banner-ref-code" style="color:var(--gold);letter-spacing:2px;font-size:15px"></strong>
+          &nbsp;—&nbsp;SnapScan R50 using this code as your payment reference
         </div>
       </div>
-      <div id="my-entries-list" style="font-size:12px;color:var(--text-muted)"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-outline btn-sm" onclick="showPaymentModal()">Payment details</button>
+        <button class="btn btn-gold btn-sm" onclick="startNewEntry()">+ New vote — R50</button>
+      </div>
     </div>
   </div>
 </div>
@@ -172,21 +169,17 @@
       cta.innerHTML = `<button class="btn btn-gold" onclick="showEntryModal()">
         🎯 Enter Competition — R50
       </button>`;
-    } else if (savedMode) {
-      cta.innerHTML = `<button class="btn btn-outline" onclick="editPredictions()">
-        ✏️ Edit Predictions
-      </button>`;
-    } else {
+    } else if (!savedMode) {
+      // Has a refCode but hasn't saved yet — show Save button
       cta.innerHTML = `<button class="btn btn-gold" onclick="saveAllAndShowPayment()" id="save-btn">
         Save Predictions &amp; Get Code
       </button>`;
+    } else {
+      // Already voted — only option is a new vote
+      cta.innerHTML = `<button class="btn btn-outline" onclick="startNewEntry()">
+        + New Vote — R50
+      </button>`;
     }
-  }
-
-  function editPredictions() {
-    savedMode = false;
-    updateHeaderCTA();
-    renderGroups();
   }
 
   function renderBanners() {
@@ -302,8 +295,8 @@
           </div>
         </div>`;
     } else if (entered && !locked && !finished && savedMode && !pred) {
-      // Saved but no prediction for this match
-      predRow = `<div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">No prediction — click Edit to add</div>`;
+      // Voted but no prediction entered for this match
+      predRow = `<div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">— No prediction entered for this match</div>`;
     } else if (entered && !locked && !finished) {
       const h = pred?.home ?? '';
       const a = pred?.away ?? '';
