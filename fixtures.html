@@ -135,23 +135,23 @@
     renderNav('a[href="fixtures.html"]');
     document.getElementById('entry-banner').style.display = currentUser ? 'none' : 'block';
 
-    [fixtures, results] = await Promise.all([
-      loadFixtures(),
-      sheetsGet('results').catch(() => ({})),
-    ]);
+    // Step 1: Load fixtures from GitHub Pages (fast CDN — renders immediately)
+    fixtures = await loadFixtures();
 
-    // Merge scores from fixtures.json
+    // Scores come directly from fixtures.json — no separate API call needed
     getAllMatches(fixtures).forEach(m => {
-      if (m.homeScore !== null && m.awayScore !== null && !results[m.id]) {
+      if (m.homeScore !== null && m.awayScore !== null && m.homeScore !== undefined) {
         results[m.id] = { homeScore: m.homeScore, awayScore: m.awayScore };
       }
     });
 
-    if (currentUser?.email) {
-      await loadMyEntries();
-    }
-
+    // Render immediately with fixtures — don't wait for Apps Script
     renderGroups();
+
+    // Step 2: Load user's entries in background (Apps Script — may be slow)
+    if (currentUser?.email) {
+      loadMyEntries().then(() => renderGroups()); // re-render once entries arrive
+    }
   }
 
   async function loadMyEntries() {
