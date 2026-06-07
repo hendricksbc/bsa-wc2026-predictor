@@ -166,41 +166,38 @@
     } catch (_) {}
   }
 
+  // Build all HTML as strings — single innerHTML write per group (much faster than 104 appendChilds)
   function renderGroups() {
-    const container = document.getElementById('groups-container');
-    container.innerHTML = '';
+    let html = '';
+
     for (const [key, group] of Object.entries(fixtures.groups || {})) {
-      const section = document.createElement('div');
-      section.className = 'group-section';
-      section.innerHTML = `<div class="group-header">Group ${key} &mdash; ${group.teams.join(' · ')}</div>
-        <div class="matches-grid" id="group-${key}"></div>`;
-      container.appendChild(section);
-      group.matches.forEach(m => section.querySelector(`#group-${key}`).appendChild(makeMatchCard(m)));
+      html += `<div class="group-section">
+        <div class="group-header">Group ${key} &mdash; ${group.teams.join(' · ')}</div>
+        <div class="matches-grid">${group.matches.map(matchCardHtml).join('')}</div>
+      </div>`;
     }
+
     for (const round of fixtures.knockoutRounds || []) {
       if (!round.matches?.length) continue;
-      const section = document.createElement('div');
-      section.className = 'group-section';
-      section.innerHTML = `<div class="group-header">${round.name || round.stage}</div>
-        <div class="matches-grid" id="round-${round.stage}"></div>`;
-      container.appendChild(section);
-      round.matches.forEach(m => section.querySelector(`#round-${round.stage}`).appendChild(makeMatchCard(m)));
+      html += `<div class="group-section">
+        <div class="group-header">${round.name || round.stage}</div>
+        <div class="matches-grid">${round.matches.map(matchCardHtml).join('')}</div>
+      </div>`;
     }
+
+    document.getElementById('groups-container').innerHTML = html;
   }
 
-  function makeMatchCard(match) {
+  function matchCardHtml(match) {
     const locked   = isMatchLocked(match.utcDate);
     const finished = match.status === 'FINISHED';
     const live     = match.status === 'IN_PLAY' || match.status === 'LIVE';
     const result   = results[match.id] || results[String(match.id)];
     const entries  = myEntries[String(match.id)] || [];
 
-    const card = document.createElement('div');
-    card.className = `match-card${locked && !finished ? ' locked' : ''}`;
-
     // Status badge
     let badge = '';
-    if (live)     badge = '<span class="match-status status-live">● Live</span>';
+    if (live)          badge = '<span class="match-status status-live">● Live</span>';
     else if (finished) badge = '<span class="match-status status-finished">Full Time</span>';
     else if (locked)   badge = '<span class="match-status status-locked">🔒 Locked</span>';
     else               badge = '<span class="match-status status-scheduled">Upcoming</span>';
@@ -211,19 +208,18 @@
       scoreDisplay = `<span class="score-actual">${result.homeScore}&nbsp;:&nbsp;${result.awayScore}</span>`;
     }
 
-    // Bottom section — depends on state
+    // Bottom section
     let bottom = '';
 
     if (finished || live) {
-      // Show all user entries for this match with result
       if (entries.length > 0) {
         bottom = entries.map(e => {
-          if (!result) return `<div class="prediction-row"><span class="prediction-label">Your pick (${e.refCode}): ${e.homeScore}:${e.awayScore}</span></div>`;
+          if (!result) return `<div class="prediction-row"><span class="prediction-label">${e.refCode}: ${e.homeScore}:${e.awayScore}</span></div>`;
           const r = calcRaffleEntries(e.homeScore, e.awayScore, result.homeScore, result.awayScore);
           const [cls, label] =
-            r === 3 ? ['result-exact',   '⭐ Exact! +3 entries'] :
-            r === 1 ? ['result-correct',  '✓ Correct +1 entry']  :
-                      ['result-wrong',    '✗ Wrong'];
+            r === 3 ? ['result-exact',  '⭐ Exact! +3 entries'] :
+            r === 1 ? ['result-correct','✓ Correct +1 entry']   :
+                      ['result-wrong',  '✗ Wrong'];
           return `<div class="prediction-row">
             <span class="prediction-label" style="font-size:11px">${e.refCode}: ${e.homeScore}:${e.awayScore}</span>
             <span class="prediction-result ${cls}">${label}</span>
@@ -231,52 +227,55 @@
         }).join('');
       }
     } else if (locked) {
-      // Locked — show submitted entries read-only
-      if (entries.length > 0) {
-        bottom = entries.map(e => `
+      bottom = entries.length > 0
+        ? entries.map(e => `
           <div class="prediction-row">
             <span class="prediction-label" style="font-size:11px">${e.refCode} · ${e.status === 'paid' ? '✓ paid' : '⏳ pending'}</span>
             <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gold);letter-spacing:2px;margin-left:auto">${e.homeScore} : ${e.awayScore}</span>
             <span class="prediction-result" style="background:rgba(123,134,163,0.12);color:var(--text-muted)">🔒</span>
-          </div>`).join('');
-      } else {
-        bottom = `<div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">🔒 No prediction entered</div>`;
-      }
+          </div>`).join('')
+        : `<div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">🔒 No prediction entered</div>`;
     } else {
-      // Upcoming & open — show inputs + submit button, plus any existing entries
+      // Upcoming — use data-match-id to avoid quote issues with team names containing apostrophes
       const existingRows = entries.map(e => `
         <div class="prediction-row" style="margin-bottom:4px">
           <span class="prediction-label" style="font-size:11px">${e.refCode} · ${e.status === 'paid' ? '✓ paid' : '⏳ pending payment'}</span>
           <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gold);letter-spacing:2px;margin-left:auto">${e.homeScore} : ${e.awayScore}</span>
         </div>`).join('');
 
-      bottom = `
-        ${existingRows}
+      bottom = `${existingRows}
         <div class="prediction-row" style="flex-wrap:wrap;gap:10px">
           <span class="prediction-label">New pick</span>
           <div class="score-inputs">
-            <input class="score-input" type="number" min="0" max="20" placeholder="–"
-              id="home-${match.id}" style="width:46px">
+            <input class="score-input" type="number" min="0" max="20" placeholder="–" id="home-${match.id}" style="width:46px">
             <span class="score-input-sep">:</span>
-            <input class="score-input" type="number" min="0" max="20" placeholder="–"
-              id="away-${match.id}" style="width:46px">
+            <input class="score-input" type="number" min="0" max="20" placeholder="–" id="away-${match.id}" style="width:46px">
           </div>
-          <button class="btn btn-gold btn-sm" onclick="handleSubmit(${match.id}, '${match.homeTeam} vs ${match.awayTeam}'.replace(/'/g,\`'\`))">
-            Submit — R50
-          </button>
+          <button class="btn btn-gold btn-sm submit-btn" data-match-id="${match.id}">Submit — R50</button>
         </div>`;
     }
 
-    card.innerHTML = `
+    return `<div class="match-card${locked && !finished ? ' locked' : ''}">
       <div class="match-meta"><span>${toSAST(match.utcDate)}</span>${badge}</div>
       <div class="match-teams">
         <div class="team">${teamFlag(match.homeTeam)}<div class="team-name">${match.homeTeam}</div></div>
         <div class="score-divider">${scoreDisplay}</div>
         <div class="team">${teamFlag(match.awayTeam)}<div class="team-name">${match.awayTeam}</div></div>
       </div>
-      ${bottom ? `<div style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px">${bottom}</div>` : ''}`;
-    return card;
+      ${bottom ? `<div style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px">${bottom}</div>` : ''}
+    </div>`;
   }
+
+  // Event delegation — one listener handles all submit buttons (avoids quote issues with team names)
+  document.getElementById('groups-container').addEventListener('click', e => {
+    const btn = e.target.closest('.submit-btn');
+    if (!btn) return;
+    const matchId = parseInt(btn.dataset.matchId);
+    const allMatches = getAllMatches(fixtures);
+    const match = allMatches.find(m => m.id === matchId);
+    const matchName = match ? `${match.homeTeam} vs ${match.awayTeam}` : '';
+    handleSubmit(matchId, matchName);
+  });
 
   function handleSubmit(matchId, matchName) {
     const h = document.getElementById(`home-${matchId}`)?.value;
@@ -291,10 +290,8 @@
     pendingAway  = parseInt(a);
 
     if (currentUser?.name && currentUser?.email) {
-      // Already know who they are — submit directly
       doSubmit(currentUser.name, currentUser.email, matchId, matchName, pendingHome, pendingAway);
     } else {
-      // Need their details first
       showIdentityModal(matchId, matchName, pendingHome, pendingAway);
     }
   }
