@@ -123,6 +123,7 @@
   let predictions  = {};    // { matchId: { home, away } } for current refCode
   let results      = {};    // match results from sheet
   let fixtures     = null;
+  let savedMode    = false; // true after saving — inputs become read-only
 
   async function init() {
     currentUser = getLocalUser();
@@ -165,15 +166,25 @@
 
   function updateHeaderCTA() {
     const cta = document.getElementById('header-cta');
-    if (currentUser?.refCode) {
-      cta.innerHTML = `<button class="btn btn-gold" onclick="saveAllAndShowPayment()" id="save-btn">
-        Save Predictions &amp; Get Code
-      </button>`;
-    } else {
+    if (!currentUser?.refCode) {
       cta.innerHTML = `<button class="btn btn-gold" onclick="showEntryModal()">
         🎯 Enter Competition — R50
       </button>`;
+    } else if (savedMode) {
+      cta.innerHTML = `<button class="btn btn-outline" onclick="editPredictions()">
+        ✏️ Edit Predictions
+      </button>`;
+    } else {
+      cta.innerHTML = `<button class="btn btn-gold" onclick="saveAllAndShowPayment()" id="save-btn">
+        Save Predictions &amp; Get Code
+      </button>`;
     }
+  }
+
+  function editPredictions() {
+    savedMode = false;
+    updateHeaderCTA();
+    renderGroups();
   }
 
   function renderBanners() {
@@ -278,7 +289,20 @@
     }
 
     let predRow = '';
-    if (entered && !locked && !finished) {
+    if (entered && !locked && !finished && savedMode && pred) {
+      // Saved state — show static pick, no inputs
+      predRow = `
+        <div class="prediction-row">
+          <span class="prediction-label">Your pick</span>
+          <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gold);letter-spacing:3px">${pred.home} : ${pred.away}</span>
+            <span style="font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;background:rgba(0,200,128,0.15);color:var(--green);text-transform:uppercase;letter-spacing:0.5px">✓ Saved</span>
+          </div>
+        </div>`;
+    } else if (entered && !locked && !finished && savedMode && !pred) {
+      // Saved but no prediction for this match
+      predRow = `<div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">No prediction — click Edit to add</div>`;
+    } else if (entered && !locked && !finished) {
       const h = pred?.home ?? '';
       const a = pred?.away ?? '';
       predRow = `
@@ -353,12 +377,15 @@
       currentUser = setLocalUser(currentUser.name, currentUser.email, res.refCode);
       document.getElementById('banner-ref-code').textContent = res.refCode;
       document.getElementById('payment-banner').style.display = 'block';
+      savedMode = true;
+      updateHeaderCTA();
+      renderGroups();
       showPaymentModal(res.refCode);
       showToast('Predictions saved! ✓');
     } catch (e) {
       showToast('Failed to save: ' + e.message, 'error');
-    } finally {
-      btn.textContent = 'Save Predictions & Get Code'; btn.disabled = false;
+      const btn2 = document.getElementById('save-btn');
+      if (btn2) { btn2.textContent = 'Save Predictions & Get Code'; btn2.disabled = false; }
     }
   }
 
