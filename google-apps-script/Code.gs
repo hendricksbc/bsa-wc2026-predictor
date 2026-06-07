@@ -3,13 +3,16 @@
 //
 // First-time setup after deploying:
 //   1. Open this script in the Apps Script editor
-//   2. Run createHourlyTrigger() once — this sets up auto payment sync every hour
-//   3. You never need to run it again
+//   2. Run createHourlyTrigger() once to set up auto payment sync
 
-const SHEET_ID  = '1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY';
-const ENTRY_FEE = 50;
+const SHEET_ID    = '1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY';
+const ENTRY_FEE   = 50;
+const FIXTURES_URL = 'https://raw.githubusercontent.com/hendricksbc/bsa-wc2026-predictor/main/data/fixtures.json';
 
-// ── Spreadsheet cache (lives for the duration of one script execution) ────────
+// Entries sheet columns
+// A=Timestamp B=Name C=Email D=RefCode E=MatchID F=MatchName G=HomeScore H=AwayScore I=PaymentStatus J=PaidAt
+
+// ── Spreadsheet cache ─────────────────────────────────────────────────────────
 
 let _ss = null;
 function ss() {
@@ -22,10 +25,8 @@ function getSheet(name) {
   if (!sheet) {
     sheet = ss().insertSheet(name);
     const headers = {
-      Entries:     ['Timestamp', 'Name', 'Email', 'RefCode', 'PaymentStatus', 'PaidAt'],
-      Predictions: ['RefCode', 'MatchID', 'HomeScore', 'AwayScore', 'SubmittedAt'],
-      Results:     ['MatchID', 'HomeTeam', 'AwayTeam', 'HomeScore', 'AwayScore', 'EnteredAt'],
-      Payments:    ['Timestamp', 'Reference', 'Amount', 'Note'],
+      Entries:  ['Timestamp','Name','Email','RefCode','MatchID','MatchName','HomeScore','AwayScore','PaymentStatus','PaidAt'],
+      Payments: ['Timestamp','Reference','Amount','Note'],
     };
     if (headers[name]) {
       sheet.appendRow(headers[name]);
@@ -36,18 +37,49 @@ function getSheet(name) {
   return sheet;
 }
 
+// ── Fixtures from GitHub (auto-updated every 2hrs) ────────────────────────────
+
+let _fixtures = null;
+function fetchFixtures() {
+  if (_fixtures) return _fixtures;
+  try {
+    const res  = UrlFetchApp.fetch(FIXTURES_URL, { muteHttpExceptions: true });
+    _fixtures  = JSON.parse(res.getContentText());
+  } catch (e) {
+    _fixtures = { groups: {}, knockoutRounds: [] };
+  }
+  return _fixtures;
+}
+
+function getAllMatches() {
+  const f = fetchFixtures();
+  const matches = [];
+  Object.values(f.groups || {}).forEach(g => matches.push(...g.matches));
+  (f.knockoutRounds || []).forEach(r => matches.push(...(r.matches || [])));
+  return matches;
+}
+
+// Build map of matchId → { homeScore, awayScore } for finished matches
+function getResultMap() {
+  const map = {};
+  getAllMatches().forEach(m => {
+    if (m.homeScore !== null && m.awayScore !== null && m.homeScore !== undefined) {
+      map[String(m.id)] = { home: Number(m.homeScore), away: Number(m.awayScore) };
+    }
+  });
+  return map;
+}
+
 // ── GET ───────────────────────────────────────────────────────────────────────
 
 function doGet(e) {
-  const action = (e.parameter.action || 'stats');
+  const action = e.parameter.action || 'stats';
   let result;
   try {
     if      (action === 'stats')          result = getStats();
     else if (action === 'leaderboard')    result = getLeaderboard();
     else if (action === 'paid_entries')   result = getPaidEntries();
-    else if (action === 'results')        result = getResults();
     else if (action === 'my_entries')     result = getMyEntries(e.parameter.email);
-    else if (action === 'my_predictions') result = getMyPredictions(e.parameter.refCode);
     else if (action === 'sync_payments')  result = syncPayments();
     else result = { error: 'Unknown action' };
   } catch (err) {
@@ -65,9 +97,8 @@ function doPost(e) {
 
   let result;
   try {
-    if      (body.action === 'submit')      result = submitEntry(body);
-    else if (body.action === 'save_result') result = saveResult(body);
-    else if (body.action === 'mark_paid')   result = markPaid(body);
+    if      (body.action === 'submit')    result = submitEntry(body);
+    else if (body.action === 'mark_paid') result = markPaid(body);
     else result = { error: 'Unknown action' };
   } catch (err) {
     result = { error: err.message };
@@ -82,94 +113,37 @@ function jsonOut(data) {
 }
 
 // ── Submit entry ──────────────────────────────────────────────────────────────
+// Each submission = one match prediction = one R50 vote = one unique ref code
 
 function submitEntry(body) {
-  const { name, email, predictions, refCode } = body;
-  if (!name || !email) return { error: 'Name and email required' };
+  const { name, email, matchId, matchName, homeScore, awayScore } = body;
+  if (!name || !email)            return { error: 'Name and email required' };
+  if (!matchId)                   return { error: 'matchId required' };
+  if (homeScore === undefined || homeScore === null || homeScore === '') return { error: 'Home score required' };
+  if (awayScore === undefined || awayScore === null || awayScore === '') return { error: 'Away score required' };
 
-  const emailNorm     = email.toLowerCase().trim();
-  const entriesSheet  = getSheet('Entries');
-  const entriesData   = entriesSheet.getDataRange().getValues();
+  const emailNorm    = email.toLowerCase().trim();
+  const entriesSheet = getSheet('Entries');
+  const entriesData  = entriesSheet.getDataRange().getValues();
 
-  // Build lookup map of refCode → row number (1-indexed)
-  const refToRow = {};
-  for (let i = 1; i < entriesData.length; i++) {
-    refToRow[entriesData[i][3]] = i + 1;
-  }
+  // Existing codes — for uniqueness check
+  const existingCodes = new Set(entriesData.slice(1).map(r => r[3]));
+  const refCode = generateRefCode(existingCodes);
 
-  let code  = (refCode || '').trim().toUpperCase();
-  let isNew = false;
-  let rowNum = code ? refToRow[code] : null;
+  entriesSheet.appendRow([
+    new Date().toISOString(),
+    name,
+    emailNorm,
+    refCode,
+    String(matchId),
+    matchName || '',
+    Number(homeScore),
+    Number(awayScore),
+    'pending',
+    '',
+  ]);
 
-  if (!rowNum) {
-    // Generate unique code (pass existing codes to avoid re-reading sheet)
-    const existingCodes = new Set(Object.keys(refToRow));
-    code  = generateRefCode(existingCodes);
-    isNew = true;
-    entriesSheet.appendRow([new Date().toISOString(), name, emailNorm, code, 'pending', '']);
-  } else {
-    entriesSheet.getRange(rowNum, 2).setValue(name); // update name
-  }
-
-  // Batch-write predictions
-  if (predictions && typeof predictions === 'object') {
-    const predsSheet = getSheet('Predictions');
-    const predData   = predsSheet.getDataRange().getValues();
-    const now        = new Date().toISOString();
-
-    // Build map: matchId → row number for this refCode
-    const existingPredRows = {};
-    for (let i = 1; i < predData.length; i++) {
-      if (predData[i][0] === code) {
-        existingPredRows[String(predData[i][1])] = i + 1;
-      }
-    }
-
-    const toAppend = [];
-    Object.entries(predictions).forEach(([matchId, scores]) => {
-      if (scores.home === '' || scores.away === '' ||
-          scores.home === null || scores.away === null) return;
-      const existingRow = existingPredRows[String(matchId)];
-      if (existingRow) {
-        // Update in-place
-        predsSheet.getRange(existingRow, 3, 1, 3).setValues([[scores.home, scores.away, now]]);
-      } else {
-        toAppend.push([code, matchId, scores.home, scores.away, now]);
-      }
-    });
-
-    // Batch append all new predictions in one call
-    if (toAppend.length > 0) {
-      predsSheet
-        .getRange(predsSheet.getLastRow() + 1, 1, toAppend.length, toAppend[0].length)
-        .setValues(toAppend);
-    }
-  }
-
-  return { success: true, refCode: code, isNew };
-}
-
-// ── Results ───────────────────────────────────────────────────────────────────
-
-function saveResult(body) {
-  const { matchId, homeScore, awayScore, homeTeam, awayTeam } = body;
-  if (matchId === undefined || homeScore === undefined || awayScore === undefined)
-    return { error: 'matchId, homeScore, awayScore required' };
-
-  const sheet = getSheet('Results');
-  const data  = sheet.getDataRange().getValues();
-  let row     = -1;
-  for (let i = 1; i < data.length; i++) {
-    if (String(data[i][0]) === String(matchId)) { row = i + 1; break; }
-  }
-
-  const ts = new Date().toISOString();
-  if (row === -1) {
-    sheet.appendRow([matchId, homeTeam || '', awayTeam || '', homeScore, awayScore, ts]);
-  } else {
-    sheet.getRange(row, 4, 1, 3).setValues([[homeScore, awayScore, ts]]);
-  }
-  return { success: true };
+  return { success: true, refCode };
 }
 
 // ── Payment handling ──────────────────────────────────────────────────────────
@@ -183,19 +157,15 @@ function markPaid(body) {
   const data  = sheet.getDataRange().getValues();
 
   for (let i = 1; i < data.length; i++) {
-    if (data[i][3].trim().toUpperCase() === code) {
-      sheet.getRange(i + 1, 5).setValue(paid ? 'paid' : 'pending');
-      sheet.getRange(i + 1, 6).setValue(paid ? new Date().toISOString() : '');
+    if (String(data[i][3]).trim().toUpperCase() === code) {
+      sheet.getRange(i + 1, 9).setValue(paid ? 'paid' : 'pending');
+      sheet.getRange(i + 1, 10).setValue(paid ? new Date().toISOString() : '');
       return { success: true };
     }
   }
   return { error: `Entry not found: ${code}` };
 }
 
-// Called hourly by trigger AND manually via admin panel.
-// Reads reference codes from the Payments sheet and marks matching
-// Entries rows as paid. Treasurer just pastes SnapScan export into
-// the Payments sheet — no other action needed.
 function syncPayments() {
   const paymentsSheet = getSheet('Payments');
   const entriesSheet  = getSheet('Entries');
@@ -203,33 +173,26 @@ function syncPayments() {
   const payments = paymentsSheet.getDataRange().getValues().slice(1);
   const entries  = entriesSheet.getDataRange().getValues();
 
-  // Build set of all reference codes found in the Payments sheet (col B)
   const paidRefs = new Set(
     payments
       .map(r => String(r[1]).trim().toUpperCase())
-      .filter(r => r.startsWith('BSA-')) // only match valid BSA codes
+      .filter(r => r.startsWith('BSA-'))
   );
 
   if (paidRefs.size === 0) return { success: true, newlyMarked: 0 };
 
   const now     = new Date().toISOString();
   let matched   = 0;
-  const updates = []; // collect rows to batch-update
 
   for (let i = 1; i < entries.length; i++) {
     const code   = String(entries[i][3]).trim().toUpperCase();
-    const status = entries[i][4];
+    const status = entries[i][8]; // col I = PaymentStatus
     if (paidRefs.has(code) && status !== 'paid') {
-      updates.push({ row: i + 1 });
+      entriesSheet.getRange(i + 1, 9).setValue('paid');
+      entriesSheet.getRange(i + 1, 10).setValue(now);
       matched++;
     }
   }
-
-  // Write in batch
-  updates.forEach(({ row }) => {
-    entriesSheet.getRange(row, 5).setValue('paid');
-    entriesSheet.getRange(row, 6).setValue(now);
-  });
 
   Logger.log(`syncPayments: ${matched} entries marked paid`);
   return { success: true, newlyMarked: matched };
@@ -239,84 +202,62 @@ function syncPayments() {
 
 function getStats() {
   const entries = getSheet('Entries').getDataRange().getValues().slice(1);
-  const paid    = entries.filter(r => r[4] === 'paid').length;
+  const paid    = entries.filter(r => r[8] === 'paid').length;
   return {
     totalEntries: entries.length,
     paidEntries:  paid,
     prizePool:    paid * ENTRY_FEE,
-    rafflePrize:  paid * ENTRY_FEE * 0.5,
+    rafflePrize:  Math.floor(paid * ENTRY_FEE * 0.5),
   };
-}
-
-function getResults() {
-  const results = {};
-  getSheet('Results').getDataRange().getValues().slice(1)
-    .forEach(r => { results[r[0]] = { homeScore: r[3], awayScore: r[4] }; });
-  return results;
 }
 
 function getMyEntries(email) {
   if (!email) return [];
   const norm = email.toLowerCase().trim();
   return getSheet('Entries').getDataRange().getValues().slice(1)
-    .filter(r => r[2].toLowerCase() === norm)
-    .map(r => ({ refCode: r[3], status: r[4], createdAt: r[0] }));
-}
-
-function getMyPredictions(refCode) {
-  if (!refCode) return {};
-  const code  = refCode.trim().toUpperCase();
-  const preds = {};
-  getSheet('Predictions').getDataRange().getValues().slice(1)
-    .filter(r => String(r[0]).trim().toUpperCase() === code)
-    .forEach(r => { preds[r[1]] = { home: r[2], away: r[3] }; });
-  return preds;
+    .filter(r => String(r[2]).toLowerCase() === norm)
+    .map(r => ({
+      refCode:    r[3],
+      matchId:    r[4],
+      matchName:  r[5],
+      homeScore:  r[6],
+      awayScore:  r[7],
+      status:     r[8],
+      createdAt:  r[0],
+    }));
 }
 
 function getLeaderboard() {
-  const entries     = getSheet('Entries').getDataRange().getValues().slice(1);
-  const predictions = getSheet('Predictions').getDataRange().getValues().slice(1);
-  const results     = getSheet('Results').getDataRange().getValues().slice(1);
+  const entries   = getSheet('Entries').getDataRange().getValues().slice(1);
+  const resultMap = getResultMap(); // from fixtures.json on GitHub
 
-  // Build result lookup: matchId → { home, away }
-  const resultMap = {};
-  results.forEach(r => { resultMap[String(r[0])] = { home: r[3], away: r[4] }; });
-
-  // Build predictions lookup: refCode → { matchId → { home, away } }
-  const predsByRef = {};
-  predictions.forEach(r => {
-    const ref = String(r[0]).trim().toUpperCase();
-    if (!predsByRef[ref]) predsByRef[ref] = {};
-    predsByRef[ref][String(r[1])] = { home: r[2], away: r[3] };
-  });
-
-  // Aggregate by person (email), summing across all their paid entries
   const personMap = {};
+
   entries.forEach(row => {
-    const email = row[2].toLowerCase();
-    const name  = row[1];
-    const code  = String(row[3]).trim().toUpperCase();
-    if (row[4] !== 'paid') return;
+    const email   = String(row[2]).toLowerCase();
+    const name    = row[1];
+    const matchId = String(row[4]);
+    const ph      = Number(row[6]);
+    const pa      = Number(row[7]);
+    const paid    = row[8] === 'paid';
+    if (!paid) return;
 
     if (!personMap[email]) {
       personMap[email] = { name, email, raffleEntries: 0, exactScores: 0, correctResults: 0, paidVotes: 0 };
     }
     personMap[email].paidVotes++;
 
-    const preds = predsByRef[code] || {};
-    Object.entries(preds).forEach(([matchId, pred]) => {
-      const result = resultMap[matchId];
-      if (!result || result.home === '' || result.home === null || result.home === undefined) return;
-      const ph = Number(pred.home), pa = Number(pred.away);
-      const rh = Number(result.home), ra = Number(result.away);
-      if (ph === rh && pa === ra) {
-        personMap[email].raffleEntries += 3;
-        personMap[email].exactScores++;
-      } else if (Math.sign(ph - pa) === Math.sign(rh - ra)) {
-        personMap[email].raffleEntries += 1;
-        personMap[email].correctResults++;
-      }
-    });
+    const result = resultMap[matchId];
+    if (!result) return; // match not yet played
+
+    const rh = result.home, ra = result.away;
+    if (ph === rh && pa === ra) {
+      personMap[email].raffleEntries += 3;
+      personMap[email].exactScores++;
+    } else if (Math.sign(ph - pa) === Math.sign(rh - ra)) {
+      personMap[email].raffleEntries += 1;
+      personMap[email].correctResults++;
+    }
   });
 
   return Object.values(personMap)
@@ -325,16 +266,13 @@ function getLeaderboard() {
 
 function getPaidEntries() {
   return getSheet('Entries').getDataRange().getValues().slice(1)
-    .filter(r => r[4] === 'paid')
-    .map(r => ({ name: r[1], refCode: r[3] }));
+    .filter(r => r[8] === 'paid')
+    .map(r => ({ name: r[1], refCode: r[3], matchName: r[5] }));
 }
 
 // ── Trigger management ────────────────────────────────────────────────────────
 
-// Run this ONCE from the Apps Script editor after deploying.
-// Sets up automatic hourly payment sync — no further action needed.
 function createHourlyTrigger() {
-  // Remove any existing syncPayments triggers first (avoid duplicates)
   ScriptApp.getProjectTriggers()
     .filter(t => t.getHandlerFunction() === 'syncPayments')
     .forEach(t => ScriptApp.deleteTrigger(t));
@@ -347,15 +285,12 @@ function createHourlyTrigger() {
   Logger.log('✓ Hourly syncPayments trigger created');
 }
 
-// Run this if you ever need to remove the hourly trigger.
 function deleteHourlyTrigger() {
   const removed = ScriptApp.getProjectTriggers()
     .filter(t => t.getHandlerFunction() === 'syncPayments');
   removed.forEach(t => ScriptApp.deleteTrigger(t));
   Logger.log(`Removed ${removed.length} trigger(s)`);
 }
-
-// ── Convenience menu (shows in Google Sheet UI) ───────────────────────────────
 
 function onOpen() {
   SpreadsheetApp.getUi()
@@ -368,18 +303,13 @@ function onOpen() {
 
 // ── Utils ─────────────────────────────────────────────────────────────────────
 
-// Pass in the set of existing codes to avoid re-reading the sheet
 function generateRefCode(existingCodes) {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-  let code;
-  let attempts = 0;
+  let code, attempts = 0;
   do {
     code = 'BSA-';
-    for (let i = 0; i < 4; i++) {
-      code += chars[Math.floor(Math.random() * chars.length)];
-    }
-    attempts++;
-    if (attempts > 100) throw new Error('Could not generate unique ref code');
+    for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)];
+    if (++attempts > 100) throw new Error('Could not generate unique ref code');
   } while (existingCodes && existingCodes.has(code));
   return code;
 }

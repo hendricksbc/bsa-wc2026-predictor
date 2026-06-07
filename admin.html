@@ -26,7 +26,7 @@
       <img src="images/BSA Logo.jpg" alt="BSA" onerror="this.parentElement.innerHTML='<div style=\'font-size:48px\'>🔐</div>'">
     </div>
     <h2>Admin Access</h2>
-    <p>Enter the admin password to manage results and payments.</p>
+    <p>Enter the admin password to manage payments and draw the raffle.</p>
     <input type="password" id="admin-pw" placeholder="Password" class="form-input"
       onkeydown="if(event.key==='Enter')checkPw()">
     <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="checkPw()">Enter</button>
@@ -43,26 +43,32 @@
 
     <!-- Stats -->
     <div class="stats-row" style="margin-bottom:28px">
-      <div class="stat-card"><div class="stat-value" id="a-total">–</div><div class="stat-label">Total Votes</div></div>
+      <div class="stat-card"><div class="stat-value" id="a-total">–</div><div class="stat-label">Total Predictions</div></div>
       <div class="stat-card"><div class="stat-value" id="a-paid">–</div><div class="stat-label">Paid</div></div>
       <div class="stat-card"><div class="stat-value" id="a-pool">–</div><div class="stat-label">Collected</div></div>
       <div class="stat-card"><div class="stat-value" id="a-raffle">–</div><div class="stat-label">Raffle Prize</div></div>
+    </div>
+
+    <!-- Auto-results notice -->
+    <div class="card" style="margin-bottom:20px;border-top:3px solid var(--green)">
+      <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">⚽ Match Results</div>
+      <p style="color:var(--text-muted);font-size:13px">
+        Match results are fetched automatically from the football-data.org API every 2 hours via GitHub Actions. No manual entry is required. The leaderboard and raffle entries update automatically once results are available and payments are confirmed.
+      </p>
     </div>
 
     <!-- SnapScan payment sync -->
     <div class="card" style="margin-bottom:20px;border-top:3px solid var(--green)">
       <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">💳 SnapScan Payment Sync</div>
       <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">
-        After each match, the treasurer exports successful transactions from the SnapScan campaign and pastes the reference codes into the <strong style="color:var(--text)">Payments</strong> tab of the Google Sheet (column B). Then click Sync to automatically mark all matching votes as paid.
+        Export successful transactions from the SnapScan WC2026 campaign and paste the reference codes into column B of the <strong style="color:var(--text)">Payments</strong> tab in the Google Sheet. The system auto-syncs every hour, or click below to sync immediately.
       </p>
       <div style="background:var(--bg-mid);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:14px;font-size:13px">
-        <div style="font-weight:700;margin-bottom:6px;color:var(--gold)">How to set up the Payments sheet:</div>
+        <div style="font-weight:700;margin-bottom:6px;color:var(--gold)">Payments sheet format:</div>
         <ol style="color:var(--text-muted);padding-left:20px;line-height:1.8">
-          <li>Open the <a href="https://docs.google.com/spreadsheets/d/1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY" target="_blank">Google Sheet ↗</a></li>
-          <li>Go to the <strong style="color:var(--text)">Payments</strong> tab (auto-created on first sync)</li>
-          <li>Column A: timestamp · Column B: <strong style="color:var(--text)">reference code</strong> · Column C: amount · Column D: note</li>
-          <li>Paste SnapScan export rows — only the reference column (B) matters for matching</li>
-          <li>Click Sync below</li>
+          <li>Open the <a href="https://docs.google.com/spreadsheets/d/1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY" target="_blank">Google Sheet ↗</a> → <strong style="color:var(--text)">Payments</strong> tab</li>
+          <li>Column B = reference code (e.g. BSA-CYZQ) — this is the only column that matters for matching</li>
+          <li>Paste SnapScan export rows — header row is already in place</li>
         </ol>
       </div>
       <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
@@ -74,31 +80,12 @@
     <!-- Manual payment override -->
     <div class="card" style="margin-bottom:20px">
       <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">✅ Manual Payment Override</div>
-      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">Mark or unmark a specific reference code as paid.</p>
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">Mark or unmark a specific reference code as paid manually.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <input type="text" id="pay-ref" placeholder="Reference code (e.g. BSA-G4RK)"
-          class="form-input" style="flex:1;min-width:200px;margin-bottom:0;text-transform:uppercase">
+        <input type="text" id="pay-ref" placeholder="e.g. BSA-CYZQ"
+          class="form-input" style="flex:1;min-width:180px;margin-bottom:0;text-transform:uppercase;letter-spacing:2px">
         <button class="btn btn-green" onclick="markPaid(true)">Mark Paid</button>
         <button class="btn btn-sm" style="background:var(--bg-mid);border:1px solid var(--border)" onclick="markPaid(false)">Unmark</button>
-      </div>
-    </div>
-
-    <!-- Enter results -->
-    <div class="card" style="margin-bottom:20px">
-      <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">⚽ Enter Match Result</div>
-      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">
-        Enter actual scores to trigger leaderboard and raffle entry calculations.
-      </p>
-      <div style="display:grid;grid-template-columns:1fr 64px auto 64px auto;gap:8px;align-items:center">
-        <select id="result-match" class="form-input" style="margin-bottom:0">
-          <option value="">Select match…</option>
-        </select>
-        <input type="number" id="result-home" min="0" max="20" placeholder="H"
-          class="form-input" style="margin-bottom:0;text-align:center;font-size:18px;font-family:'Bebas Neue',sans-serif">
-        <span style="color:var(--text-muted);font-family:'Bebas Neue',sans-serif;font-size:20px;text-align:center">:</span>
-        <input type="number" id="result-away" min="0" max="20" placeholder="A"
-          class="form-input" style="margin-bottom:0;text-align:center;font-size:18px;font-family:'Bebas Neue',sans-serif">
-        <button class="btn btn-primary" onclick="saveResult()">Save</button>
       </div>
     </div>
 
@@ -106,17 +93,24 @@
     <div class="card" style="margin-bottom:20px">
       <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">🎰 Raffle Draw</div>
       <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">
-        Weighted draw — each paid entry is weighted by the number of raffle entries they've earned. Run at end of tournament.
+        Weighted draw — participants with more raffle entries have better odds. Run this after the Final once all payments have been confirmed. Record the result before closing the screen.
       </p>
       <button class="btn btn-gold" onclick="drawRaffle()">Draw Winner</button>
       <div id="raffle-result" style="margin-top:16px"></div>
     </div>
 
-    <!-- Sheet link -->
-    <div class="card">
-      <div style="font-size:16px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">📊 Google Sheet</div>
-      <p style="color:var(--text-muted);font-size:13px;margin-bottom:14px">View all votes, predictions, results and payments directly in the sheet.</p>
-      <a href="https://docs.google.com/spreadsheets/d/1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY" target="_blank" class="btn btn-outline">Open Google Sheet ↗</a>
+    <!-- Sheet + Terms links -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <div class="card">
+        <div style="font-size:15px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">📊 Google Sheet</div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:12px">View all entries, predictions and payments.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1mwaNqjNhDIfWahhIWjjbQSRBi-n3qAjI9_euDG3VxOY" target="_blank" class="btn btn-outline btn-sm">Open Sheet ↗</a>
+      </div>
+      <div class="card">
+        <div style="font-size:15px;font-weight:700;margin-bottom:6px;font-family:'Bebas Neue',sans-serif;letter-spacing:1px">📋 Terms &amp; Conditions</div>
+        <p style="color:var(--text-muted);font-size:13px;margin-bottom:12px">Review the competition rules and governance document.</p>
+        <a href="terms.html" target="_blank" class="btn btn-outline btn-sm">View T&amp;Cs ↗</a>
+      </div>
     </div>
 
   </div>
@@ -126,7 +120,6 @@
 <script src="js/app.js"></script>
 <script>
   const ADMIN_PASSWORD = 'BSA2026ADMIN';
-  let allMatches = [];
 
   function checkPw() {
     if (document.getElementById('admin-pw').value === ADMIN_PASSWORD) {
@@ -139,21 +132,11 @@
   }
 
   async function loadAdmin() {
-    const [stats, fixtures] = await Promise.all([
-      sheetsGet('stats').catch(() => ({})),
-      loadFixtures(),
-    ]);
+    const stats = await sheetsGet('stats').catch(() => ({}));
     document.getElementById('a-total').textContent  = stats.totalEntries ?? '–';
     document.getElementById('a-paid').textContent   = stats.paidEntries  ?? '–';
     document.getElementById('a-pool').textContent   = stats.prizePool    != null ? `R${stats.prizePool}`   : '–';
     document.getElementById('a-raffle').textContent = stats.rafflePrize  != null ? `R${stats.rafflePrize}` : '–';
-
-    allMatches = getAllMatches(fixtures);
-    const sel  = document.getElementById('result-match');
-    sel.innerHTML = '<option value="">Select match…</option>';
-    allMatches.forEach(m => {
-      sel.innerHTML += `<option value="${m.id}">${teamFlag(m.homeTeam)} ${m.homeTeam} vs ${teamFlag(m.awayTeam)} ${m.awayTeam} — ${toSAST(m.utcDate)}</option>`;
-    });
   }
 
   async function syncPayments() {
@@ -164,8 +147,8 @@
       const msg = res.error
         ? `Error: ${res.error}`
         : res.newlyMarked > 0
-          ? `✓ ${res.newlyMarked} new payment${res.newlyMarked > 1 ? 's' : ''} matched and marked paid`
-          : '✓ Sync complete — no new payments found';
+          ? `✓ ${res.newlyMarked} new payment${res.newlyMarked > 1 ? 's' : ''} matched`
+          : '✓ No new payments found';
       document.getElementById('sync-result').textContent = msg;
       loadAdmin();
     } catch (e) {
@@ -183,39 +166,24 @@
     else { showToast(paid ? `${refCode} marked as paid ✓` : `${refCode} marked as pending`); loadAdmin(); }
   }
 
-  async function saveResult() {
-    const sel    = document.getElementById('result-match');
-    const matchId = parseInt(sel.value);
-    const home   = parseInt(document.getElementById('result-home').value);
-    const away   = parseInt(document.getElementById('result-away').value);
-    if (!matchId || isNaN(home) || isNaN(away)) { showToast('Fill in all fields', 'error'); return; }
-    const match  = allMatches.find(m => m.id === matchId);
-    const res    = await sheetsPost({ action: 'save_result', matchId, homeScore: home, awayScore: away, homeTeam: match?.homeTeam, awayTeam: match?.awayTeam });
-    if (res.error) showToast(res.error, 'error');
-    else showToast(`Result saved: ${home}:${away} ✓`);
-  }
-
   async function drawRaffle() {
-    // Weighted draw: each person gets tickets proportional to their raffle entries
     const board = await sheetsGet('leaderboard').catch(() => []);
     const pool  = board.filter(e => e.raffleEntries > 0);
     if (!pool.length) { showToast('No raffle entries yet', 'error'); return; }
 
-    // Build weighted ticket pool
     const tickets = [];
-    pool.forEach(e => {
-      for (let i = 0; i < e.raffleEntries; i++) tickets.push(e.name);
-    });
-
+    pool.forEach(e => { for (let i = 0; i < e.raffleEntries; i++) tickets.push(e.name); });
     const winner = tickets[Math.floor(Math.random() * tickets.length)];
     const entry  = pool.find(e => e.name === winner);
+
     document.getElementById('raffle-result').innerHTML = `
       <div style="background:rgba(245,197,24,0.08);border:2px solid var(--gold);border-radius:var(--radius);padding:24px;text-align:center">
         <div style="font-size:40px;margin-bottom:8px">🎉</div>
         <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:2px;color:var(--gold)">${winner}</div>
         <div style="color:var(--text-muted);font-size:13px;margin-top:6px">
-          ${entry.raffleEntries} raffle entries · ${entry.exactScores} exact scores · ${entry.correctResults} correct results
+          ${entry.raffleEntries} raffle entries · ${entry.exactScores} exact scores · ${entry.correctResults} correct results · ${entry.paidVotes} paid predictions
         </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text-muted)">Screenshot this result before closing</div>
       </div>`;
   }
 </script>
