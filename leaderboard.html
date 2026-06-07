@@ -28,16 +28,25 @@
 
 <div class="page-header">
   <div class="page-header-inner">
-    <div>
+    <div style="flex:1">
       <h1>🏆 Leaderboard</h1>
       <p id="last-updated" style="color:var(--text-muted);font-size:13px">Refreshes every 60 seconds</p>
     </div>
   </div>
 </div>
 
+<div style="max-width:1140px;margin:0 auto;padding:12px 24px 0">
+  <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--text-muted)">
+    <span>🎰 Raffle entries:</span>
+    <span style="color:var(--green)">⭐ Exact score = <strong>3 entries</strong></span>
+    <span style="color:var(--gold)">✓ Correct result = <strong>1 entry</strong></span>
+    <span>Each paid vote evaluated separately</span>
+  </div>
+</div>
+
 <div class="section">
   <div class="stats-row">
-    <div class="stat-card"><div class="stat-value" id="stat-entries">–</div><div class="stat-label">Paid Entries</div></div>
+    <div class="stat-card"><div class="stat-value" id="stat-entries">–</div><div class="stat-label">Paid Votes</div></div>
     <div class="stat-card"><div class="stat-value" id="stat-pool">–</div><div class="stat-label">Prize Pool</div></div>
     <div class="stat-card"><div class="stat-value" id="stat-raffle">–</div><div class="stat-label">Raffle Prize</div></div>
   </div>
@@ -59,45 +68,49 @@
   }
 
   async function load() {
+    sheetsGet('sync_payments').catch(() => {});
+
     const [board, stats] = await Promise.all([
       sheetsGet('leaderboard').catch(() => []),
       sheetsGet('stats').catch(() => ({})),
     ]);
 
-    document.getElementById('stat-entries').textContent = stats.paidEntries ?? '–';
-    document.getElementById('stat-pool').textContent = stats.prizePool != null ? `R${stats.prizePool}` : '–';
-    document.getElementById('stat-raffle').textContent = stats.rafflePrize != null ? `R${stats.rafflePrize}` : '–';
-    document.getElementById('last-updated').textContent =
-      'Updated ' + new Date().toLocaleTimeString('en-ZA', { timeZone: 'Africa/Johannesburg', hour:'2-digit', minute:'2-digit' }) + ' SAST';
+    document.getElementById('stat-entries').textContent   = stats.paidEntries  ?? '–';
+    document.getElementById('stat-pool').textContent      = stats.prizePool     != null ? `R${stats.prizePool}`     : '–';
+    document.getElementById('stat-raffle').textContent    = stats.rafflePrize   != null ? `R${stats.rafflePrize}`   : '–';
+    document.getElementById('last-updated').textContent   =
+      'Updated ' + new Date().toLocaleTimeString('en-ZA', { timeZone: 'Africa/Johannesburg', hour: '2-digit', minute: '2-digit' }) + ' SAST';
 
-    const me = getLocalUser();
+    const me        = getLocalUser();
     const container = document.getElementById('leaderboard-content');
 
     if (!board.length) {
-      container.innerHTML = '<div class="empty-state"><div class="emoji">🏆</div><p>No entries yet — be the first!</p></div>';
+      container.innerHTML = '<div class="empty-state"><div class="emoji">🏆</div><p>No paid entries yet — be the first!</p></div>';
       return;
     }
 
     const rows = board.map((entry, i) => {
-      const rank = i + 1;
-      const trophy = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : rank;
-      const isMe = me && me.email && entry.name === me.name;
-      const paidHtml = entry.paid
-        ? '<span class="paid-badge paid-yes">✓ Paid</span>'
-        : '<span class="paid-badge paid-no">Pending</span>';
+      const rank  = i + 1;
+      const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`;
+      const isMe  = me && me.name === entry.name;
 
-      return `<tr class="rank-${rank}" ${isMe ? 'style="background:rgba(245,197,24,0.04)"' : ''}>
-        <td class="rank-cell">${trophy}</td>
+      return `<tr ${isMe ? 'style="background:rgba(245,197,24,0.05)"' : ''}>
+        <td class="rank-cell" style="font-size:${rank <= 3 ? '22' : '15'}px">${medal}</td>
         <td>
           <div class="player-cell">
             <div class="player-avatar">${entry.name[0].toUpperCase()}</div>
-            <span>${entry.name}${isMe ? ' <span style="color:var(--gold);font-size:11px;font-weight:700">(you)</span>' : ''}</span>
+            <div>
+              <div>${entry.name}${isMe ? ' <span style="color:var(--gold);font-size:11px;font-weight:700">(you)</span>' : ''}</div>
+              <div style="font-size:12px;color:var(--text-muted)">${entry.paidVotes} paid ${entry.paidVotes === 1 ? 'vote' : 'votes'}</div>
+            </div>
           </div>
         </td>
-        <td class="points-cell">${entry.points}</td>
-        <td style="color:var(--green)">${entry.exact}</td>
-        <td style="color:var(--text-muted)">${entry.correct}</td>
-        <td>${paidHtml}</td>
+        <td>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--gold)">${entry.raffleEntries}</span>
+          <span style="font-size:11px;color:var(--text-muted);display:block;text-transform:uppercase;letter-spacing:0.5px">entries</span>
+        </td>
+        <td style="color:var(--green)">${entry.exactScores} <span style="color:var(--text-muted);font-size:12px">exact</span></td>
+        <td style="color:var(--gold)">${entry.correctResults} <span style="color:var(--text-muted);font-size:12px">result</span></td>
       </tr>`;
     }).join('');
 
@@ -105,12 +118,7 @@
       <table class="leaderboard-table">
         <thead>
           <tr>
-            <th>#</th>
-            <th>Player</th>
-            <th>Points</th>
-            <th>Exact Scores</th>
-            <th>Correct Results</th>
-            <th>Payment</th>
+            <th>#</th><th>Player</th><th>Raffle Entries</th><th>Exact Scores</th><th>Correct Results</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>

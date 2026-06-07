@@ -8,8 +8,9 @@ function getLocalUser() {
   try { return JSON.parse(localStorage.getItem(LS_USER_KEY)); } catch (_) { return null; }
 }
 
-function setLocalUser(name, email) {
-  const user = { name: name.trim(), email: email.trim().toLowerCase() };
+function setLocalUser(name, email, refCode = null) {
+  const existing = getLocalUser();
+  const user = { name: name.trim(), email: email.trim().toLowerCase(), refCode: refCode || existing?.refCode || null };
   localStorage.setItem(LS_USER_KEY, JSON.stringify(user));
   return user;
 }
@@ -51,33 +52,69 @@ function isMatchLocked(utcDateStr) {
   return Date.now() >= new Date(utcDateStr).getTime() - LOCK_MINUTES * 60 * 1000;
 }
 
-// ── Points ────────────────────────────────────────────────────────────────────
+// ── Raffle entries ────────────────────────────────────────────────────────────
 
-function calcPoints(predHome, predAway, resHome, resAway) {
-  if (resHome === null || resHome === '') return null;
+function calcRaffleEntries(predHome, predAway, resHome, resAway) {
+  if (resHome === null || resHome === '' || resHome === undefined) return null;
   const ph = Number(predHome), pa = Number(predAway);
   const rh = Number(resHome), ra = Number(resAway);
-  if (ph === rh && pa === ra) return 3;
-  if (Math.sign(ph - pa) === Math.sign(rh - ra)) return 1;
+  if (ph === rh && pa === ra) return 3; // exact score → 3 entries
+  if (Math.sign(ph - pa) === Math.sign(rh - ra)) return 1; // correct result → 1 entry
   return 0;
 }
 
-// ── Team flags ────────────────────────────────────────────────────────────────
+// ── Team flags (all 48 WC 2026 teams) ────────────────────────────────────────
 
 function teamFlag(name) {
   const flags = {
-    'USA': '🇺🇸', 'Panama': '🇵🇦', 'Albania': '🇦🇱', 'Ukraine': '🇺🇦',
-    'Mexico': '🇲🇽', 'Jamaica': '🇯🇲', 'Cameroon': '🇨🇲', 'New Zealand': '🇳🇿',
-    'Canada': '🇨🇦', 'Venezuela': '🇻🇪', 'Morocco': '🇲🇦', 'Belgium': '🇧🇪',
-    'Brazil': '🇧🇷', 'Croatia': '🇭🇷', 'Algeria': '🇩🇿', 'Australia': '🇦🇺',
-    'Spain': '🇪🇸', 'Serbia': '🇷🇸', 'South Korea': '🇰🇷', 'Senegal': '🇸🇳',
-    'Portugal': '🇵🇹', 'Czech Republic': '🇨🇿', 'Nigeria': '🇳🇬', 'Uruguay': '🇺🇾',
-    'England': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'Slovenia': '🇸🇮', "Côte d'Ivoire": '🇨🇮', 'Ecuador': '🇪🇨',
-    'France': '🇫🇷', 'Poland': '🇵🇱', 'Saudi Arabia': '🇸🇦', 'Paraguay': '🇵🇾',
-    'Argentina': '🇦🇷', 'Chile': '🇨🇱', 'Japan': '🇯🇵', 'Zambia': '🇿🇲',
-    'Germany': '🇩🇪', 'Colombia': '🇨🇴', 'Denmark': '🇩🇰', 'China': '🇨🇳',
-    'Netherlands': '🇳🇱', 'Peru': '🇵🇪', 'Qatar': '🇶🇦',
-    'Turkey': '🇹🇷', 'Bolivia': '🇧🇴', 'Indonesia': '🇮🇩', 'Burkina Faso': '🇧🇫',
+    'Algeria': '🇩🇿',
+    'Argentina': '🇦🇷',
+    'Australia': '🇦🇺',
+    'Austria': '🇦🇹',
+    'Belgium': '🇧🇪',
+    'Bosnia-Herzegovina': '🇧🇦',
+    'Brazil': '🇧🇷',
+    'Canada': '🇨🇦',
+    'Cape Verde Islands': '🇨🇻',
+    'Colombia': '🇨🇴',
+    'Congo DR': '🇨🇩',
+    'Croatia': '🇭🇷',
+    'Curaçao': '🇨🇼',
+    'Czechia': '🇨🇿',
+    'Ecuador': '🇪🇨',
+    'Egypt': '🇪🇬',
+    'England': '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+    'France': '🇫🇷',
+    'Germany': '🇩🇪',
+    'Ghana': '🇬🇭',
+    'Haiti': '🇭🇹',
+    'Iran': '🇮🇷',
+    'Iraq': '🇮🇶',
+    'Ivory Coast': '🇨🇮',
+    'Japan': '🇯🇵',
+    'Jordan': '🇯🇴',
+    'Mexico': '🇲🇽',
+    'Morocco': '🇲🇦',
+    'Netherlands': '🇳🇱',
+    'New Zealand': '🇳🇿',
+    'Norway': '🇳🇴',
+    'Panama': '🇵🇦',
+    'Paraguay': '🇵🇾',
+    'Portugal': '🇵🇹',
+    'Qatar': '🇶🇦',
+    'Saudi Arabia': '🇸🇦',
+    'Scotland': '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
+    'Senegal': '🇸🇳',
+    'South Africa': '🇿🇦',
+    'South Korea': '🇰🇷',
+    'Spain': '🇪🇸',
+    'Sweden': '🇸🇪',
+    'Switzerland': '🇨🇭',
+    'Tunisia': '🇹🇳',
+    'Turkey': '🇹🇷',
+    'United States': '🇺🇸',
+    'Uruguay': '🇺🇾',
+    'Uzbekistan': '🇺🇿',
   };
   return flags[name] || '🏳️';
 }

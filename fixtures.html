@@ -30,37 +30,43 @@
   <div class="page-header-inner">
     <div style="flex:1">
       <h1>⚽ Fixtures &amp; Predictions</h1>
-      <p>Update your predictions anytime — locks <strong>30 minutes</strong> before each kickoff.</p>
+      <p>Locks <strong>30 minutes</strong> before each kickoff · ⭐ Exact score = 3 raffle entries · ✓ Correct result = 1 entry</p>
     </div>
     <div id="header-cta"></div>
   </div>
 </div>
 
-<!-- Entry CTA banner (shown when not entered) -->
+<!-- Guest CTA banner -->
 <div id="entry-banner" style="display:none">
   <div style="max-width:1140px;margin:0 auto;padding:16px 24px">
     <div style="background:linear-gradient(135deg,rgba(200,16,46,0.12),rgba(245,197,24,0.08));border:1px solid rgba(245,197,24,0.25);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
       <div>
-        <div style="font-weight:700;font-size:16px;margin-bottom:4px">🎯 Enter the competition — R50</div>
-        <div style="color:var(--text-muted);font-size:13px">Predict scores, top the leaderboard, and win 50% of the prize pool.</div>
+        <div style="font-weight:700;font-size:16px;margin-bottom:4px">🎯 Enter the competition — R50 per vote</div>
+        <div style="color:var(--text-muted);font-size:13px">Predict scores, earn raffle entries, win 50% of the prize pool. Enter multiple times for more chances.</div>
       </div>
       <button class="btn btn-gold" onclick="showEntryModal()" style="white-space:nowrap">Enter Competition →</button>
     </div>
   </div>
 </div>
 
-<!-- Saved confirmation banner -->
+<!-- Active entry banner -->
 <div id="payment-banner" style="display:none">
   <div style="max-width:1140px;margin:0 auto;padding:0 24px 4px">
-    <div class="info-banner success">
-      <div>
-        <div style="font-weight:700;margin-bottom:2px">✓ Predictions saved</div>
-        <div style="font-size:13px;color:var(--text-muted)">
-          Reference code: <strong id="banner-ref-code" style="color:var(--gold);letter-spacing:2px"></strong>
-          &nbsp;—&nbsp;use this when paying via SnapScan
+    <div class="info-banner success" style="align-items:flex-start;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px">
+        <div>
+          <div style="font-weight:700;margin-bottom:2px">✓ Predictions saved</div>
+          <div style="font-size:13px;color:var(--text-muted)">
+            Active vote: <strong id="banner-ref-code" style="color:var(--gold);letter-spacing:2px;font-size:15px"></strong>
+            &nbsp;—&nbsp;SnapScan R50 using this code as your reference
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-outline btn-sm" onclick="showPaymentModal()">Payment details</button>
+          <button class="btn btn-sm" style="background:var(--bg-mid);border:1px solid var(--border)" onclick="startNewEntry()">+ New vote (R50)</button>
         </div>
       </div>
-      <button class="btn btn-outline btn-sm" onclick="showPaymentModal()">Payment details</button>
+      <div id="my-entries-list" style="font-size:12px;color:var(--text-muted)"></div>
     </div>
   </div>
 </div>
@@ -71,32 +77,31 @@
   </div>
 </div>
 
-<!-- Entry / Identity Modal -->
+<!-- Entry modal -->
 <div id="entry-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)this.style.display='none'">
   <div class="modal">
     <div style="margin-bottom:16px">
-      <img src="images/BSA Logo.jpg" alt="BSA" style="width:56px;height:56px;border-radius:50%;border:2px solid var(--gold)"
-        onerror="this.style.display='none'">
+      <img src="images/BSA Logo.jpg" alt="BSA" style="width:56px;height:56px;border-radius:50%;border:2px solid var(--gold)" onerror="this.style.display='none'">
     </div>
     <h2>Enter the Competition</h2>
-    <p>Add your name and email. Use the same email each time to update your predictions.</p>
+    <p>Each entry costs R50. You can enter multiple times — each vote gets its own reference code and set of predictions.</p>
     <input type="text" id="input-name" placeholder="Full name" autocomplete="name" class="form-input">
     <input type="email" id="input-email" placeholder="Email address" autocomplete="email" class="form-input"
       onkeydown="if(event.key==='Enter')submitIdentity()">
     <button class="btn btn-gold" style="width:100%;justify-content:center;font-size:15px" onclick="submitIdentity()">
-      Continue to Predictions →
+      Start Predicting →
     </button>
     <p style="font-size:12px;color:var(--text-muted);margin-top:14px;margin-bottom:0">
-      Already entered? Use the same email to retrieve your predictions.
+      Returning? Enter your email to see your existing votes, or just start a new one.
     </p>
   </div>
 </div>
 
-<!-- Payment Modal -->
+<!-- Payment modal -->
 <div id="payment-modal" class="modal-overlay" style="display:none" onclick="if(event.target===this)this.style.display='none'">
   <div class="modal">
-    <h2>Complete Your Entry</h2>
-    <p>SnapScan the club QR and enter your reference code as the payment reference so we can match your payment.</p>
+    <h2>Complete Your Vote</h2>
+    <p>SnapScan the club QR and use your reference code as the payment reference.</p>
     <div class="reference-code">
       <div class="reference-code-label">Your Reference Code</div>
       <div class="reference-code-value" id="modal-ref-code">BSA-????</div>
@@ -105,7 +110,7 @@
       <div style="font-size:32px">📱</div>
       <span>SnapScan QR<br>coming soon</span>
     </div>
-    <p>Send <strong>R50</strong> and use <strong id="modal-ref-code-2" style="color:var(--gold);letter-spacing:2px">BSA-????</strong> as the payment reference.</p>
+    <p>Send <strong>R50</strong> and use <strong id="modal-ref-code-2" style="color:var(--gold);letter-spacing:2px">BSA-????</strong> as your payment reference.</p>
     <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px"
       onclick="document.getElementById('payment-modal').style.display='none'">Got it!</button>
   </div>
@@ -114,32 +119,31 @@
 <script src="js/sheets-client.js"></script>
 <script src="js/app.js"></script>
 <script>
-  let currentUser = null;
-  let predictions = {};
-  let results = {};
-  let fixtures = null;
+  let currentUser = null;   // { name, email, refCode }
+  let predictions  = {};    // { matchId: { home, away } } for current refCode
+  let results      = {};    // match results from sheet
+  let fixtures     = null;
 
   async function init() {
     currentUser = getLocalUser();
     renderNav('a[href="fixtures.html"]');
 
-    // Load fixtures for everyone (scores come from fixtures.json automatically)
-    // Also load any admin-entered result overrides from the sheet
     [fixtures, results] = await Promise.all([
       loadFixtures(),
       sheetsGet('results').catch(() => ({})),
     ]);
-    // Merge: fixtures.json scores are the source of truth; sheet overrides take precedence if set
+
+    // Merge scores from fixtures.json into results
     getAllMatches(fixtures).forEach(m => {
       if (m.homeScore !== null && m.awayScore !== null && !results[m.id]) {
         results[m.id] = { homeScore: m.homeScore, awayScore: m.awayScore };
       }
     });
 
-    // Load user's predictions if logged in
-    if (currentUser) {
-      try { predictions = await sheetsGet('my_predictions', { email: currentUser.email }); }
+    if (currentUser?.refCode) {
+      try { predictions = await sheetsGet('my_predictions', { refCode: currentUser.refCode }); }
       catch (_) { predictions = {}; }
+      loadMyEntries();
     }
 
     updateHeaderCTA();
@@ -147,9 +151,21 @@
     renderGroups();
   }
 
+  async function loadMyEntries() {
+    if (!currentUser?.email) return;
+    try {
+      const entries = await sheetsGet('my_entries', { email: currentUser.email });
+      const el = document.getElementById('my-entries-list');
+      if (entries.length > 1) {
+        el.textContent = `Your votes: ${entries.map(e =>
+          `${e.refCode} (${e.status})`).join(' · ')}`;
+      }
+    } catch (_) {}
+  }
+
   function updateHeaderCTA() {
     const cta = document.getElementById('header-cta');
-    if (currentUser) {
+    if (currentUser?.refCode) {
       cta.innerHTML = `<button class="btn btn-gold" onclick="saveAllAndShowPayment()" id="save-btn">
         Save Predictions &amp; Get Code
       </button>`;
@@ -161,33 +177,52 @@
   }
 
   function renderBanners() {
-    document.getElementById('entry-banner').style.display = currentUser ? 'none' : 'block';
+    document.getElementById('entry-banner').style.display   = currentUser?.refCode ? 'none'  : 'block';
+    document.getElementById('payment-banner').style.display = currentUser?.refCode ? 'block' : 'none';
+    if (currentUser?.refCode) {
+      document.getElementById('banner-ref-code').textContent = currentUser.refCode;
+    }
   }
 
   function showEntryModal() {
     document.getElementById('entry-modal').style.display = 'flex';
+    if (currentUser?.name)  document.getElementById('input-name').value  = currentUser.name;
+    if (currentUser?.email) document.getElementById('input-email').value = currentUser.email;
     setTimeout(() => document.getElementById('input-name').focus(), 100);
   }
 
   async function submitIdentity() {
-    const name = document.getElementById('input-name').value.trim();
+    const name  = document.getElementById('input-name').value.trim();
     const email = document.getElementById('input-email').value.trim();
     if (!name || !email || !email.includes('@')) {
       showToast('Please enter a valid name and email', 'error'); return;
     }
-    currentUser = setLocalUser(name, email);
-    document.getElementById('entry-modal').style.display = 'none';
+    // Create new entry immediately — get refCode from server
+    const res = await sheetsPost({ action: 'submit', name, email, predictions: {} });
+    if (res.error) { showToast(res.error, 'error'); return; }
 
-    // Load their predictions now that we know who they are
-    try { predictions = await sheetsGet('my_predictions', { email: currentUser.email }); }
-    catch (_) { predictions = {}; }
+    currentUser = setLocalUser(name, email, res.refCode);
+    document.getElementById('entry-modal').style.display = 'none';
+    predictions = {};
 
     updateHeaderCTA();
     renderBanners();
     renderNav('a[href="fixtures.html"]');
-    // Re-render so prediction inputs appear
     renderGroups();
-    showToast('Welcome! Fill in your predictions below.');
+    showToast(`New vote created — code: ${res.refCode}`);
+  }
+
+  function startNewEntry() {
+    if (!confirm('Start a new vote? You\'ll get a new reference code and need to pay another R50.')) return;
+    // Clear refCode so next submitIdentity creates a fresh entry
+    const u = getLocalUser();
+    if (u) {
+      u.refCode = null;
+      localStorage.setItem('bsa_wc2026_user', JSON.stringify(u));
+      currentUser = u;
+    }
+    predictions = {};
+    showEntryModal();
   }
 
   function renderGroups() {
@@ -217,30 +252,33 @@
   }
 
   function makeMatchCard(match) {
-    const locked = isMatchLocked(match.utcDate);
+    const locked   = isMatchLocked(match.utcDate);
     const finished = match.status === 'FINISHED';
-    const live = match.status === 'LIVE' || match.status === 'IN_PLAY';
-    const pred = predictions[match.id] || predictions[String(match.id)];
-    const result = results[match.id] || results[String(match.id)];
+    const live     = match.status === 'LIVE' || match.status === 'IN_PLAY' || match.status === 'TIMED' && false;
+    const pred     = predictions[match.id] || predictions[String(match.id)];
+    const result   = results[match.id]     || results[String(match.id)];
+    const entered  = !!currentUser?.refCode;
 
     const card = document.createElement('div');
     card.className = `match-card${locked ? ' locked' : ''}${finished ? ' completed' : ''}`;
 
     let badge = '';
-    if (live) badge = '<span class="match-status status-live">● Live</span>';
-    else if (finished) badge = '<span class="match-status status-finished">Full Time</span>';
-    else if (locked) badge = '<span class="match-status status-locked">🔒 Locked</span>';
-    else badge = '<span class="match-status status-scheduled">Upcoming</span>';
+    if (match.status === 'IN_PLAY' || match.status === 'LIVE')
+      badge = '<span class="match-status status-live">● Live</span>';
+    else if (finished)
+      badge = '<span class="match-status status-finished">Full Time</span>';
+    else if (locked)
+      badge = '<span class="match-status status-locked">🔒 Locked</span>';
+    else
+      badge = '<span class="match-status status-scheduled">Upcoming</span>';
 
     let scoreDisplay = `<span class="vs-text">VS</span>`;
-    if ((finished || live) && result) {
+    if (result && (finished || match.status === 'IN_PLAY')) {
       scoreDisplay = `<span class="score-actual">${result.homeScore}&nbsp;:&nbsp;${result.awayScore}</span>`;
     }
 
     let predRow = '';
-
-    if (currentUser && !locked && !finished) {
-      // Entered user — show editable inputs
+    if (entered && !locked && !finished) {
       const h = pred?.home ?? '';
       const a = pred?.away ?? '';
       predRow = `
@@ -254,28 +292,26 @@
               data-match="${match.id}" data-side="away" oninput="storePred(${match.id},this)">
           </div>
         </div>`;
-    } else if (currentUser && pred && (finished || live) && result) {
-      // Show result vs prediction
-      const pts = calcPoints(pred.home, pred.away, result.homeScore, result.awayScore);
+    } else if (entered && pred && result && finished) {
+      const entries = calcRaffleEntries(pred.home, pred.away, result.homeScore, result.awayScore);
       const [cls, label] =
-        pts === 3 ? ['result-exact', '⭐ Exact! +3pts'] :
-        pts === 1 ? ['result-correct', '✓ Correct +1pt'] :
-                    ['result-wrong', '✗ Wrong'];
+        entries === 3 ? ['result-exact',   '⭐ Exact! +3 entries'] :
+        entries === 1 ? ['result-correct',  '✓ Correct +1 entry']  :
+                        ['result-wrong',    '✗ Wrong — 0 entries'];
       predRow = `
         <div class="prediction-row">
           <span class="prediction-label">Picked: ${pred.home}:${pred.away}</span>
           <span class="prediction-result ${cls}">${label}</span>
         </div>`;
-    } else if (currentUser && locked && pred) {
+    } else if (entered && locked && pred) {
       predRow = `
         <div class="prediction-row">
           <span class="prediction-label">Picked: ${pred.home}:${pred.away}</span>
           <span class="prediction-result" style="background:rgba(123,134,163,0.12);color:var(--text-muted)">🔒 Locked in</span>
         </div>`;
-    } else if (currentUser && locked) {
+    } else if (entered && locked) {
       predRow = `<div class="prediction-row" style="color:var(--text-muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px">🔒 No prediction entered</div>`;
-    } else if (!currentUser && !locked && !finished) {
-      // Guest — prompt to enter
+    } else if (!entered && !locked && !finished) {
       predRow = `
         <div class="prediction-row" style="justify-content:center">
           <button class="btn btn-outline btn-sm" onclick="showEntryModal()" style="font-size:12px">
@@ -304,29 +340,33 @@
 
   async function saveAllAndShowPayment() {
     const btn = document.getElementById('save-btn');
-    btn.textContent = 'Saving…';
-    btn.disabled = true;
+    btn.textContent = 'Saving…'; btn.disabled = true;
     try {
-      const res = await sheetsPost({ action: 'submit', name: currentUser.name, email: currentUser.email, predictions });
+      const res = await sheetsPost({
+        action: 'submit',
+        name: currentUser.name,
+        email: currentUser.email,
+        refCode: currentUser.refCode,
+        predictions,
+      });
       if (res.error) throw new Error(res.error);
-      const code = res.refCode;
-      document.getElementById('banner-ref-code').textContent = code;
+      currentUser = setLocalUser(currentUser.name, currentUser.email, res.refCode);
+      document.getElementById('banner-ref-code').textContent = res.refCode;
       document.getElementById('payment-banner').style.display = 'block';
-      showPaymentModal(code);
+      showPaymentModal(res.refCode);
       showToast('Predictions saved! ✓');
     } catch (e) {
       showToast('Failed to save: ' + e.message, 'error');
     } finally {
-      btn.textContent = 'Save Predictions & Get Code';
-      btn.disabled = false;
+      btn.textContent = 'Save Predictions & Get Code'; btn.disabled = false;
     }
   }
 
   function showPaymentModal(code) {
-    const c = code || document.getElementById('banner-ref-code').textContent || 'BSA-????';
-    document.getElementById('modal-ref-code').textContent = c;
+    const c = code || currentUser?.refCode || 'BSA-????';
+    document.getElementById('modal-ref-code').textContent   = c;
     document.getElementById('modal-ref-code-2').textContent = c;
-    document.getElementById('payment-modal').style.display = 'flex';
+    document.getElementById('payment-modal').style.display  = 'flex';
   }
 
   init();
