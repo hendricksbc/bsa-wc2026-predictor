@@ -1,848 +1,1413 @@
 {
-  "lastUpdated": "2026-06-07T13:19:28.712Z",
+  "lastUpdated": "2026-06-07T13:40:34.856Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
     "A": {
       "teams": [
-        "USA",
-        "Panama",
-        "Albania",
-        "Ukraine"
+        "Mexico",
+        "South Africa",
+        "South Korea",
+        "Czechia"
       ],
       "matches": [
         {
-          "id": 101,
-          "homeTeam": "USA",
-          "awayTeam": "Panama",
-          "utcDate": "2026-06-12T20:00:00Z",
+          "id": 537327,
+          "homeTeam": "Mexico",
+          "awayTeam": "South Africa",
+          "utcDate": "2026-06-11T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "SoFi Stadium, LA"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_A"
         },
         {
-          "id": 102,
-          "homeTeam": "Albania",
-          "awayTeam": "Ukraine",
-          "utcDate": "2026-06-12T23:00:00Z",
+          "id": 537328,
+          "homeTeam": "South Korea",
+          "awayTeam": "Czechia",
+          "utcDate": "2026-06-12T02:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_A"
         },
         {
-          "id": 103,
-          "homeTeam": "USA",
-          "awayTeam": "Albania",
-          "utcDate": "2026-06-16T20:00:00Z",
+          "id": 537329,
+          "homeTeam": "Czechia",
+          "awayTeam": "South Africa",
+          "utcDate": "2026-06-18T16:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "AT&T Stadium, Dallas"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_A"
         },
         {
-          "id": 104,
-          "homeTeam": "Panama",
-          "awayTeam": "Ukraine",
-          "utcDate": "2026-06-16T23:00:00Z",
+          "id": 537330,
+          "homeTeam": "Mexico",
+          "awayTeam": "South Korea",
+          "utcDate": "2026-06-19T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Levi's Stadium, SF"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_A"
         },
         {
-          "id": 105,
-          "homeTeam": "Ukraine",
-          "awayTeam": "USA",
-          "utcDate": "2026-06-20T22:00:00Z",
+          "id": 537331,
+          "homeTeam": "Czechia",
+          "awayTeam": "Mexico",
+          "utcDate": "2026-06-25T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_A"
         },
         {
-          "id": 106,
-          "homeTeam": "Panama",
-          "awayTeam": "Albania",
-          "utcDate": "2026-06-20T22:00:00Z",
+          "id": 537332,
+          "homeTeam": "South Africa",
+          "awayTeam": "South Korea",
+          "utcDate": "2026-06-25T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "SoFi Stadium, LA"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_A"
         }
       ]
     },
     "B": {
       "teams": [
-        "Mexico",
-        "Jamaica",
-        "Cameroon",
-        "New Zealand"
+        "Canada",
+        "Bosnia-Herzegovina",
+        "Qatar",
+        "Switzerland"
       ],
       "matches": [
         {
-          "id": 201,
-          "homeTeam": "Mexico",
-          "awayTeam": "Jamaica",
-          "utcDate": "2026-06-13T01:00:00Z",
+          "id": 537333,
+          "homeTeam": "Canada",
+          "awayTeam": "Bosnia-Herzegovina",
+          "utcDate": "2026-06-12T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Estadio Azteca, Mexico City"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_B"
         },
         {
-          "id": 202,
-          "homeTeam": "Cameroon",
-          "awayTeam": "New Zealand",
-          "utcDate": "2026-06-13T18:00:00Z",
+          "id": 537334,
+          "homeTeam": "Qatar",
+          "awayTeam": "Switzerland",
+          "utcDate": "2026-06-13T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BC Place, Vancouver"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_B"
         },
         {
-          "id": 203,
-          "homeTeam": "Mexico",
-          "awayTeam": "Cameroon",
-          "utcDate": "2026-06-17T20:00:00Z",
+          "id": 537335,
+          "homeTeam": "Switzerland",
+          "awayTeam": "Bosnia-Herzegovina",
+          "utcDate": "2026-06-18T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Estadio Azteca, Mexico City"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_B"
         },
         {
-          "id": 204,
-          "homeTeam": "Jamaica",
-          "awayTeam": "New Zealand",
-          "utcDate": "2026-06-17T23:00:00Z",
+          "id": 537336,
+          "homeTeam": "Canada",
+          "awayTeam": "Qatar",
+          "utcDate": "2026-06-18T22:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Gillette Stadium, Boston"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_B"
         },
         {
-          "id": 205,
-          "homeTeam": "Cameroon",
-          "awayTeam": "Jamaica",
-          "utcDate": "2026-06-21T22:00:00Z",
+          "id": 537337,
+          "homeTeam": "Switzerland",
+          "awayTeam": "Canada",
+          "utcDate": "2026-06-24T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "AT&T Stadium, Dallas"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_B"
         },
         {
-          "id": 206,
-          "homeTeam": "New Zealand",
-          "awayTeam": "Mexico",
-          "utcDate": "2026-06-21T22:00:00Z",
+          "id": 537338,
+          "homeTeam": "Bosnia-Herzegovina",
+          "awayTeam": "Qatar",
+          "utcDate": "2026-06-24T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BC Place, Vancouver"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_B"
         }
       ]
     },
     "C": {
       "teams": [
-        "Canada",
-        "Venezuela",
+        "Brazil",
         "Morocco",
-        "Belgium"
+        "Haiti",
+        "Scotland"
       ],
       "matches": [
         {
-          "id": 301,
-          "homeTeam": "Canada",
-          "awayTeam": "Venezuela",
-          "utcDate": "2026-06-13T21:00:00Z",
+          "id": 537339,
+          "homeTeam": "Brazil",
+          "awayTeam": "Morocco",
+          "utcDate": "2026-06-13T22:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BMO Field, Toronto"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_C"
         },
         {
-          "id": 302,
+          "id": 537340,
+          "homeTeam": "Haiti",
+          "awayTeam": "Scotland",
+          "utcDate": "2026-06-14T01:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_C"
+        },
+        {
+          "id": 537342,
+          "homeTeam": "Scotland",
+          "awayTeam": "Morocco",
+          "utcDate": "2026-06-19T22:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_C"
+        },
+        {
+          "id": 537341,
+          "homeTeam": "Brazil",
+          "awayTeam": "Haiti",
+          "utcDate": "2026-06-20T00:30:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_C"
+        },
+        {
+          "id": 537344,
           "homeTeam": "Morocco",
-          "awayTeam": "Belgium",
-          "utcDate": "2026-06-14T00:00:00Z",
+          "awayTeam": "Haiti",
+          "utcDate": "2026-06-24T22:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Lincoln Financial Field, Philadelphia"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_C"
         },
         {
-          "id": 303,
-          "homeTeam": "Canada",
-          "awayTeam": "Morocco",
-          "utcDate": "2026-06-18T20:00:00Z",
+          "id": 537343,
+          "homeTeam": "Scotland",
+          "awayTeam": "Brazil",
+          "utcDate": "2026-06-24T22:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BMO Field, Toronto"
-        },
-        {
-          "id": 304,
-          "homeTeam": "Venezuela",
-          "awayTeam": "Belgium",
-          "utcDate": "2026-06-18T23:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
-        },
-        {
-          "id": 305,
-          "homeTeam": "Belgium",
-          "awayTeam": "Canada",
-          "utcDate": "2026-06-22T22:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
-          "venue": "Lincoln Financial Field, Philadelphia"
-        },
-        {
-          "id": 306,
-          "homeTeam": "Venezuela",
-          "awayTeam": "Morocco",
-          "utcDate": "2026-06-22T22:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_C"
         }
       ]
     },
     "D": {
       "teams": [
-        "Brazil",
-        "Croatia",
-        "Algeria",
-        "Australia"
+        "United States",
+        "Paraguay",
+        "Australia",
+        "Turkey"
       ],
       "matches": [
         {
-          "id": 401,
-          "homeTeam": "Brazil",
-          "awayTeam": "Croatia",
-          "utcDate": "2026-06-14T18:00:00Z",
+          "id": 537345,
+          "homeTeam": "United States",
+          "awayTeam": "Paraguay",
+          "utcDate": "2026-06-13T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Hard Rock Stadium, Miami"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_D"
         },
         {
-          "id": 402,
-          "homeTeam": "Algeria",
-          "awayTeam": "Australia",
-          "utcDate": "2026-06-14T21:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
-          "venue": "Levi's Stadium, SF"
-        },
-        {
-          "id": 403,
-          "homeTeam": "Brazil",
-          "awayTeam": "Algeria",
-          "utcDate": "2026-06-18T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
-          "venue": "Hard Rock Stadium, Miami"
-        },
-        {
-          "id": 404,
-          "homeTeam": "Croatia",
-          "awayTeam": "Australia",
-          "utcDate": "2026-06-18T23:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
-          "venue": "SoFi Stadium, LA"
-        },
-        {
-          "id": 405,
+          "id": 537346,
           "homeTeam": "Australia",
-          "awayTeam": "Brazil",
-          "utcDate": "2026-06-22T22:00:00Z",
+          "awayTeam": "Turkey",
+          "utcDate": "2026-06-14T04:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Levi's Stadium, SF"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_D"
         },
         {
-          "id": 406,
-          "homeTeam": "Croatia",
-          "awayTeam": "Algeria",
-          "utcDate": "2026-06-22T22:00:00Z",
+          "id": 537348,
+          "homeTeam": "United States",
+          "awayTeam": "Australia",
+          "utcDate": "2026-06-19T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Hard Rock Stadium, Miami"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_D"
+        },
+        {
+          "id": 537347,
+          "homeTeam": "Turkey",
+          "awayTeam": "Paraguay",
+          "utcDate": "2026-06-20T03:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_D"
+        },
+        {
+          "id": 537349,
+          "homeTeam": "Turkey",
+          "awayTeam": "United States",
+          "utcDate": "2026-06-26T02:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_D"
+        },
+        {
+          "id": 537350,
+          "homeTeam": "Paraguay",
+          "awayTeam": "Australia",
+          "utcDate": "2026-06-26T02:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_D"
         }
       ]
     },
     "E": {
       "teams": [
-        "Spain",
-        "Serbia",
-        "South Korea",
-        "Senegal"
+        "Germany",
+        "Curaçao",
+        "Ivory Coast",
+        "Ecuador"
       ],
       "matches": [
         {
-          "id": 501,
-          "homeTeam": "Spain",
-          "awayTeam": "Serbia",
-          "utcDate": "2026-06-15T18:00:00Z",
+          "id": 537351,
+          "homeTeam": "Germany",
+          "awayTeam": "Curaçao",
+          "utcDate": "2026-06-14T17:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_E"
         },
         {
-          "id": 502,
-          "homeTeam": "South Korea",
-          "awayTeam": "Senegal",
-          "utcDate": "2026-06-15T21:00:00Z",
+          "id": 537352,
+          "homeTeam": "Ivory Coast",
+          "awayTeam": "Ecuador",
+          "utcDate": "2026-06-14T23:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "AT&T Stadium, Dallas"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_E"
         },
         {
-          "id": 503,
-          "homeTeam": "Spain",
-          "awayTeam": "South Korea",
-          "utcDate": "2026-06-19T20:00:00Z",
+          "id": 537353,
+          "homeTeam": "Germany",
+          "awayTeam": "Ivory Coast",
+          "utcDate": "2026-06-20T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_E"
         },
         {
-          "id": 504,
-          "homeTeam": "Serbia",
-          "awayTeam": "Senegal",
-          "utcDate": "2026-06-19T23:00:00Z",
+          "id": 537354,
+          "homeTeam": "Ecuador",
+          "awayTeam": "Curaçao",
+          "utcDate": "2026-06-21T00:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_E"
         },
         {
-          "id": 505,
-          "homeTeam": "Senegal",
-          "awayTeam": "Spain",
-          "utcDate": "2026-06-23T22:00:00Z",
+          "id": 537355,
+          "homeTeam": "Ecuador",
+          "awayTeam": "Germany",
+          "utcDate": "2026-06-25T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "AT&T Stadium, Dallas"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_E"
         },
         {
-          "id": 506,
-          "homeTeam": "Serbia",
-          "awayTeam": "South Korea",
-          "utcDate": "2026-06-23T22:00:00Z",
+          "id": 537356,
+          "homeTeam": "Curaçao",
+          "awayTeam": "Ivory Coast",
+          "utcDate": "2026-06-25T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_E"
         }
       ]
     },
     "F": {
       "teams": [
-        "Portugal",
-        "Czech Republic",
-        "Nigeria",
-        "Uruguay"
+        "Netherlands",
+        "Japan",
+        "Sweden",
+        "Tunisia"
       ],
       "matches": [
         {
-          "id": 601,
-          "homeTeam": "Portugal",
-          "awayTeam": "Czech Republic",
-          "utcDate": "2026-06-15T00:00:00Z",
+          "id": 537357,
+          "homeTeam": "Netherlands",
+          "awayTeam": "Japan",
+          "utcDate": "2026-06-14T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Gillette Stadium, Boston"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_F"
         },
         {
-          "id": 602,
-          "homeTeam": "Nigeria",
-          "awayTeam": "Uruguay",
-          "utcDate": "2026-06-15T23:00:00Z",
+          "id": 537358,
+          "homeTeam": "Sweden",
+          "awayTeam": "Tunisia",
+          "utcDate": "2026-06-15T02:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "SoFi Stadium, LA"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_F"
         },
         {
-          "id": 603,
-          "homeTeam": "Portugal",
-          "awayTeam": "Nigeria",
-          "utcDate": "2026-06-19T20:00:00Z",
+          "id": 537359,
+          "homeTeam": "Netherlands",
+          "awayTeam": "Sweden",
+          "utcDate": "2026-06-20T17:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Gillette Stadium, Boston"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_F"
         },
         {
-          "id": 604,
-          "homeTeam": "Czech Republic",
-          "awayTeam": "Uruguay",
-          "utcDate": "2026-06-19T23:00:00Z",
+          "id": 537360,
+          "homeTeam": "Tunisia",
+          "awayTeam": "Japan",
+          "utcDate": "2026-06-21T04:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BC Place, Vancouver"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_F"
         },
         {
-          "id": 605,
-          "homeTeam": "Uruguay",
-          "awayTeam": "Portugal",
-          "utcDate": "2026-06-23T22:00:00Z",
+          "id": 537361,
+          "homeTeam": "Tunisia",
+          "awayTeam": "Netherlands",
+          "utcDate": "2026-06-25T23:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Levi's Stadium, SF"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_F"
         },
         {
-          "id": 606,
-          "homeTeam": "Czech Republic",
-          "awayTeam": "Nigeria",
-          "utcDate": "2026-06-23T22:00:00Z",
+          "id": 537362,
+          "homeTeam": "Japan",
+          "awayTeam": "Sweden",
+          "utcDate": "2026-06-25T23:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Gillette Stadium, Boston"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_F"
         }
       ]
     },
     "G": {
       "teams": [
-        "England",
-        "Slovenia",
-        "Côte d'Ivoire",
-        "Ecuador"
+        "Belgium",
+        "Egypt",
+        "Iran",
+        "New Zealand"
       ],
       "matches": [
         {
-          "id": 701,
-          "homeTeam": "England",
-          "awayTeam": "Slovenia",
-          "utcDate": "2026-06-16T18:00:00Z",
+          "id": 537363,
+          "homeTeam": "Belgium",
+          "awayTeam": "Egypt",
+          "utcDate": "2026-06-15T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Lincoln Financial Field, Philadelphia"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_G"
         },
         {
-          "id": 702,
-          "homeTeam": "Côte d'Ivoire",
-          "awayTeam": "Ecuador",
-          "utcDate": "2026-06-16T21:00:00Z",
+          "id": 537364,
+          "homeTeam": "Iran",
+          "awayTeam": "New Zealand",
+          "utcDate": "2026-06-16T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BC Place, Vancouver"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_G"
         },
         {
-          "id": 703,
-          "homeTeam": "England",
-          "awayTeam": "Côte d'Ivoire",
-          "utcDate": "2026-06-20T20:00:00Z",
+          "id": 537365,
+          "homeTeam": "Belgium",
+          "awayTeam": "Iran",
+          "utcDate": "2026-06-21T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Lincoln Financial Field, Philadelphia"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_G"
         },
         {
-          "id": 704,
-          "homeTeam": "Slovenia",
-          "awayTeam": "Ecuador",
-          "utcDate": "2026-06-20T23:00:00Z",
+          "id": 537366,
+          "homeTeam": "New Zealand",
+          "awayTeam": "Egypt",
+          "utcDate": "2026-06-22T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "AT&T Stadium, Dallas"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_G"
         },
         {
-          "id": 705,
-          "homeTeam": "Ecuador",
-          "awayTeam": "England",
-          "utcDate": "2026-06-24T22:00:00Z",
+          "id": 537367,
+          "homeTeam": "New Zealand",
+          "awayTeam": "Belgium",
+          "utcDate": "2026-06-27T03:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BC Place, Vancouver"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_G"
         },
         {
-          "id": 706,
-          "homeTeam": "Slovenia",
-          "awayTeam": "Côte d'Ivoire",
-          "utcDate": "2026-06-24T22:00:00Z",
+          "id": 537368,
+          "homeTeam": "Egypt",
+          "awayTeam": "Iran",
+          "utcDate": "2026-06-27T03:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_G"
         }
       ]
     },
     "H": {
       "teams": [
-        "France",
-        "Poland",
+        "Spain",
+        "Cape Verde Islands",
         "Saudi Arabia",
-        "Paraguay"
+        "Uruguay"
       ],
       "matches": [
         {
-          "id": 801,
-          "homeTeam": "France",
-          "awayTeam": "Poland",
-          "utcDate": "2026-06-16T00:00:00Z",
+          "id": 537369,
+          "homeTeam": "Spain",
+          "awayTeam": "Cape Verde Islands",
+          "utcDate": "2026-06-15T16:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Hard Rock Stadium, Miami"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_H"
         },
         {
-          "id": 802,
+          "id": 537370,
           "homeTeam": "Saudi Arabia",
-          "awayTeam": "Paraguay",
-          "utcDate": "2026-06-16T23:00:00Z",
+          "awayTeam": "Uruguay",
+          "utcDate": "2026-06-15T22:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_H"
         },
         {
-          "id": 803,
-          "homeTeam": "France",
+          "id": 537371,
+          "homeTeam": "Spain",
           "awayTeam": "Saudi Arabia",
-          "utcDate": "2026-06-20T20:00:00Z",
+          "utcDate": "2026-06-21T16:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Hard Rock Stadium, Miami"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_H"
         },
         {
-          "id": 804,
-          "homeTeam": "Poland",
-          "awayTeam": "Paraguay",
-          "utcDate": "2026-06-20T23:00:00Z",
+          "id": 537372,
+          "homeTeam": "Uruguay",
+          "awayTeam": "Cape Verde Islands",
+          "utcDate": "2026-06-21T22:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Gillette Stadium, Boston"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_H"
         },
         {
-          "id": 805,
-          "homeTeam": "Paraguay",
-          "awayTeam": "France",
-          "utcDate": "2026-06-24T22:00:00Z",
+          "id": 537373,
+          "homeTeam": "Uruguay",
+          "awayTeam": "Spain",
+          "utcDate": "2026-06-27T00:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_H"
         },
         {
-          "id": 806,
-          "homeTeam": "Poland",
+          "id": 537374,
+          "homeTeam": "Cape Verde Islands",
           "awayTeam": "Saudi Arabia",
-          "utcDate": "2026-06-24T22:00:00Z",
+          "utcDate": "2026-06-27T00:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Gillette Stadium, Boston"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_H"
         }
       ]
     },
     "I": {
       "teams": [
-        "Argentina",
-        "Chile",
-        "Japan",
-        "Zambia"
+        "France",
+        "Senegal",
+        "Iraq",
+        "Norway"
       ],
       "matches": [
         {
-          "id": 901,
-          "homeTeam": "Argentina",
-          "awayTeam": "Chile",
-          "utcDate": "2026-06-17T18:00:00Z",
+          "id": 537391,
+          "homeTeam": "France",
+          "awayTeam": "Senegal",
+          "utcDate": "2026-06-16T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_I"
         },
         {
-          "id": 902,
-          "homeTeam": "Japan",
-          "awayTeam": "Zambia",
-          "utcDate": "2026-06-17T21:00:00Z",
+          "id": 537392,
+          "homeTeam": "Iraq",
+          "awayTeam": "Norway",
+          "utcDate": "2026-06-16T22:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "SoFi Stadium, LA"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_I"
         },
         {
-          "id": 903,
-          "homeTeam": "Argentina",
-          "awayTeam": "Japan",
-          "utcDate": "2026-06-21T20:00:00Z",
+          "id": 537393,
+          "homeTeam": "France",
+          "awayTeam": "Iraq",
+          "utcDate": "2026-06-22T21:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_I"
         },
         {
-          "id": 904,
-          "homeTeam": "Chile",
-          "awayTeam": "Zambia",
-          "utcDate": "2026-06-21T23:00:00Z",
+          "id": 537394,
+          "homeTeam": "Norway",
+          "awayTeam": "Senegal",
+          "utcDate": "2026-06-23T00:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "AT&T Stadium, Dallas"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_I"
         },
         {
-          "id": 905,
-          "homeTeam": "Zambia",
-          "awayTeam": "Argentina",
-          "utcDate": "2026-06-25T22:00:00Z",
+          "id": 537395,
+          "homeTeam": "Norway",
+          "awayTeam": "France",
+          "utcDate": "2026-06-26T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "SoFi Stadium, LA"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_I"
         },
         {
-          "id": 906,
-          "homeTeam": "Chile",
-          "awayTeam": "Japan",
-          "utcDate": "2026-06-25T22:00:00Z",
+          "id": 537396,
+          "homeTeam": "Senegal",
+          "awayTeam": "Iraq",
+          "utcDate": "2026-06-26T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "AT&T Stadium, Dallas"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_I"
         }
       ]
     },
     "J": {
       "teams": [
-        "Germany",
-        "Colombia",
-        "Denmark",
-        "China"
+        "Argentina",
+        "Algeria",
+        "Austria",
+        "Jordan"
       ],
       "matches": [
         {
-          "id": 1001,
-          "homeTeam": "Germany",
-          "awayTeam": "Colombia",
-          "utcDate": "2026-06-17T00:00:00Z",
+          "id": 537397,
+          "homeTeam": "Argentina",
+          "awayTeam": "Algeria",
+          "utcDate": "2026-06-17T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Levi's Stadium, SF"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_J"
         },
         {
-          "id": 1002,
-          "homeTeam": "Denmark",
-          "awayTeam": "China",
-          "utcDate": "2026-06-17T23:00:00Z",
+          "id": 537398,
+          "homeTeam": "Austria",
+          "awayTeam": "Jordan",
+          "utcDate": "2026-06-17T04:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BC Place, Vancouver"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_J"
         },
         {
-          "id": 1003,
-          "homeTeam": "Germany",
-          "awayTeam": "Denmark",
-          "utcDate": "2026-06-21T20:00:00Z",
+          "id": 537399,
+          "homeTeam": "Argentina",
+          "awayTeam": "Austria",
+          "utcDate": "2026-06-22T17:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Levi's Stadium, SF"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_J"
         },
         {
-          "id": 1004,
-          "homeTeam": "Colombia",
-          "awayTeam": "China",
-          "utcDate": "2026-06-21T23:00:00Z",
+          "id": 537400,
+          "homeTeam": "Jordan",
+          "awayTeam": "Algeria",
+          "utcDate": "2026-06-23T03:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Hard Rock Stadium, Miami"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_J"
         },
         {
-          "id": 1005,
-          "homeTeam": "China",
-          "awayTeam": "Germany",
-          "utcDate": "2026-06-25T22:00:00Z",
+          "id": 537401,
+          "homeTeam": "Jordan",
+          "awayTeam": "Argentina",
+          "utcDate": "2026-06-28T02:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "BC Place, Vancouver"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_J"
         },
         {
-          "id": 1006,
-          "homeTeam": "Colombia",
-          "awayTeam": "Denmark",
-          "utcDate": "2026-06-25T22:00:00Z",
+          "id": 537402,
+          "homeTeam": "Algeria",
+          "awayTeam": "Austria",
+          "utcDate": "2026-06-28T02:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Hard Rock Stadium, Miami"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_J"
         }
       ]
     },
     "K": {
       "teams": [
-        "Netherlands",
-        "Peru",
-        "Cameroon",
-        "Qatar"
+        "Portugal",
+        "Congo DR",
+        "Uzbekistan",
+        "Colombia"
       ],
       "matches": [
         {
-          "id": 1101,
-          "homeTeam": "Netherlands",
-          "awayTeam": "Peru",
-          "utcDate": "2026-06-18T18:00:00Z",
+          "id": 537403,
+          "homeTeam": "Portugal",
+          "awayTeam": "Congo DR",
+          "utcDate": "2026-06-17T17:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Lincoln Financial Field, Philadelphia"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_K"
         },
         {
-          "id": 1102,
-          "homeTeam": "Cameroon",
-          "awayTeam": "Qatar",
-          "utcDate": "2026-06-18T21:00:00Z",
+          "id": 537404,
+          "homeTeam": "Uzbekistan",
+          "awayTeam": "Colombia",
+          "utcDate": "2026-06-18T02:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Estadio Azteca, Mexico City"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_K"
         },
         {
-          "id": 1103,
-          "homeTeam": "Netherlands",
-          "awayTeam": "Cameroon",
-          "utcDate": "2026-06-22T20:00:00Z",
+          "id": 537405,
+          "homeTeam": "Portugal",
+          "awayTeam": "Uzbekistan",
+          "utcDate": "2026-06-23T17:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Lincoln Financial Field, Philadelphia"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_K"
         },
         {
-          "id": 1104,
-          "homeTeam": "Peru",
-          "awayTeam": "Qatar",
-          "utcDate": "2026-06-22T23:00:00Z",
+          "id": 537406,
+          "homeTeam": "Colombia",
+          "awayTeam": "Congo DR",
+          "utcDate": "2026-06-24T02:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Gillette Stadium, Boston"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_K"
         },
         {
-          "id": 1105,
-          "homeTeam": "Qatar",
-          "awayTeam": "Netherlands",
-          "utcDate": "2026-06-26T22:00:00Z",
+          "id": 537407,
+          "homeTeam": "Colombia",
+          "awayTeam": "Portugal",
+          "utcDate": "2026-06-27T23:30:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Estadio Azteca, Mexico City"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_K"
         },
         {
-          "id": 1106,
-          "homeTeam": "Peru",
-          "awayTeam": "Cameroon",
-          "utcDate": "2026-06-26T22:00:00Z",
+          "id": 537408,
+          "homeTeam": "Congo DR",
+          "awayTeam": "Uzbekistan",
+          "utcDate": "2026-06-27T23:30:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Lincoln Financial Field, Philadelphia"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_K"
         }
       ]
     },
     "L": {
       "teams": [
-        "Turkey",
-        "Bolivia",
-        "Indonesia",
-        "Burkina Faso"
+        "England",
+        "Croatia",
+        "Ghana",
+        "Panama"
       ],
       "matches": [
         {
-          "id": 1201,
-          "homeTeam": "Turkey",
-          "awayTeam": "Bolivia",
-          "utcDate": "2026-06-18T00:00:00Z",
+          "id": 537409,
+          "homeTeam": "England",
+          "awayTeam": "Croatia",
+          "utcDate": "2026-06-17T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_L"
         },
         {
-          "id": 1202,
-          "homeTeam": "Indonesia",
-          "awayTeam": "Burkina Faso",
-          "utcDate": "2026-06-18T23:00:00Z",
+          "id": 537410,
+          "homeTeam": "Ghana",
+          "awayTeam": "Panama",
+          "utcDate": "2026-06-17T23:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "SoFi Stadium, LA"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_L"
         },
         {
-          "id": 1203,
-          "homeTeam": "Turkey",
-          "awayTeam": "Indonesia",
-          "utcDate": "2026-06-22T20:00:00Z",
+          "id": 537411,
+          "homeTeam": "England",
+          "awayTeam": "Ghana",
+          "utcDate": "2026-06-23T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "Arrowhead Stadium, KC"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_L"
         },
         {
-          "id": 1204,
-          "homeTeam": "Bolivia",
-          "awayTeam": "Burkina Faso",
-          "utcDate": "2026-06-22T23:00:00Z",
+          "id": 537412,
+          "homeTeam": "Panama",
+          "awayTeam": "Croatia",
+          "utcDate": "2026-06-23T23:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_L"
         },
         {
-          "id": 1205,
-          "homeTeam": "Burkina Faso",
-          "awayTeam": "Turkey",
-          "utcDate": "2026-06-26T22:00:00Z",
+          "id": 537413,
+          "homeTeam": "Panama",
+          "awayTeam": "England",
+          "utcDate": "2026-06-27T21:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "SoFi Stadium, LA"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_L"
         },
         {
-          "id": 1206,
-          "homeTeam": "Bolivia",
-          "awayTeam": "Indonesia",
-          "utcDate": "2026-06-26T22:00:00Z",
+          "id": 537414,
+          "homeTeam": "Croatia",
+          "awayTeam": "Ghana",
+          "utcDate": "2026-06-27T21:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
           "awayScore": null,
-          "venue": "MetLife Stadium, NY"
+          "venue": "",
+          "stage": "GROUP_STAGE",
+          "group": "GROUP_L"
         }
       ]
     }
   },
-  "knockoutRounds": []
+  "knockoutRounds": [
+    {
+      "stage": "LAST_32",
+      "name": "LAST_32",
+      "matches": [
+        {
+          "id": 537417,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-06-28T19:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537423,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-06-29T17:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537415,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-06-29T20:30:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537418,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-06-30T01:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537424,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-06-30T17:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537416,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-06-30T21:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537425,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-01T01:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537426,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-01T16:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537422,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-01T20:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537421,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-02T00:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537420,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-02T19:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537419,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-02T23:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537429,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-03T03:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537428,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-03T18:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537427,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-03T22:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        },
+        {
+          "id": 537430,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-04T01:30:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_32",
+          "group": null
+        }
+      ]
+    },
+    {
+      "stage": "LAST_16",
+      "name": "LAST_16",
+      "matches": [
+        {
+          "id": 537376,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-04T17:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        },
+        {
+          "id": 537375,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-04T21:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        },
+        {
+          "id": 537377,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-05T20:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        },
+        {
+          "id": 537378,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-06T00:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        },
+        {
+          "id": 537379,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-06T19:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        },
+        {
+          "id": 537380,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-07T00:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        },
+        {
+          "id": 537381,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-07T16:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        },
+        {
+          "id": 537382,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-07T20:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "LAST_16",
+          "group": null
+        }
+      ]
+    },
+    {
+      "stage": "QUARTER_FINALS",
+      "name": "Quarter-Finals",
+      "matches": [
+        {
+          "id": 537383,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-09T20:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "QUARTER_FINALS",
+          "group": null
+        },
+        {
+          "id": 537384,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-10T19:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "QUARTER_FINALS",
+          "group": null
+        },
+        {
+          "id": 537385,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-11T21:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "QUARTER_FINALS",
+          "group": null
+        },
+        {
+          "id": 537386,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-12T01:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "QUARTER_FINALS",
+          "group": null
+        }
+      ]
+    },
+    {
+      "stage": "SEMI_FINALS",
+      "name": "Semi-Finals",
+      "matches": [
+        {
+          "id": 537387,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-14T19:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "SEMI_FINALS",
+          "group": null
+        },
+        {
+          "id": 537388,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-15T19:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "SEMI_FINALS",
+          "group": null
+        }
+      ]
+    },
+    {
+      "stage": "THIRD_PLACE",
+      "name": "Third Place",
+      "matches": [
+        {
+          "id": 537389,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-18T21:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "THIRD_PLACE",
+          "group": null
+        }
+      ]
+    },
+    {
+      "stage": "FINAL",
+      "name": "Final",
+      "matches": [
+        {
+          "id": 537390,
+          "homeTeam": null,
+          "awayTeam": null,
+          "utcDate": "2026-07-19T19:00:00Z",
+          "status": "SCHEDULED",
+          "homeScore": null,
+          "awayScore": null,
+          "venue": "",
+          "stage": "FINAL",
+          "group": null
+        }
+      ]
+    }
+  ]
 }

@@ -19,9 +19,9 @@ jobs:
         run: |
           curl -s \
             -H "X-Auth-Token: $FOOTBALL_API_KEY" \
-            "https://api.football-data.org/v4/matches?dateFrom=2026-06-11&dateTo=2026-07-19" \
+            "https://api.football-data.org/v4/competitions/WC/matches" \
             -o raw_matches.json
-          echo "Response size: $(wc -c < raw_matches.json) bytes"
+          echo "Fetched $(node -e "const d=require('./raw_matches.json');console.log(d.resultSet?.count||0)") matches"
 
       - name: Set up Node
         uses: actions/setup-node@v4
