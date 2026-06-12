@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-11T21:36:22.377Z",
+  "lastUpdated": "2026-06-12T11:54:59.303Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -17,8 +17,8 @@
           "awayTeam": "South Africa",
           "utcDate": "2026-06-11T19:00:00Z",
           "status": "FINISHED",
-          "homeScore": null,
-          "awayScore": null,
+          "homeScore": 2,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_A"
@@ -28,9 +28,9 @@
           "homeTeam": "South Korea",
           "awayTeam": "Czechia",
           "utcDate": "2026-06-12T02:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 2,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_A"
