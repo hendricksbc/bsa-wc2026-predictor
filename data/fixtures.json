@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T18:31:53.546Z",
+  "lastUpdated": "2026-06-13T08:33:20.142Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -98,9 +98,9 @@
           "homeTeam": "Canada",
           "awayTeam": "Bosnia-Herzegovina",
           "utcDate": "2026-06-12T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_B"
@@ -262,9 +262,9 @@
           "homeTeam": "United States",
           "awayTeam": "Paraguay",
           "utcDate": "2026-06-13T01:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 4,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_D"
