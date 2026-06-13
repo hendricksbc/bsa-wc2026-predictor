@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-13T15:51:50.664Z",
+  "lastUpdated": "2026-06-13T20:49:12.899Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -110,9 +110,9 @@
           "homeTeam": "Qatar",
           "awayTeam": "Switzerland",
           "utcDate": "2026-06-13T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_B"
