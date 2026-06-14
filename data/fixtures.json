@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-14T17:01:29.675Z",
+  "lastUpdated": "2026-06-14T21:59:55.018Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -344,9 +344,9 @@
           "homeTeam": "Germany",
           "awayTeam": "Curaçao",
           "utcDate": "2026-06-14T17:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 7,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_E"
@@ -426,9 +426,9 @@
           "homeTeam": "Netherlands",
           "awayTeam": "Japan",
           "utcDate": "2026-06-14T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 2,
+          "awayScore": 2,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_F"
