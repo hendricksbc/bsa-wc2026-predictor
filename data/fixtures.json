@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T00:14:46.649Z",
+  "lastUpdated": "2026-06-16T18:41:14.360Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -520,9 +520,9 @@
           "homeTeam": "Iran",
           "awayTeam": "New Zealand",
           "utcDate": "2026-06-16T01:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 2,
+          "awayScore": 2,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_G"
