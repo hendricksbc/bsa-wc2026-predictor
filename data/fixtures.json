@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-17T12:31:00.929Z",
+  "lastUpdated": "2026-06-17T21:29:46.076Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -836,9 +836,9 @@
           "homeTeam": "Portugal",
           "awayTeam": "Congo DR",
           "utcDate": "2026-06-17T17:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_K"
@@ -918,9 +918,9 @@
           "homeTeam": "England",
           "awayTeam": "Croatia",
           "utcDate": "2026-06-17T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 3,
+          "awayScore": 2,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_L"
