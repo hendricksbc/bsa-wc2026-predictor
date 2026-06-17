@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T18:41:14.360Z",
+  "lastUpdated": "2026-06-17T12:31:00.929Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -672,9 +672,9 @@
           "homeTeam": "France",
           "awayTeam": "Senegal",
           "utcDate": "2026-06-16T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_I"
@@ -684,9 +684,9 @@
           "homeTeam": "Iraq",
           "awayTeam": "Norway",
           "utcDate": "2026-06-16T22:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 4,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_I"
@@ -754,9 +754,9 @@
           "homeTeam": "Argentina",
           "awayTeam": "Algeria",
           "utcDate": "2026-06-17T01:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_J"
@@ -766,9 +766,9 @@
           "homeTeam": "Austria",
           "awayTeam": "Jordan",
           "utcDate": "2026-06-17T04:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_J"
