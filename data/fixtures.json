@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-18T12:02:47.127Z",
+  "lastUpdated": "2026-06-18T21:35:13.621Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -40,9 +40,9 @@
           "homeTeam": "Czechia",
           "awayTeam": "South Africa",
           "utcDate": "2026-06-18T16:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_A"
@@ -122,9 +122,9 @@
           "homeTeam": "Switzerland",
           "awayTeam": "Bosnia-Herzegovina",
           "utcDate": "2026-06-18T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 4,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_B"
