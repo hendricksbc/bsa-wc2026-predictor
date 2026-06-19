@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T12:37:19.416Z",
+  "lastUpdated": "2026-06-19T19:19:14.409Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -286,9 +286,9 @@
           "homeTeam": "United States",
           "awayTeam": "Australia",
           "utcDate": "2026-06-19T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 1,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_D"
