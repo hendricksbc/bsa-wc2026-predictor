@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-19T23:49:39.487Z",
+  "lastUpdated": "2026-06-20T10:19:41.333Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -204,7 +204,7 @@
           "homeTeam": "Scotland",
           "awayTeam": "Morocco",
           "utcDate": "2026-06-19T22:00:00Z",
-          "status": "LIVE",
+          "status": "FINISHED",
           "homeScore": 0,
           "awayScore": 1,
           "venue": "",
@@ -216,9 +216,9 @@
           "homeTeam": "Brazil",
           "awayTeam": "Haiti",
           "utcDate": "2026-06-20T00:30:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_C"
@@ -298,9 +298,9 @@
           "homeTeam": "Turkey",
           "awayTeam": "Paraguay",
           "utcDate": "2026-06-20T03:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_D"
