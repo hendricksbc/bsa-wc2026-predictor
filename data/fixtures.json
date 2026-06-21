@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T17:11:48.890Z",
+  "lastUpdated": "2026-06-21T22:22:24.573Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -532,9 +532,9 @@
           "homeTeam": "Belgium",
           "awayTeam": "Iran",
           "utcDate": "2026-06-21T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_G"
@@ -614,8 +614,8 @@
           "homeTeam": "Spain",
           "awayTeam": "Saudi Arabia",
           "utcDate": "2026-06-21T16:00:00Z",
-          "status": "LIVE",
-          "homeScore": 3,
+          "status": "FINISHED",
+          "homeScore": 4,
           "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
@@ -626,9 +626,9 @@
           "homeTeam": "Uruguay",
           "awayTeam": "Cape Verde Islands",
           "utcDate": "2026-06-21T22:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_H"
