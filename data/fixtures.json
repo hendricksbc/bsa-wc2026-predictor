@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-20T21:56:42.910Z",
+  "lastUpdated": "2026-06-21T10:54:28.047Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -368,8 +368,8 @@
           "homeTeam": "Germany",
           "awayTeam": "Ivory Coast",
           "utcDate": "2026-06-20T20:00:00Z",
-          "status": "LIVE",
-          "homeScore": 1,
+          "status": "FINISHED",
+          "homeScore": 2,
           "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
@@ -380,9 +380,9 @@
           "homeTeam": "Ecuador",
           "awayTeam": "Curaçao",
           "utcDate": "2026-06-21T00:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_E"
@@ -462,9 +462,9 @@
           "homeTeam": "Tunisia",
           "awayTeam": "Japan",
           "utcDate": "2026-06-21T04:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 4,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_F"
