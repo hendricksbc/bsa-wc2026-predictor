@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T17:56:29.644Z",
+  "lastUpdated": "2026-06-22T23:05:43.406Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -696,9 +696,9 @@
           "homeTeam": "France",
           "awayTeam": "Iraq",
           "utcDate": "2026-06-22T21:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 1,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_I"
@@ -778,8 +778,8 @@
           "homeTeam": "Argentina",
           "awayTeam": "Austria",
           "utcDate": "2026-06-22T17:00:00Z",
-          "status": "LIVE",
-          "homeScore": 1,
+          "status": "FINISHED",
+          "homeScore": 2,
           "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
