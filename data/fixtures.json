@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T19:22:49.390Z",
+  "lastUpdated": "2026-06-23T23:37:52.424Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -942,9 +942,9 @@
           "homeTeam": "England",
           "awayTeam": "Ghana",
           "utcDate": "2026-06-23T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_L"
@@ -954,9 +954,9 @@
           "homeTeam": "Panama",
           "awayTeam": "Croatia",
           "utcDate": "2026-06-23T23:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_L"
@@ -1019,7 +1019,7 @@
         },
         {
           "id": 537415,
-          "homeTeam": "Germany",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-06-29T20:30:00Z",
           "status": "SCHEDULED",
@@ -1067,7 +1067,7 @@
         },
         {
           "id": 537425,
-          "homeTeam": "Mexico",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-07-01T01:00:00Z",
           "status": "SCHEDULED",
@@ -1103,7 +1103,7 @@
         },
         {
           "id": 537421,
-          "homeTeam": "United States",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-07-02T00:00:00Z",
           "status": "SCHEDULED",
