@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T23:05:43.406Z",
+  "lastUpdated": "2026-06-23T11:42:24.519Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -696,8 +696,8 @@
           "homeTeam": "France",
           "awayTeam": "Iraq",
           "utcDate": "2026-06-22T21:00:00Z",
-          "status": "LIVE",
-          "homeScore": 1,
+          "status": "FINISHED",
+          "homeScore": 3,
           "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
@@ -708,9 +708,9 @@
           "homeTeam": "Norway",
           "awayTeam": "Senegal",
           "utcDate": "2026-06-23T00:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 2,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_I"
@@ -790,9 +790,9 @@
           "homeTeam": "Jordan",
           "awayTeam": "Algeria",
           "utcDate": "2026-06-23T03:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 2,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_J"
@@ -1019,7 +1019,7 @@
         },
         {
           "id": 537415,
-          "homeTeam": null,
+          "homeTeam": "Germany",
           "awayTeam": null,
           "utcDate": "2026-06-29T20:30:00Z",
           "status": "SCHEDULED",
@@ -1067,7 +1067,7 @@
         },
         {
           "id": 537425,
-          "homeTeam": null,
+          "homeTeam": "Mexico",
           "awayTeam": null,
           "utcDate": "2026-07-01T01:00:00Z",
           "status": "SCHEDULED",
@@ -1103,7 +1103,7 @@
         },
         {
           "id": 537421,
-          "homeTeam": null,
+          "homeTeam": "United States",
           "awayTeam": null,
           "utcDate": "2026-07-02T00:00:00Z",
           "status": "SCHEDULED",
