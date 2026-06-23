@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T11:42:24.519Z",
+  "lastUpdated": "2026-06-23T19:22:49.390Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -860,9 +860,9 @@
           "homeTeam": "Portugal",
           "awayTeam": "Uzbekistan",
           "utcDate": "2026-06-23T17:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 5,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_K"
