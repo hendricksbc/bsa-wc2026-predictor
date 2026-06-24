@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T23:37:52.424Z",
+  "lastUpdated": "2026-06-24T10:36:13.962Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -872,9 +872,9 @@
           "homeTeam": "Colombia",
           "awayTeam": "Congo DR",
           "utcDate": "2026-06-24T02:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_K"
@@ -954,9 +954,9 @@
           "homeTeam": "Panama",
           "awayTeam": "Croatia",
           "utcDate": "2026-06-23T23:00:00Z",
-          "status": "LIVE",
+          "status": "FINISHED",
           "homeScore": 0,
-          "awayScore": 0,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_L"
