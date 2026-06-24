@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T18:21:14.122Z",
+  "lastUpdated": "2026-06-24T23:52:09.154Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -146,9 +146,9 @@
           "homeTeam": "Switzerland",
           "awayTeam": "Canada",
           "utcDate": "2026-06-24T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 2,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_B"
@@ -158,9 +158,9 @@
           "homeTeam": "Bosnia-Herzegovina",
           "awayTeam": "Qatar",
           "utcDate": "2026-06-24T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_B"
@@ -228,9 +228,9 @@
           "homeTeam": "Morocco",
           "awayTeam": "Haiti",
           "utcDate": "2026-06-24T22:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 3,
+          "awayScore": 2,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_C"
@@ -240,9 +240,9 @@
           "homeTeam": "Scotland",
           "awayTeam": "Brazil",
           "utcDate": "2026-06-24T22:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 3,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_C"
