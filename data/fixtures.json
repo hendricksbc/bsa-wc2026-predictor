@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T18:12:25.750Z",
+  "lastUpdated": "2026-06-26T23:46:49.594Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -720,9 +720,9 @@
           "homeTeam": "Norway",
           "awayTeam": "France",
           "utcDate": "2026-06-26T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 4,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_I"
@@ -732,9 +732,9 @@
           "homeTeam": "Senegal",
           "awayTeam": "Iraq",
           "utcDate": "2026-06-26T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 5,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_I"
