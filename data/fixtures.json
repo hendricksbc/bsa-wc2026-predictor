@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T23:46:49.594Z",
+  "lastUpdated": "2026-06-27T09:18:33.092Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -556,9 +556,9 @@
           "homeTeam": "New Zealand",
           "awayTeam": "Belgium",
           "utcDate": "2026-06-27T03:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 5,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_G"
@@ -568,9 +568,9 @@
           "homeTeam": "Egypt",
           "awayTeam": "Iran",
           "utcDate": "2026-06-27T03:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_G"
@@ -638,9 +638,9 @@
           "homeTeam": "Uruguay",
           "awayTeam": "Spain",
           "utcDate": "2026-06-27T00:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 1,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_H"
@@ -650,9 +650,9 @@
           "homeTeam": "Cape Verde Islands",
           "awayTeam": "Saudi Arabia",
           "utcDate": "2026-06-27T00:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "GROUP_STAGE",
           "group": "GROUP_H"
@@ -995,8 +995,8 @@
       "matches": [
         {
           "id": 537417,
-          "homeTeam": "South Africa",
-          "awayTeam": "Canada",
+          "homeTeam": null,
+          "awayTeam": null,
           "utcDate": "2026-06-28T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1007,8 +1007,8 @@
         },
         {
           "id": 537423,
-          "homeTeam": "Brazil",
-          "awayTeam": "Japan",
+          "homeTeam": null,
+          "awayTeam": null,
           "utcDate": "2026-06-29T17:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1019,7 +1019,7 @@
         },
         {
           "id": 537415,
-          "homeTeam": "Germany",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-06-29T20:30:00Z",
           "status": "SCHEDULED",
@@ -1031,8 +1031,8 @@
         },
         {
           "id": 537418,
-          "homeTeam": "Netherlands",
-          "awayTeam": "Morocco",
+          "homeTeam": null,
+          "awayTeam": null,
           "utcDate": "2026-06-30T01:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1067,7 +1067,7 @@
         },
         {
           "id": 537425,
-          "homeTeam": "Mexico",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-07-01T01:00:00Z",
           "status": "SCHEDULED",
@@ -1103,8 +1103,8 @@
         },
         {
           "id": 537421,
-          "homeTeam": "United States",
-          "awayTeam": "Bosnia-Herzegovina",
+          "homeTeam": null,
+          "awayTeam": null,
           "utcDate": "2026-07-02T00:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1139,7 +1139,7 @@
         },
         {
           "id": 537429,
-          "homeTeam": "Switzerland",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-07-03T03:00:00Z",
           "status": "SCHEDULED",
@@ -1151,7 +1151,7 @@
         },
         {
           "id": 537428,
-          "homeTeam": "Australia",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-07-03T18:00:00Z",
           "status": "SCHEDULED",
@@ -1163,7 +1163,7 @@
         },
         {
           "id": 537427,
-          "homeTeam": "Argentina",
+          "homeTeam": null,
           "awayTeam": null,
           "utcDate": "2026-07-03T22:00:00Z",
           "status": "SCHEDULED",
