@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T13:55:47.071Z",
+  "lastUpdated": "2026-06-29T20:32:02.662Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1010,9 +1010,9 @@
           "homeTeam": "Brazil",
           "awayTeam": "Japan",
           "utcDate": "2026-06-29T17:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 2,
+          "awayScore": 1,
           "venue": "",
           "stage": "LAST_32",
           "group": null
