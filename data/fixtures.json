@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28T20:22:13.874Z",
+  "lastUpdated": "2026-06-29T13:55:47.071Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -998,9 +998,9 @@
           "homeTeam": "South Africa",
           "awayTeam": "Canada",
           "utcDate": "2026-06-28T19:00:00Z",
-          "status": "LIVE",
+          "status": "FINISHED",
           "homeScore": 0,
-          "awayScore": 0,
+          "awayScore": 1,
           "venue": "",
           "stage": "LAST_32",
           "group": null
@@ -1193,7 +1193,7 @@
       "matches": [
         {
           "id": 537376,
-          "homeTeam": null,
+          "homeTeam": "Canada",
           "awayTeam": null,
           "utcDate": "2026-07-04T17:00:00Z",
           "status": "SCHEDULED",
