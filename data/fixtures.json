@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T10:41:32.287Z",
+  "lastUpdated": "2026-06-30T18:23:17.123Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1046,9 +1046,9 @@
           "homeTeam": "Ivory Coast",
           "awayTeam": "Norway",
           "utcDate": "2026-06-30T17:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 1,
           "venue": "",
           "stage": "LAST_32",
           "group": null
