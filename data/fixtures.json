@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T20:32:02.662Z",
+  "lastUpdated": "2026-06-30T10:41:32.287Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1022,9 +1022,9 @@
           "homeTeam": "Germany",
           "awayTeam": "Paraguay",
           "utcDate": "2026-06-29T20:30:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 4,
+          "awayScore": 5,
           "venue": "",
           "stage": "LAST_32",
           "group": null
@@ -1034,9 +1034,9 @@
           "homeTeam": "Netherlands",
           "awayTeam": "Morocco",
           "utcDate": "2026-06-30T01:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 4,
           "venue": "",
           "stage": "LAST_32",
           "group": null
@@ -1194,7 +1194,7 @@
         {
           "id": 537376,
           "homeTeam": "Canada",
-          "awayTeam": null,
+          "awayTeam": "Morocco",
           "utcDate": "2026-07-04T17:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1205,7 +1205,7 @@
         },
         {
           "id": 537375,
-          "homeTeam": null,
+          "homeTeam": "Paraguay",
           "awayTeam": null,
           "utcDate": "2026-07-04T21:00:00Z",
           "status": "SCHEDULED",
@@ -1217,7 +1217,7 @@
         },
         {
           "id": 537377,
-          "homeTeam": null,
+          "homeTeam": "Brazil",
           "awayTeam": null,
           "utcDate": "2026-07-05T20:00:00Z",
           "status": "SCHEDULED",
