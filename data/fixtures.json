@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T18:31:48.211Z",
+  "lastUpdated": "2026-07-01T23:58:44.496Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1094,9 +1094,9 @@
           "homeTeam": "Belgium",
           "awayTeam": "Senegal",
           "utcDate": "2026-07-01T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 2,
           "venue": "",
           "stage": "LAST_32",
           "group": null
