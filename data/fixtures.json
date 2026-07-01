@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T23:53:06.560Z",
+  "lastUpdated": "2026-07-01T11:40:18.828Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1070,9 +1070,9 @@
           "homeTeam": "Mexico",
           "awayTeam": "Ecuador",
           "utcDate": "2026-07-01T01:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 2,
+          "awayScore": 0,
           "venue": "",
           "stage": "LAST_32",
           "group": null
@@ -1206,7 +1206,7 @@
         {
           "id": 537375,
           "homeTeam": "Paraguay",
-          "awayTeam": null,
+          "awayTeam": "France",
           "utcDate": "2026-07-04T21:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1218,7 +1218,7 @@
         {
           "id": 537377,
           "homeTeam": "Brazil",
-          "awayTeam": null,
+          "awayTeam": "Norway",
           "utcDate": "2026-07-05T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
