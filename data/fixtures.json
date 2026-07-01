@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-01T11:40:18.828Z",
+  "lastUpdated": "2026-07-01T18:31:48.211Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1082,9 +1082,9 @@
           "homeTeam": "England",
           "awayTeam": "Congo DR",
           "utcDate": "2026-07-01T16:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 2,
+          "awayScore": 1,
           "venue": "",
           "stage": "LAST_32",
           "group": null
