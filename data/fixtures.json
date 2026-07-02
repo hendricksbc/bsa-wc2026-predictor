@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T18:17:20.038Z",
+  "lastUpdated": "2026-07-02T23:43:59.550Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1118,9 +1118,9 @@
           "homeTeam": "Spain",
           "awayTeam": "Austria",
           "utcDate": "2026-07-02T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 0,
           "venue": "",
           "stage": "LAST_32",
           "group": null
@@ -1130,9 +1130,9 @@
           "homeTeam": "Portugal",
           "awayTeam": "Croatia",
           "utcDate": "2026-07-02T23:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "LAST_32",
           "group": null
