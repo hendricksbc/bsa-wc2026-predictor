@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T14:50:03.523Z",
+  "lastUpdated": "2026-07-04T20:14:12.263Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1196,9 +1196,9 @@
           "homeTeam": "Canada",
           "awayTeam": "Morocco",
           "utcDate": "2026-07-04T17:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 3,
           "venue": "",
           "stage": "LAST_16",
           "group": null
