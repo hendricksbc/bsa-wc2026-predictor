@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T21:43:18.704Z",
+  "lastUpdated": "2026-07-04T08:12:08.515Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1166,9 +1166,9 @@
           "homeTeam": "Argentina",
           "awayTeam": "Cape Verde Islands",
           "utcDate": "2026-07-03T22:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 3,
+          "awayScore": 2,
           "venue": "",
           "stage": "LAST_32",
           "group": null
@@ -1178,9 +1178,9 @@
           "homeTeam": "Colombia",
           "awayTeam": "Ghana",
           "utcDate": "2026-07-04T01:30:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 1,
+          "awayScore": 0,
           "venue": "",
           "stage": "LAST_32",
           "group": null
@@ -1241,8 +1241,8 @@
         },
         {
           "id": 537379,
-          "homeTeam": null,
-          "awayTeam": null,
+          "homeTeam": "Portugal",
+          "awayTeam": "Spain",
           "utcDate": "2026-07-06T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1265,8 +1265,8 @@
         },
         {
           "id": 537381,
-          "homeTeam": null,
-          "awayTeam": null,
+          "homeTeam": "Argentina",
+          "awayTeam": "Egypt",
           "utcDate": "2026-07-07T16:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1277,8 +1277,8 @@
         },
         {
           "id": 537382,
-          "homeTeam": null,
-          "awayTeam": null,
+          "homeTeam": "Switzerland",
+          "awayTeam": "Colombia",
           "utcDate": "2026-07-07T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
