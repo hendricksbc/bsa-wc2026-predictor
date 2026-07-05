@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-05T15:01:01.093Z",
+  "lastUpdated": "2026-07-05T20:20:31.955Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1220,9 +1220,9 @@
           "homeTeam": "Brazil",
           "awayTeam": "Norway",
           "utcDate": "2026-07-05T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "LAST_16",
           "group": null
