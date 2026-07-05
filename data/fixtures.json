@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T20:14:12.263Z",
+  "lastUpdated": "2026-07-05T08:31:59.885Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1208,9 +1208,9 @@
           "homeTeam": "Paraguay",
           "awayTeam": "France",
           "utcDate": "2026-07-04T21:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "FINISHED",
+          "homeScore": 0,
+          "awayScore": 1,
           "venue": "",
           "stage": "LAST_16",
           "group": null
@@ -1295,8 +1295,8 @@
       "matches": [
         {
           "id": 537383,
-          "homeTeam": null,
-          "awayTeam": null,
+          "homeTeam": "France",
+          "awayTeam": "Morocco",
           "utcDate": "2026-07-09T20:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
