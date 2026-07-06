@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-06T12:27:26.369Z",
+  "lastUpdated": "2026-07-06T20:58:03.518Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1244,9 +1244,9 @@
           "homeTeam": "Portugal",
           "awayTeam": "Spain",
           "utcDate": "2026-07-06T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "LAST_16",
           "group": null
