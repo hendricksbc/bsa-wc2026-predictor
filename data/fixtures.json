@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-07T19:15:27.832Z",
+  "lastUpdated": "2026-07-07T21:14:41.053Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1280,9 +1280,9 @@
           "homeTeam": "Switzerland",
           "awayTeam": "Colombia",
           "utcDate": "2026-07-07T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "LAST_16",
           "group": null
