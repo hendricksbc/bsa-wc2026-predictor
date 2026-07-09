@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T19:21:51.345Z",
+  "lastUpdated": "2026-07-09T21:12:26.120Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1298,9 +1298,9 @@
           "homeTeam": "France",
           "awayTeam": "Morocco",
           "utcDate": "2026-07-09T20:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "QUARTER_FINALS",
           "group": null
