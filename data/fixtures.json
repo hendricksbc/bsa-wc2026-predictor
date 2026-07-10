@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10T20:59:19.743Z",
+  "lastUpdated": "2026-07-10T22:50:24.946Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1310,7 +1310,7 @@
           "homeTeam": "Spain",
           "awayTeam": "Belgium",
           "utcDate": "2026-07-10T19:00:00Z",
-          "status": "LIVE",
+          "status": "FINISHED",
           "homeScore": 2,
           "awayScore": 1,
           "venue": "",
