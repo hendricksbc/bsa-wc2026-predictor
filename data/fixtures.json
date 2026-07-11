@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T20:37:55.502Z",
+  "lastUpdated": "2026-07-11T22:36:57.878Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1232,7 +1232,7 @@
           "homeTeam": "Mexico",
           "awayTeam": "England",
           "utcDate": "2026-07-06T01:00:00Z",
-          "status": "FINISHED",
+          "status": "2026-07-06 01:00:00Z",
           "homeScore": 2,
           "awayScore": 3,
           "venue": "",
@@ -1322,9 +1322,9 @@
           "homeTeam": "Norway",
           "awayTeam": "England",
           "utcDate": "2026-07-11T21:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 2,
+          "awayScore": 1,
           "venue": "",
           "stage": "QUARTER_FINALS",
           "group": null
