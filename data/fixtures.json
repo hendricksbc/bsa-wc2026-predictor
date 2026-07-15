@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-15T18:54:15.788Z",
+  "lastUpdated": "2026-07-15T20:49:23.762Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1364,9 +1364,9 @@
           "homeTeam": "England",
           "awayTeam": "Argentina",
           "utcDate": "2026-07-15T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 1,
+          "awayScore": 0,
           "venue": "",
           "stage": "SEMI_FINALS",
           "group": null
