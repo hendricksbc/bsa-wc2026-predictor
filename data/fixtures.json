@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-16T04:50:33.948Z",
+  "lastUpdated": "2026-07-16T07:54:59.327Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1380,7 +1380,7 @@
         {
           "id": 537389,
           "homeTeam": "France",
-          "awayTeam": null,
+          "awayTeam": "England",
           "utcDate": "2026-07-18T21:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
@@ -1398,7 +1398,7 @@
         {
           "id": 537390,
           "homeTeam": "Spain",
-          "awayTeam": null,
+          "awayTeam": "Argentina",
           "utcDate": "2026-07-19T19:00:00Z",
           "status": "SCHEDULED",
           "homeScore": null,
