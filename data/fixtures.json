@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-18T22:38:07.499Z",
+  "lastUpdated": "2026-07-19T01:43:16.390Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1382,9 +1382,9 @@
           "homeTeam": "France",
           "awayTeam": "England",
           "utcDate": "2026-07-18T21:00:00Z",
-          "status": "LIVE",
-          "homeScore": 3,
-          "awayScore": 4,
+          "status": "FINISHED",
+          "homeScore": 4,
+          "awayScore": 6,
           "venue": "",
           "stage": "THIRD_PLACE",
           "group": null
