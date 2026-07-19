@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-19T18:50:27.756Z",
+  "lastUpdated": "2026-07-19T20:37:36.613Z",
   "competition": "FIFA World Cup 2026",
   "entryFee": 50,
   "groups": {
@@ -1400,9 +1400,9 @@
           "homeTeam": "Spain",
           "awayTeam": "Argentina",
           "utcDate": "2026-07-19T19:00:00Z",
-          "status": "SCHEDULED",
-          "homeScore": null,
-          "awayScore": null,
+          "status": "LIVE",
+          "homeScore": 0,
+          "awayScore": 0,
           "venue": "",
           "stage": "FINAL",
           "group": null
